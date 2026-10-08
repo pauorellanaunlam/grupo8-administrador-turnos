@@ -1,0 +1,560 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+html,
+body {
+    min-width: 370px;
+}
+
+.header-inicio {
+    background-color: #88a8ffa9;
+    padding: 30px;
+    text-align: left;
+    margin-bottom: 50px;
+
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+}
+
+.login-section {
+    width: 100vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #88a8ff;
+    border-radius: 10px;
+    padding: 50px;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.acceso-rapido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #88a8ff56;
+    text-align: center;
+    border-radius: 20px;
+
+}
+
+.button-simple {
+    background-color: #88a8ff;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.formulario-inicio {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formulario-items {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0px;
+}
+
+.input-form {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.button-iniciar {
+    background-color: #88a8ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 15px 0px;
+}
+
+.button-recuperar {
+    text-align: center;
+    padding: 30px 0px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+
+/* --- MI PERFIL --- */
+
+.pagina-perfil {
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.pagina-perfil h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.pagina-perfil p {
+    margin-bottom: 20px;
+}
+
+.info-cuenta {
+    background-color: #88a8ff;
+    border: 1px solid #88a8ff;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.info-cuenta h3 {
+    margin-bottom: 15px;
+}
+
+.info-cuenta ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.info-cuenta li {
+    margin-bottom: 10px;
+}
+
+.info-cuenta button {
+    background-color: rgb(219, 235, 255);
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.historial-turnos,
+.proximos-turnos {
+    background-color: white;
+    border: 1px solid #88a8ff;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.historial-turnos h3,
+.proximos-turnos h3 {
+    margin-bottom: 15px;
+}
+
+.historial-turnos ul,
+.proximos-turnos ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.historial-turnos li,
+.proximos-turnos li {
+    margin-bottom: 10px;
+}
+
+.pagina-perfil .button-volver {
+    display: inline-block;
+    background-color: #88a8ff;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* ---- PÁGINA USUARIO ---- */
+
+
+.header-principal {
+    background-color: #88a8ffa9;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-principal-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-principal a {
+    color: black;
+    padding: 5px 10px;
+    background-color: #88a8ff56;
+    border: 1px solid #88a8ff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.button-tema-pagina {
+    background-color: #88a8ff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.pagina-usuario {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+}
+
+
+.pagina-usuario aside {
+    width: 220px;
+    background-color: #88a8ff56;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.pagina-usuario aside nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pagina-usuario aside a {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+.contenido-usuario {
+    flex: 1;
+}
+
+
+.home-usuario {
+    background-color: #88a8ff56;
+    border: 1px solid #88a8ff;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.home-usuario p {
+    margin-bottom: 10px;
+}
+
+.button-nuevo-turno {
+    background-color: #88a8ff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+.tarjetas-usuario {
+    display: flex;
+    gap: 20px;
+}
+
+.tarjetas-usuario .cards {
+    background-color: white;
+    border: 1px solid #88a8ff;
+    border-radius: 10px;
+    padding: 25px;
+    flex: 1;
+}
+
+.tarjetas-usuario .cards span {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.tarjetas-usuario .cards p {
+    margin-bottom: 15px;
+}
+
+.tarjetas-usuario .cards a {
+    color: black;
+    text-decoration: none;
+}
+
+/* ---- PÁGINA SOLICITAR TURNOS ---- */
+
+
+
+.pagina-solicitud {
+    width: 80%;
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+
+
+.pagina-solicitud .formulario {
+    background-color: white;
+    border: 1px solid #88a8ff;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+
+
+.pagina-solicitud h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+
+
+.pagina-solicitud form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.pagina-solicitud label {
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+
+
+.pagina-solicitud input {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.pagina-solicitud button {
+    background-color: #88a8ff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+
+.pagina-solicitud button:hover {
+    background-color: #6e92f5;
+
+}
+
+.pagina-solicitud .volver-solicitud {
+    display: inline-block;
+    background-color: #88a8ff;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+
+/* ---- PÁGINA ADMINISTRADOR ---- */
+
+
+
+.header-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #88a8ffa9;
+    padding: 25px;
+
+}
+
+.header-admin h1 {
+    margin-bottom: 15px;
+}
+
+.header-admin nav {
+    display: flex;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.header-admin a {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+.pagina-admin {
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+
+.pagina-admin .crear-turno {
+    background-color: #88a8ff56;
+    border: 1px solid #88a8ff;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.pagina-admin h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+
+.pagina-admin form {
+    display: flex;
+    flex-direction: column;
+}
+
+.pagina-admin label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.pagina-admin input {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+
+.pagina-admin button {
+    background-color: #88a8ff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+
+
+.pagina-admin .turnos {
+    border: 1px solid #88a8ff;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.pagina-admin .turnos article {
+    background-color: #88a8ff56;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.pagina-admin .turnos h3 {
+    margin-bottom: 10px;
+}
+
+.pagina-admin .turnos p {
+    margin-bottom: 5px;
+
+}
+
+/* media queries */
+@media (max-width: 750px) {
+
+    .header-principal {
+        flex-direction: row;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .header-principal-nav, .header-admin nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+    }
+
+    .pagina-usuario {
+        flex-direction: column;
+    }
+
+    .pagina-usuario aside {
+        display: none;
+    }
+
+    .tarjetas-usuario {
+        flex-direction: column;
+    }
+
+    .pagina-solicitud {
+        width: 90%;
+    }
+
+    .pagina-admin {
+        width: 90%;
+    }
+}
+
+@media (max-width: 630px) {
+    .header-principal {
+        flex-direction: column;
+        align-items: flex-start;
+        
+    }
+
+    .header-principal-nav {
+        margin-top: 10px;
+    }
+
+    .pagina-usuario {
+        padding: 15px;
+    }
+
+    .cards {
+        padding: 15px;
+        width: 100%;
+    }
+
+    .pagina-solicitud {
+        padding: 15px;
+    }
+
+    .pagina-admin {
+        padding: 15px;
+    }
+}

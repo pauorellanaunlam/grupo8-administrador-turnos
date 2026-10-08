@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header-admin">
+        <h1>Administrador de Turnos</h1>
+
+        <nav>
+            <a href="usuario.html" class="button-tema-pagina">Vista Usuario</a>
+
+            <a href="admin.html">Inicio</a>
+            <a href="miperfil.html">Mi Perfil</a>
+        </nav>
+    </header>
+
+    <main class="pagina-admin">
+
+        <section class="crear-turno">
+            <h2>Agregar turno</h2>
+
+            <form>
+                <label for="profesional">Profesional:</label>
+                <input type="text" id="profesional">
+
+                <label for="especialidad">Especialidad:</label>
+                <input type="text" id="especialidad">
+
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha">
+
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora">
+
+                <button type="submit">Agregar turno</button>
+            </form>
+        </section>
+
+
+        <section class="turnos">
+            <h2>Turnos cargados</h2>
+
+            <article>
+                <h3>Clínica Médica</h3>
+                <p>Dra. García</p>
+                <p>15/10/2026 - 10:30 hs</p>
+            </article>
+
+            <article>
+                <h3>Pediatría</h3>
+                <p>Dr. López</p>
+                <p>16/10/2026 - 11:00 hs</p>
+            </article>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
