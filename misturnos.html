@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     
+    <meta charset="UTF-8">
+     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Turnos Médicos</title>
+       
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="header-principal">
+        <h1>Turnos Médicos</h1>
+
+        <div class="header-principal-nav">
+            <button class="button-tema-pagina">CLARO / OSCURO</button>
+
+            <nav>
+                <a href="usuario.html">Inicio</a>
+                <a href="miperfil.html">Mi Perfil</a>
+                <a href="iniciosesion.html">Cerrar sesión</a>
+
+            </nav>
+        </div>
+    </header>
+
+    <main class="pagina-usuario">
+        <aside>
+            <nav>
+                <a href="usuario.html">Inicio</a>
+                <a href="solicitarturnos.html">Nuevo turno</a>
+                <a href="misturnos.html">Mis turnos</a>
+                <a href="iniciosesion.html">Cerrar sesión</a>
+            </nav>
+        </aside>
+
+        <section class="home-usuario" id="misturnos">
+            <div class="contenido-usuario">
+                <p>Mis turnos</p>
+                <p>Consultá tus turnos médicos y cancelá los que ya no necesites.</p>
+            </div>
+
+            <div class="lista-turnos">
+
+                <article class="card-turno">
+                    <div class="card-turno-cabecera">
+                        <span class="card-turno-especialidad">Clínica médica</span>
+                    </div>
+                    <ul class="card-turno-datos">
+                        <li>Profesional: Dra. María González</li>
+                        <li> Fecha: 15/10/2026</li>
+                        <li> Hora: 09:30 hs</li>
+                        <li> Lugar: Consultorio 3</li>
+                    </ul>
+                    <a class="button-cancelar-turno" href="#cancelar-1">Cancelar turno</a>
+                </article>
+
+                <article class="card-turno">
+                    <div class="card-turno-cabecera">
+                        <span class="card-turno-especialidad">Cardiología</span>
+                    </div>
+                    <ul class="card-turno-datos">
+                        <li>Profesional: Dr. Carlos Ramírez</li>
+                        <li>Fecha: 22/10/2026</li>
+                        <li>Hora: 11:00 hs</li>
+                        <li>Lugar: Consultorio 5</li>
+                    </ul>
+                    <a class="button-cancelar-turno" href="#cancelar-2">Cancelar turno</a>
+                </article>
+
+                <article class="card-turno">
+                    <div class="card-turno-cabecera">
+                        <span class="card-turno-especialidad">Dermatología</span>
+                    </div>
+                    <ul class="card-turno-datos">
+                        <li> Profesional: Dra. Laura Medina</li>
+                        <li> Fecha: 03/11/2026</li>
+                        <li> Hora: 16:15 hs</li>
+                        <li> Lugar: Consultorio 1</li>
+                    </ul>
+                    <a class="button-cancelar-turno" href="#cancelar-3">Cancelar turno</a>
+                </article>
+
+                <article class="card-turno card-turno-cancelado">
+                    <div class="card-turno-cabecera">
+                        <span class="card-turno-especialidad">Traumatología</span>
+                    </div>
+                    <ul class="card-turno-datos">
+                        <li> Profesional: Dr. Pablo Suárez</li>
+                        <li> Fecha: 05/10/2026</li>
+                        <li> Hora: 08:00 hs</li>
+                        <li> Lugar: Consultorio 2</li>
+                    </ul>
+                </article>
+
+            </div>
+
+            <div>
+                <a href="solicitarturnos.html"><button class="button-nuevo-turno">Solicitar Turno</button></a>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
