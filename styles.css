@@ -232,6 +232,7 @@ h3 {
     display: flex;
     gap: 30px;
     padding: 30px;
+    align-items: stretch;
 }
 
 
@@ -240,6 +241,7 @@ h3 {
     background-color: #88a8ff56;
     border-radius: 10px;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .pagina-usuario aside nav {
@@ -257,6 +259,9 @@ h3 {
 
 .contenido-usuario {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 
@@ -265,7 +270,7 @@ h3 {
     border: 1px solid #88a8ff;
     border-radius: 10px;
     padding: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 0;
 }
 
 .home-usuario p {
