@@ -526,14 +526,14 @@ h3 {
     gap: 15px;
     margin-bottom: 15px;
 }
-.card-foto-medico {
-    width: 50px; !important;
-    height: 50px;!important;
-    min-width: 50px;!important;
-    min-height: 50px;!important;
-    border-radius: 50%;!important;
-    object-fit: cover;!important;
-    border: 2px solid #88a8ff;!important;
+.foto-medico {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 2px solid #88a8ff !important;
 }
 
 .card-turno-especialidad {
