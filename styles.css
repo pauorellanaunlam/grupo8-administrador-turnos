@@ -534,6 +534,7 @@ h3 {
     border-radius: 50% !important;
     object-fit: cover !important;
     border: 2px solid #88a8ff !important;
+    object-position: top center !important;
 }
 
 .card-turno-especialidad {
