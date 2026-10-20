@@ -1,118 +1,169 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-     
     <meta charset="UTF-8">
-     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Turnos Médicos</title>
-       
+    <title>Mis Turnos - Turnos Médicos</title>
     <link rel="stylesheet" href="../.css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
 </head>
 
 <body>
+
     <header class="header-principal">
         <h1>Turnos Médicos</h1>
 
-        <div class="header-principal-nav">
-            <button class="button-tema-pagina">CLARO / OSCURO</button>
-
-            <nav>
-                <a href="usuario.html">Inicio</a>
-                <a href="miperfil.html">Mi Perfil</a>
-                <a href="../index.html">Cerrar sesión</a>
-
-            </nav>
-        </div>
+        <nav class="header-principal-nav">
+            <a href="usuario.html">Inicio</a>
+            <a href="miperfil.html">Mi Cuenta</a>
+            <a href="../index.html">Cerrar sesión</a>
+            <button type="button" class="button-tema-pagina">
+                Claro / Oscuro
+            </button>
+        </nav>
     </header>
 
     <main class="pagina-usuario">
+
         <aside>
             <nav>
                 <a href="usuario.html">Inicio</a>
                 <a href="solicitarturnos.html">Nuevo turno</a>
                 <a href="misturnos.html">Mis turnos</a>
+                <a href="miperfil.html">Mi Cuenta</a>
                 <a href="../index.html">Cerrar sesión</a>
             </nav>
         </aside>
 
-        <section class="home-usuario" id="misturnos">
-            <div class="contenido-usuario">
-                <p>Mis turnos</p>
-                <p>Consultá tus turnos médicos y cancelá los que ya no necesites.</p>
-            </div>
+        <div class="contenido-usuario">
 
-            <div class="lista-turnos">
+            <section class="home-usuario">
 
-                <article class="card-turno">
-                    <div class="card-turno-cabecera">
-                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl8X-lT56jiiSbzxJbwUiQQ0hHTkdAG6TaCv5QXEorNEdbDLcs2qZiGrs&s=10" alt="Dra. María González" class="foto-medico">
-                        <span class="card-turno-especialidad">Clínica médica</span>
-                    </div>
-                    <ul class="card-turno-datos">
-                        <li>Profesional: Dra. María González</li>
-                        <li> Fecha: 15/10/2026</li>
-                        <li> Hora: 09:30 hs</li>
-                        <li> Lugar: Consultorio 3</li>
-                    </ul>
-                    <a class="button-cancelar-turno" href="#cancelar-1">Cancelar turno</a>
-                </article>
+                <h2>Mis turnos</h2>
+                <p>Consultá tus turnos médicos.</p>
 
-                <article class="card-turno">
-                    <div class="card-turno-cabecera">
-                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBOPumyCr7CNYET0DyPHgt4Y311NOgmzTUfXUK9OzCS_-T9a3fDnfk-bo&s=10" alt="Dr. Carlos Ramírez" class="foto-medico">
-                        <span class="card-turno-especialidad">Cardiología</span>
-                    </div>
-                    <ul class="card-turno-datos">
-                        <li>Profesional: Dr. Carlos Ramírez</li>
-                        <li>Fecha: 22/10/2026</li>
-                        <li>Hora: 11:00 hs</li>
-                        <li>Lugar: Consultorio 5</li>
-                    </ul>
-                    <a class="button-cancelar-turno" href="#cancelar-2">Cancelar turno</a>
-                </article>
+                <div class="selector-vista">
+                    <span>Visualizar como:</span>
+                    <a href="misturnos.html" class="button-vista">
+                        Vista Tarjetas
+                    </a>
+                    <a href="vistalista.html" class="button-vista">
+                        Vista Lista
+                    </a>
+                </div>
 
-                <article class="card-turno">
-                    <div class="card-turno-cabecera">
-                                 <img src="https://img.magnific.com/foto-gratis/hermosa-joven-doctora-mirando-camara-oficina_1301-7807.jpg?semt=ais_hybrid&w=740&q=80" alt="Dra. Laura Medina" class="foto-medico">
-                        <span class="card-turno-especialidad">Dermatología</span>
-                    </div>
-                    <ul class="card-turno-datos">
-                        <li> Profesional: Dra. Laura Medina</li>
-                        <li> Fecha: 03/11/2026</li>
-                        <li> Hora: 16:15 hs</li>
-                        <li> Lugar: Consultorio 1</li>
-                    </ul>
-                    <a class="button-cancelar-turno" href="#cancelar-3">Cancelar turno</a>
-                </article>
+                <div class="lista-turnos">
 
-                <article class="card-turno card-turno-cancelado">
-                    <div class="card-turno-cabecera">
-                        <img src="https://thumbs.dreamstime.com/b/doctor-profesional-implicado-en-trabajo-61594558.jpg" alt="Dr. Pablo Suárez" class="foto-medico">
-                        <span class="card-turno-especialidad">Traumatología</span>
-                    </div>
-                    <ul class="card-turno-datos">
-                        <li> Profesional: Dr. Pablo Suárez</li>
-                        <li> Fecha: 05/10/2026</li>
-                        <li> Hora: 08:00 hs</li>
-                        <li> Lugar: Consultorio 2</li>
-                    </ul>
-                </article>
+                    <article class="card-turno">
+                        <div class="card-turno-cabecera">
+                            <img src="../.img/medico1.jpg"
+                                 alt="Profesional de clínica médica"
+                                 class="foto-medico">
+                            <h3 class="card-turno-especialidad">
+                                Clínica médica
+                            </h3>
+                        </div>
 
-            </div>
+                        <ul class="card-turno-datos">
+                            <li>Profesional: Dra. María González</li>
+                            <li>Fecha: 25/10/2026</li>
+                            <li>Hora: 09:30 hs</li>
+                            <li>Lugar: Consultorio 1</li>
+                        </ul>
 
-            <div>
-                <a href="solicitarturnos.html"><button class="button-nuevo-turno">Solicitar Turno</button></a>
-            </div>
-        </section>
+                        <button type="button"
+                                class="button-favorito activo">
+                            ♥ Favorito
+                        </button>
+
+                        <a href="#cancelar-1"
+                           class="button-cancelar-turno">
+                            Cancelar turno
+                        </a>
+                    </article>
+
+                    <article class="card-turno">
+                        <div class="card-turno-cabecera">
+                            <img src="../.img/medico2.jpg"
+                                 alt="Profesional de cardiología"
+                                 class="foto-medico">
+                            <h3 class="card-turno-especialidad">
+                                Cardiología
+                            </h3>
+                        </div>
+
+                        <ul class="card-turno-datos">
+                            <li>Profesional: Dr. Carlos Ramírez</li>
+                            <li>Fecha: 28/10/2026</li>
+                            <li>Hora: 11:00 hs</li>
+                            <li>Lugar: Consultorio 3</li>
+                        </ul>
+
+                        <button type="button" class="button-favorito">
+                            ♡ Agregar a favoritos
+                        </button>
+
+                        <a href="#cancelar-2"
+                           class="button-cancelar-turno">
+                            Cancelar turno
+                        </a>
+                    </article>
+
+                    <article class="card-turno">
+                        <div class="card-turno-cabecera">
+                            <img src="../.img/medico3.jpg"
+                                 alt="Profesional de dermatología"
+                                 class="foto-medico">
+                            <h3 class="card-turno-especialidad">
+                                Dermatología
+                            </h3>
+                        </div>
+
+                        <ul class="card-turno-datos">
+                            <li>Profesional: Dra. Laura Medina</li>
+                            <li>Fecha: 03/11/2026</li>
+                            <li>Hora: 14:30 hs</li>
+                            <li>Lugar: Consultorio 2</li>
+                        </ul>
+
+                        <button type="button" class="button-favorito">
+                            ♡ Agregar a favoritos
+                        </button>
+
+                        <a href="#cancelar-3"
+                           class="button-cancelar-turno">
+                            Cancelar turno
+                        </a>
+                    </article>
+
+                    <article class="card-turno card-turno-cancelado">
+                        <div class="card-turno-cabecera">
+                            <h3 class="card-turno-especialidad">
+                                Pediatría
+                            </h3>
+                        </div>
+
+                        <ul class="card-turno-datos">
+                            <li>Profesional: Dra. Ana López</li>
+                            <li>Fecha: 10/10/2026</li>
+                            <li>Hora: 10:00 hs</li>
+                            <li>Estado: Cancelado</li>
+                        </ul>
+                    </article>
+
+                </div>
+
+                <a href="solicitarturnos.html"
+                   class="button-vista">
+                    Solicitar nuevo turno
+                </a>
+
+            </section>
+
+        </div>
+
     </main>
-</body>
 
+</body>
 </html>

@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Lista - Turnos Médicos</title>
+    <link rel="stylesheet" href="../.css/styles.css">
+</head>
+
+<body>
+
+    <header class="header-principal">
+        <h1>Turnos Médicos</h1>
+
+        <nav class="header-principal-nav">
+            <a href="usuario.html">Inicio</a>
+            <a href="miperfil.html">Mi Cuenta</a>
+            <a href="../index.html">Cerrar sesión</a>
+            <button type="button" class="button-tema-pagina">
+                Claro / Oscuro
+            </button>
+        </nav>
+    </header>
+
+    <main class="pagina-lista">
+
+        <h2>Mis turnos - Vista Lista</h2>
+
+        <div class="selector-vista">
+            <span>Visualizar como:</span>
+
+            <a href="misturnos.html" class="button-vista">
+                Vista Tarjetas
+            </a>
+
+            <a href="vistalista.html" class="button-vista">
+                Vista Lista
+            </a>
+        </div>
+
+        <ul class="turnos-vista-lista">
+
+            <li>
+                <div>
+                    <h3>Clínica médica</h3>
+                    <p>Dra. María González</p>
+                    <p>25/10/2026 - 09:30 hs</p>
+                    <p>Consultorio 1</p>
+                </div>
+
+                <button type="button"
+                        class="button-favorito activo">
+                    ♥ Favorito
+                </button>
+            </li>
+
+            <li>
+                <div>
+                    <h3>Cardiología</h3>
+                    <p>Dr. Carlos Ramírez</p>
+                    <p>28/10/2026 - 11:00 hs</p>
+                    <p>Consultorio 3</p>
+                </div>
+
+                <button type="button" class="button-favorito">
+                    ♡ Agregar a favoritos
+                </button>
+            </li>
+
+            <li>
+                <div>
+                    <h3>Dermatología</h3>
+                    <p>Dra. Laura Medina</p>
+                    <p>03/11/2026 - 14:30 hs</p>
+                    <p>Consultorio 2</p>
+                </div>
+
+                <button type="button" class="button-favorito">
+                    ♡ Agregar a favoritos
+                </button>
+            </li>
+
+            <li>
+                <div>
+                    <h3>Pediatría</h3>
+                    <p>Dra. Ana López</p>
+                    <p>10/10/2026 - 10:00 hs</p>
+                    <p>Estado: Cancelado</p>
+                </div>
+            </li>
+
+        </ul>
+
+        <a href="usuario.html" class="button-vista">
+            Volver al inicio
+        </a>
+
+    </main>
+
+</body>
+</html>

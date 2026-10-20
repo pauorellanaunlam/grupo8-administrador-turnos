@@ -1,48 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Perfil</title>
+    <title>Mi Cuenta - Turnos Médicos</title>
     <link rel="stylesheet" href="../.css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
 </head>
 
 <body>
+
+    <header class="header-principal">
+        <h1>Turnos Médicos</h1>
+
+        <nav class="header-principal-nav">
+            <a href="usuario.html">Inicio</a>
+            <a href="misturnos.html">Mis turnos</a>
+            <a href="../index.html">Cerrar sesión</a>
+            <button type="button" class="button-tema-pagina">
+                Claro / Oscuro
+            </button>
+        </nav>
+    </header>
+
     <main class="pagina-perfil">
-        <a href="usuario.html" class="button-volver">Volver al inicio</a>
-        <h2>Mi Perfil</h2>
-        <p>Mantené tu información actualizada.</p>
-        <div class="info-cuenta">
-            <h3>Mis datos</h3>
+
+        <a href="usuario.html" class="button-volver">
+            Volver
+        </a>
+
+        <h2>Mi Cuenta</h2>
+        <p>Consultá tus datos personales y tus turnos.</p>
+
+        <section class="info-cuenta">
+            <h3>Datos personales</h3>
+
             <ul>
-                <li>Nombre y apellido: Juan Pérez</li>
-                <li>DNI: 44 222 333</li>
-                <li>Email: juan.perez@example.com</li>
-                <li>Teléfono: 123-456-7890</li>
+                <li>Nombre: María Pérez</li>
+                <li>DNI: 12345678</li>
+                <li>Email: maria@email.com</li>
+                <li>Teléfono: 1123456789</li>
             </ul>
-            <button class="button-editar-info">Editar Información</button>
-        </div>
-        <div class="historial-turnos">
-            <h3>Historial de Turnos</h3>
-            <ul>
-                <li>Turno con Dr. Smith - 01/01/2024</li>
-                <li>Turno con Dra. Johnson - 15/02/2024</li>
-                <li>Turno con Dr. Brown - 20/03/2024</li>
-            </ul>
-        </div>
-        <div class="proximos-turnos">
-            <h3>Proximos Turnos</h3>
-            <ul>
-                <li>Turno con Dr. White - 10/04/2027</li>
-                <li>Turno con Dra. Green - 25/05/2027</li>
-            </ul>
-        </div>
+
+            <button type="button">
+                Editar información
+            </button>
+        </section>
+
+        <section class="mis-favoritos">
+            <h3>Mis favoritos ♡</h3>
+            <div class="lista-turnos">
+
+                <article class="card-turno">
+                    <h4>Dra. María González</h4>
+                    <p>Clínica médica</p>
+
+                    <button type="button" class="button-favorito activo" aria-label="Quitar de favoritos">
+                        ♥
+                    </button>
+
+                    <a href="solicitarturnos.html" class="button-vista">
+                        Ver turnos
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="proximos-turnos">
+            <h3>Próximos turnos</h3>
+            <p>Clínica médica · 25/10 · 09:30 hs</p>
+            <p>Cardiología · 28/10 · 11:00 hs</p>
+        </section>
+
     </main>
 </body>
 
