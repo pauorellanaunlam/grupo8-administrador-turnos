@@ -7,11 +7,23 @@
     font-style: normal;
 }
 
-
-html,
-body {
-    min-width: 370px;
+body{
+    background-color: #f5f5f5;
+    color:#222222;
+    transition: 0.3s;
 }
+
+ body.modo-oscuro{
+    background-color: #222222;
+    color: #f5f5f5;
+}
+
+body.modo-oscuro .header-inicio {
+    background-color: #222222;
+    color: #f5f5f5;
+}
+
+
 
 .header-inicio {
     background-color: #88a8ffa9;
@@ -589,6 +601,7 @@ h3 {
     background: #c62828;
     color: #ffffff;
 }
+
 
 
 
