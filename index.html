@@ -4,27 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión | Turnos Médicos</title>
+    <title>Turnos Salud</title>
     <link rel="stylesheet" href=".css/styles.css">
+
 </head>
 
 <body class="pagina-login">
 
-    <header class="header-inicio">
-        <h1>✚ Turnos Médicos</h1>
-    </header>
+    <main class="main-login">
 
-    <main class="main">
+        <aside class="aside-left-img">
+            <div class="img-container">
+                <img src=".img/turnos-salud.png" alt="img-ppal" class="ppal-img">
+            </div>
 
-        <section class="login-section">
+            <div class="text-container">
+                <h1>Te damos la bienvenida a Turnos Salud</h1>
+                <p>En esta plataforma podrás gestionar tus turnos de manera rápida y sencilla.</p>
+            </div>
+        </aside>
 
-            <div class="login-contenido">
+        <aside class="aside-right-form">
+            <div class="logo-container">
+                <img src=".img/logo.png" alt="Logo" class="logo-img">
+            </div>
 
-                <h2>¡Bienvenido!</h2>
-                <p class="login-subtitulo">
-                    Tu salud, más cerca.
-                </p>
+            <div class="acceso-rapido">
+                <p>Acceso rápido</p>
+                <div class="acceso-rapido-buttons">
+                    <a href=".html/admin.html" class="btn-acceso-rapido" id="btn-acceso-rapido-admin">Administrador</a>
+                    <a href=".html/usuario.html" class="btn-acceso-rapido" id="btn-acceso-rapido-user">Usuario</a>
+                </div>
+            </div>
 
+            <div class="form-container">
                 <form class="formulario-inicio"
                       action=".html/usuario.html">
 
@@ -58,38 +71,30 @@
                         >
                     </div>
 
+                    <div>
+                        <input type="checkbox" id="remember-me" name="remember-me">
+                        <label for="remember-me">Recordar usuario</label>
+                    </div>
+
+
                     <button type="submit" class="button-iniciar">
                         Ingresar
                     </button>
 
                 </form>
 
-                <div class="accesos-demo">
-                    <p>Accesos de prueba</p>
-
-                    <nav class="acceso-rapido">
-                        <a href=".html/usuario.html" class="button-simple">
-                            Usuario
-                        </a>
-
-                        <a href=".html/admin.html" class="button-simple">
-                            Administrador
-                        </a>
-                    </nav>
-                </div>
+                <p><a href="">¿Olvidaste tu contraseña?</a></p>
 
             </div>
 
-            <div class="login-ilustracion">
-                <img class="login-img"
-                    src=".img/doctora.png"
-                    alt="Ilustración de una doctora"
-                >
+            <div class="footer-container">
+                <p>Accede a tu cuenta para comenzar a disfrutar de todas las funcionalidades que ofrecemos.</p>
             </div>
 
-        </section>
+        </aside>
 
     </main>
+    <script src=".js/script.js" defer></script>
 
 </body>
 </html>
