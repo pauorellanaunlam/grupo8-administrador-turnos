@@ -4,76 +4,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Cuenta - Turnos Médicos</title>
+    <title>Mi perfil - Turno Salud</title>
     <link rel="stylesheet" href="../.css/styles.css">
 </head>
 
 <body>
 
     <header class="header-principal">
-        <h1>Turnos Médicos</h1>
+
+        <h1>Turnos <span>Salud</span></h1>
 
         <nav class="header-principal-nav">
-            <a href="usuario.html">Inicio</a>
-            <a href="misturnos.html">Mis turnos</a>
+            <a href="perfil.html">Mi cuenta</a>
+            <a href="administrador.html">Vista Administrador</a>
             <a href="../index.html">Cerrar sesión</a>
+
             <button type="button" class="button-tema-pagina">
-                Claro / Oscuro
+                Claro/Oscuro
             </button>
         </nav>
+
     </header>
 
-    <main class="pagina-perfil">
+    <main class="layout-perfil">
 
-        <a href="usuario.html" class="button-volver">
-            Volver
-        </a>
 
-        <h2>Mi Cuenta</h2>
-        <p>Consultá tus datos personales y tus turnos.</p>
+        <aside class="menu-lateral-perfil">
 
-        <section class="info-cuenta">
-            <h3>Datos personales</h3>
+            <a href="usuario.html">Inicio</a>
 
-            <ul>
-                <li>Nombre: María Pérez</li>
-                <li>DNI: 12345678</li>
-                <li>Email: maria@email.com</li>
-                <li>Teléfono: 1123456789</li>
-            </ul>
+            <a href="solicitarturnos.html">Reservar turno</a>
 
-            <button type="button">
-                Editar información
-            </button>
-        </section>
+            <a href="misturnos.html">Mis turnos</a>
 
-        <section class="mis-favoritos">
-            <h3>Mis favoritos ♡</h3>
-            <div class="lista-turnos">
+            <a href="favoritos.html">Mis favoritos</a>
 
-                <article class="card-turno">
-                    <h4>Dra. María González</h4>
-                    <p>Clínica médica</p>
+            <a href="perfil.html" class="activo">
+                Mi perfil
+            </a>
 
-                    <button type="button" class="button-favorito activo" aria-label="Quitar de favoritos">
-                        ♥
-                    </button>
+        </aside>
 
-                    <a href="solicitarturnos.html" class="button-vista">
-                        Ver turnos
-                    </a>
+        <div class="contenido-perfil">
+
+
+            <section class="titulo-perfil">
+
+                <h2>Mi perfil</h2>
+
+                <p>
+                    Consultá y administrá tu información personal.
+                </p>
+
+            </section>
+
+            <section class="presentacion-paciente">
+
+                <div class="foto-paciente">
+                    <img src=".img/medica.png" alt="Foto de perfil de María Pérez" class="avatar-paciente">
+                </div>
+
+                <div class="datos-presentacion">
+
+                    <span class="estado-cuenta">
+                        ● Cuenta activa
+                    </span>
+
+                    <h3>María Pérez</h3>
+
+                    <p>Paciente N.º 000124</p>
+
+                    <span class="fecha-registro">
+                        Miembro desde octubre de 2025
+                    </span>
+
+                </div>
+
+                <button type="button" class="button-editar-perfil">
+                    ✎ Editar perfil
+                </button>
+
+            </section>
+
+
+
+            <section class="tarjeta-perfil">
+
+                <div class="encabezado-perfil-seccion">
+
+                    <div>
+                        <h3>Mis datos personales</h3>
+
+                        <p>
+                            Información asociada a tu cuenta.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="datos-personales-grid">
+
+                    <div class="dato-perfil">
+                        <span>Nombre completo</span>
+                        <p>María Pérez</p>
+                    </div>
+
+                    <div class="dato-perfil">
+                        <span>DNI</span>
+                        <p>12.345.678</p>
+                    </div>
+
+                    <div class="dato-perfil">
+                        <span>Correo electrónico</span>
+                        <p>maria@email.com</p>
+                    </div>
+
+                    <div class="dato-perfil">
+                        <span>Teléfono</span>
+                        <p>11 2345-6789</p>
+                    </div>
+
+                    <div class="dato-perfil">
+                        <span>Fecha de nacimiento</span>
+                        <p>15/06/1998</p>
+                    </div>
+
+                    <div class="dato-perfil">
+                        <span>Domicilio</span>
+                        <p>Buenos Aires, Argentina</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <section class="estadisticas-perfil">
+
+                <article class="estadistica-paciente">
+
+                    <div class="icono-estadistica">
+                        <span>▦</span>
+                    </div>
+
+                    <div>
+                        <strong>02</strong>
+                        <p>Próximos turnos</p>
+                    </div>
+
                 </article>
 
-            </div>
-        </section>
 
-        <section class="proximos-turnos">
-            <h3>Próximos turnos</h3>
-            <p>Clínica médica · 25/10 · 09:30 hs</p>
-            <p>Cardiología · 28/10 · 11:00 hs</p>
-        </section>
+                <article class="estadistica-paciente">
+
+                    <div class="icono-estadistica">
+                        <span>♡</span>
+                    </div>
+
+                    <div>
+                        <strong>03</strong>
+                        <p>Médicos favoritos</p>
+                    </div>
+
+                </article>
+
+            </section>
+
+
+
+            <section class="tarjeta-perfil">
+
+                <div class="encabezado-perfil-seccion">
+
+                    <div>
+                        <h3>Próxima consulta</h3>
+
+                        <p>
+                            Información de tu próximo turno médico.
+                        </p>
+                    </div>
+
+                    <a href="misturnos.html">
+                        Ver todos
+                    </a>
+
+                </div>
+
+
+                <article class="consulta-perfil">
+
+                    <div class="fecha-consulta">
+
+                        <strong>25</strong>
+                        <span>OCT</span>
+
+                    </div>
+
+                    <div class="datos-consulta">
+
+                        <h4>Clínica médica</h4>
+
+                        <p>Dra. María González</p>
+
+                        <span>09:30 hs</span>
+
+                    </div>
+
+                    <span class="estado-consulta">
+                        Confirmado
+                    </span>
+
+                </article>
+
+            </section>
+
+
+            <section class="tarjeta-perfil">
+
+                <div class="encabezado-perfil-seccion">
+
+                    <div>
+                        <h3>Mis médicos favoritos</h3>
+
+                        <p>
+                            Profesionales que guardaste para futuras consultas.
+                        </p>
+                    </div>
+
+                    <a href="favoritos.html">
+                        Ver todos
+                    </a>
+
+                </div>
+
+
+                <article class="medico-favorito-perfil">
+
+                    <div class="avatar-medico-perfil">
+                        MG
+                    </div>
+
+                    <div class="datos-medico-perfil">
+
+                        <h4>Dra. María González</h4>
+
+                        <p>Clínica médica</p>
+
+                    </div>
+
+                    <span class="corazon-favorito">♥</span>
+
+                    <a href="solicitarturnos.html" class="button-solicitar-perfil">
+                        Solicitar turno
+                    </a>
+
+                </article>
+
+            </section>
+
+        </div>
 
     </main>
+
 </body>
 
 </html>

@@ -4,22 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio | Turnos Médicos</title>
+    <title>Inicio | Turnos Salud</title>
     <link rel="stylesheet" href="../.css/styles.css">
 </head>
 
-<body>
+<body class="pagina-inicio-usuario">
 
     <header class="header-principal">
-        <h1>Turnos Médicos</h1>
+        <h1>Turnos <span>Salud</span></h1>
 
         <nav class="header-principal-nav">
             <a href="miperfil.html">Mi cuenta</a>
             <a href="admin.html">Vista Administrador</a>
             <a href="../index.html">Cerrar sesión</a>
-
             <button type="button" class="button-tema-pagina">
-                Claro / Oscuro
+                Claro/Oscuro
             </button>
         </nav>
     </header>
@@ -31,122 +30,116 @@
                 <a href="usuario.html">Inicio</a>
                 <a href="solicitarturnos.html">Reservar turno</a>
                 <a href="misturnos.html">Mis turnos</a>
-                <a href="miperfil.html">Mis favoritos</a>
+                <a href="#favoritos">Mis favoritos</a>
             </nav>
         </aside>
 
         <div class="contenido-usuario">
 
-            <section class="home-usuario">
+
+            <section class="home-usuario bienvenida-usuario">
+
                 <h2>Encontrá tu próximo turno</h2>
-                <p>Elegí un profesional y consultá sus horarios.</p>
+
+                <p>
+                    Buscá el profesional que necesitás y consultá
+                    sus próximos horarios disponibles.
+                </p>
 
                 <form class="formulario-busqueda">
-                    <label for="buscar-medico">Buscar profesional</label>
 
-                    <input type="search" id="buscar-medico" placeholder="Nombre o especialidad">
+                    <div class="campo-busqueda">
+                        <label for="buscar-especialidad">¿Qué especialidad necesitás?</label>
+
+                        <select id="buscar-especialidad">
+                            <option value="">Todas las especialidades</option>
+                            <option value="clinica">Clínica médica</option>
+                            <option value="cardiologia">Cardiología</option>
+                            <option value="dermatologia">Dermatología</option>
+                        </select>
+                    </div>
 
                     <button type="button" class="button-nuevo-turno">
-                        Buscar
+                        Buscar turnos
                     </button>
+
                 </form>
+
+                <div class="imagen-bienvenida">
+                    <img src="../.img/doctora.png" alt="Doctora animada">
+                </div>
+
             </section>
+
+            <!-- PROFESIONALES -->
 
             <section class="home-usuario">
 
                 <h2>Profesionales disponibles</h2>
-
+                <p class="descripcion-profesionales">
+                    Explorá nuestros profesionales de salud y encontrá
+                    el turno que mejor se adapte a vos.
+                </p>
                 <div class="selector-vista">
                     <span>Vista:</span>
-
-                    <button type="button" class="button-vista">
-                        Tarjetas
-                    </button>
-
-                    <button type="button" class="button-vista">
-                        Lista
-                    </button>
+                    <a href="usuario.html" class="button-vista">Tarjetas</a>
+                    <a href="vistaLista.html" class="button-vista">Lista</a>
                 </div>
 
                 <div class="lista-turnos">
 
                     <article class="card-turno">
-
-                        <div class="card-turno-cabecera">
-                            <h3 class="card-turno-especialidad">
-                                Dra. María González
-                            </h3>
-                        </div>
-
+                        <h3>Dra. María González</h3>
                         <p>Clínica médica</p>
 
-                        <ul class="card-turno-datos">
-                            <li>Próximo turno: 25/10/2026</li>
-                            <li>09:30 hs</li>
-                            <li>Consultorio 1</li>
-                        </ul>
+                        <div class="card-turno-datos">
+                            <p>Próximo turno: 09/11/2026 · 09:30 hs</p>
+                            <p>Consultorio 1</p>
+                        </div>
 
-                        <button type="button" class="button-favorito activo"
-                            aria-label="Quitar a María González de favoritos">
+                        <button type="button" class="button-favorito activo" aria-label="Quitar de favoritos">
                             ♥
                         </button>
 
-                        <a href="solicitarturnos.html" class="button-vista">
+                        <a href="solicitarturnos.html?profesional=1" class="button-vista">
                             Ver turnos
                         </a>
-
                     </article>
 
                     <article class="card-turno">
-
-                        <div class="card-turno-cabecera">
-                            <h3 class="card-turno-especialidad">
-                                Dr. Carlos Ramírez
-                            </h3>
-                        </div>
-
+                        <h3>Dr. Carlos Ramírez</h3>
                         <p>Cardiología</p>
 
-                        <ul class="card-turno-datos">
-                            <li>Próximo turno: 28/10/2026</li>
-                            <li>11:00 hs</li>
-                            <li>Consultorio 3</li>
-                        </ul>
+                        <div class="card-turno-datos">
+                            <p>Próximo turno: 10/11/2026 · 11:00 hs</p>
+                            <p>Consultorio 3</p>
+                        </div>
 
-                        <button type="button" class="button-favorito" aria-label="Agregar a Carlos Ramírez a favoritos">
+                        <button type="button" class="button-favorito" aria-label="Agregar a favoritos">
                             ♡
                         </button>
 
-                        <a href="solicitarturnos.html" class="button-vista">
+                        <a href="solicitarturnos.html?profesional=2" class="button-vista">
                             Ver turnos
                         </a>
-
                     </article>
 
                     <article class="card-turno">
-
-                        <div class="card-turno-cabecera">
-                            <h3 class="card-turno-especialidad">
-                                Dra. Laura Medina
-                            </h3>
-                        </div>
-
+                        <h3>Dra. Laura Medina</h3>
                         <p>Dermatología</p>
 
-                        <ul class="card-turno-datos">
-                            <li>Próximo turno: 03/11/2026</li>
-                            <li>14:30 hs</li>
-                            <li>Consultorio 2</li>
-                        </ul>
+                        <div class="card-turno-datos">
+                            <p>Próximo turno: 11/11/2026 · 14:30 hs</p>
+                            <p>Consultorio 2</p>
+                        </div>
 
-                        <button type="button" class="button-favorito" aria-label="Agregar a Laura Medina a favoritos">
+                        <button type="button" class="button-favorito" aria-label="Agregar a favoritos">
                             ♡
                         </button>
 
-                        <a href="solicitarturnos.html" class="button-vista">
+                        <a href="solicitarturnos.html?profesional=3" class="button-vista">
                             Ver turnos
                         </a>
-
                     </article>
 
                 </div>
