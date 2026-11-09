@@ -992,13 +992,14 @@ body.modo-oscuro .header-inicio {
 }
  
 /* ---------- Cards ---------- */
-.lista-turnos {
+.lista-turnos-admin {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
+    padding-top: 25px;
 }
  
-.card-turno {
+.card-turno-admin {
     display: flex;
     flex-direction: column;
     width: 260px;
@@ -1011,17 +1012,17 @@ body.modo-oscuro .header-inicio {
 
 }
  
-.card-turno h3 {
+.card-turno-admin h3 {
     margin-top: 0;
     margin-bottom: 10px;
     color: #0a7ea4;
 }
  
-.card-turno p {
+.card-turno-admin p {
     margin: 4px 0;
 }
  
-.card-turno button {
+.card-turno-admin button {
     margin-top: auto;
     align-self: flex-start;
     padding: 8px 16px;
@@ -1035,16 +1036,16 @@ body.modo-oscuro .header-inicio {
 
 }
  
-.card-turno button:hover {
+.card-turno-admin button:hover {
     background-color: #dcefeb;
 }
  
-.card-turno .button-eliminar {
+.card-turno-admin .button-eliminar {
     color: #b3261e;
     border-color: #b3261e;
 }
  
-.card-turno .button-eliminar:hover {
+.card-turno-admin .button-eliminar:hover {
     background-color: #fbeae9;
 }
  
@@ -1072,34 +1073,34 @@ body.modo-oscuro #form-crear-turno button {
     background-color: #5cc4c0;
 }
  
-body.modo-oscuro .card-turno {
+body.modo-oscuro .card-turno-admin {
     background-color: #0f1c1e;
     border-color: #2c4a4d;
     border-left-color: #5cc4c0;
     color: #e8f3f1;
 }
  
-body.modo-oscuro .card-turno h3 {
+body.modo-oscuro .card-turno-admin h3 {
     color: #5cc4c0;
 }
  
-body.modo-oscuro .card-turno button {
+body.modo-oscuro .card-turno-admin button {
     color: #5cc4c0;
     background-color: transparent;
     border-color: #5cc4c0;
 }
  
-body.modo-oscuro .card-turno .button-eliminar {
+body.modo-oscuro .card-turno-admin .button-eliminar {
     color: #ff9b94;
     border-color: #ff9b94;
 }
 
-body.modo-oscuro .card-turno .button-eliminar:hover {
+body.modo-oscuro .card-turno-admin .button-eliminar:hover {
     background-color: #fbeae9;
     color: #883b35;
 }
 
-body.modo-oscuro .card-turno button:hover {
+body.modo-oscuro .card-turno-admin button:hover {
     background-color: #dcefeb;
     color: #0c1b1d;
 }
