@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #f5f5f5;
+    background-color: #f4f8fb;
     color: #222222;
     transition: 0.3s;
 }
@@ -548,7 +548,7 @@ body.modo-oscuro .header-inicio {
 
 
 .header-principal {
-    background: white;
+    background: #b2c0c5;
     padding: 20px 5%;
     display: flex;
     justify-content: space-between;
@@ -576,6 +576,7 @@ body.modo-oscuro .header-inicio {
     padding: 10px 14px;
     text-decoration: none;
     border-radius: 9px;
+    font-weight: 500;
 }
 
 .header-principal a:hover {
@@ -920,107 +921,191 @@ body.modo-oscuro .header-inicio {
 
 /* ---- PÁGINA ADMINISTRADOR ---- */
 
-
-
-.header-admin {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #88a8ffa9;
-    padding: 25px;
-
-}
-
-.header-admin h1 {
-    margin-bottom: 15px;
-}
-
-.header-admin nav {
-    display: flex;
-    gap: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.header-admin a {
-    color: black;
-    text-decoration: none;
-}
-
-
-
 .pagina-admin {
-    width: 80%;
     max-width: 900px;
-    margin: 40px auto;
+    margin: 0 auto;
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #12272b;
 }
-
-
-.pagina-admin .crear-turno {
-    background-color: #88a8ff56;
-    border: 1px solid #88a8ff;
-    border-radius: 10px;
-    padding: 25px;
-    margin-bottom: 25px;
-}
-
-.pagina-admin h2 {
-    font-size: 24px;
+ 
+.pagina-admin h1 {
     margin-bottom: 20px;
 }
-
-
-.pagina-admin form {
-    display: flex;
-    flex-direction: column;
+ 
+.pagina-admin h2 {
+    margin-top: 0;
 }
 
-.pagina-admin label {
+.crear-turno,
+.turnos,
+.turnos-reservados {
+    background-color: white;
+    border: 1px solid #c3d8d5;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+ 
+#form-crear-turno {
+    min-width: 100%;
+}
+ 
+#form-crear-turno label {
+    display: block;
     margin-top: 15px;
     margin-bottom: 5px;
+    font-weight: bold;
 }
-
-.pagina-admin input {
+ 
+#form-crear-turno input,
+#form-crear-turno select {
+    display: block;
+    width: 100%;
     padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
     font-size: 16px;
+    border: 1px solid #c3d8d5;
+    border-radius: 8px;
 }
-
-
-
-.pagina-admin button {
-    background-color: #88a8ff;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 20px;
+ 
+#form-crear-turno input:focus,
+#form-crear-turno select:focus {
+    outline: 2px solid #0a7ea4;
+}
+ 
+#form-crear-turno button {
     margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #0a7ea4;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
+    width: 100%;
 }
-
-
-
-.pagina-admin .turnos {
-    border: 1px solid #88a8ff;
-    border-radius: 10px;
-    padding: 25px;
+ 
+#form-crear-turno button:hover {
+    background-color: #0a5559;
 }
-
-.pagina-admin .turnos article {
-    background-color: #88a8ff56;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 15px;
+ 
+/* ---------- Cards ---------- */
+.lista-turnos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
 }
+ 
+.card-turno {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    padding: 16px;
+    background-color: #f5f9f8;
+    border: 1px solid #c3d8d5;
+    border-left: 5px solid #0a7ea4;
+    border-radius: 8px;
+    min-height: 220px;
 
-.pagina-admin .turnos h3 {
+}
+ 
+.card-turno h3 {
+    margin-top: 0;
     margin-bottom: 10px;
+    color: #0a7ea4;
+}
+ 
+.card-turno p {
+    margin: 4px 0;
+}
+ 
+.card-turno button {
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #0a7ea4;
+    background-color: white;
+    border: 1px solid #0a7ea4;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+
+}
+ 
+.card-turno button:hover {
+    background-color: #dcefeb;
+}
+ 
+.card-turno .button-eliminar {
+    color: #b3261e;
+    border-color: #b3261e;
+}
+ 
+.card-turno .button-eliminar:hover {
+    background-color: #fbeae9;
+}
+ 
+/* ---------- Modo oscuro ---------- */
+body.modo-oscuro .pagina-admin {
+    color: #e8f3f1;
+}
+ 
+body.modo-oscuro .crear-turno,
+body.modo-oscuro .turnos,
+body.modo-oscuro .turnos-reservados {
+    background-color: #162a2d;
+    border-color: #2c4a4d;
+}
+ 
+body.modo-oscuro #form-crear-turno input,
+body.modo-oscuro #form-crear-turno select {
+    background-color: #0f1c1e;
+    color: #e8f3f1;
+    border-color: #2c4a4d;
+}
+ 
+body.modo-oscuro #form-crear-turno button {
+    color: #0c1b1d;
+    background-color: #5cc4c0;
+}
+ 
+body.modo-oscuro .card-turno {
+    background-color: #0f1c1e;
+    border-color: #2c4a4d;
+    border-left-color: #5cc4c0;
+    color: #e8f3f1;
+}
+ 
+body.modo-oscuro .card-turno h3 {
+    color: #5cc4c0;
+}
+ 
+body.modo-oscuro .card-turno button {
+    color: #5cc4c0;
+    background-color: transparent;
+    border-color: #5cc4c0;
+}
+ 
+body.modo-oscuro .card-turno .button-eliminar {
+    color: #ff9b94;
+    border-color: #ff9b94;
 }
 
-.pagina-admin .turnos p {
-    margin-bottom: 5px;
+body.modo-oscuro .card-turno .button-eliminar:hover {
+    background-color: #fbeae9;
+    color: #883b35;
+}
 
+body.modo-oscuro .card-turno button:hover {
+    background-color: #dcefeb;
+    color: #0c1b1d;
+}
+
+body.modo-oscuro #form-crear-turno button:hover {
+    background-color: #4aa9a5;
 }
 
 /* pagina mis turnos */

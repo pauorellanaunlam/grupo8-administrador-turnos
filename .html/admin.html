@@ -9,82 +9,125 @@
 
 </head>
 <body>
-
-    <header class="header-admin">
-        <h1>Turnos Médicos</h1>
-
-        <nav>
-            <a href="usuario.html">Vista usuario</a>
+    <header class="header-principal">
+        <div class="logo-container">
+            <img src="../.img/logo.png" alt="Logo" class="logo-img">
+        </div>
+ 
+        <nav class="header-principal-nav">
+            <a href="miperfil.html">Mi cuenta</a>
+            <a href="usuario.html">Vista Usuario</a>
             <a href="../index.html">Cerrar sesión</a>
             <button type="button" class="button-tema-pagina" id="boton-tema">
                 Modo oscuro
             </button>
         </nav>
     </header>
-
+ 
     <main class="pagina-admin">
-
+ 
+        <h1>Panel de administración</h1>
+ 
         <section class="crear-turno">
             <h2>Nuevo turno</h2>
-
+ 
             <form id="form-crear-turno">
-
+ 
                 <label for="profesional">Profesional</label>
                 <input type="text" id="profesional"
-                       placeholder="Nombre del médico" required>
-
+                       placeholder="Ej: Dra. María González" required>
+ 
                 <label for="especialidad">Especialidad</label>
-                <input type="text" id="especialidad"
-                       placeholder="Ej: Cardiología" required>
-
+                <select id="especialidad" required>
+                    <option value="">Elegí una especialidad</option>
+                    <option value="clinica">Clínica médica</option>
+                    <option value="cardiologia">Cardiología</option>
+                    <option value="dermatologia">Dermatología</option>
+                </select>
+ 
                 <label for="fecha">Fecha</label>
                 <input type="date" id="fecha" required>
-
+ 
                 <label for="hora">Horario</label>
                 <input type="time" id="hora" required>
-
-                <label for="consultorio">Consultorio</label>
-                <input type="text" id="consultorio"
-                       placeholder="Ej: 3" required>
-
+ 
+                <label for="sede">Sede</label>
+                <select id="sede" required>
+                    <option value="">Elegí una sede</option>
+                    <option value="sede1">Sede Lugano</option>
+                    <option value="sede2">Sede Ramos Mejía</option>
+                    <option value="sede3">Sede San Isidro</option>
+                    <option value="virtual">Consulta virtual</option>
+                </select>
+ 
+                <label for="comentario">Consultorio o indicaciones</label>
+                <input type="text" id="comentario"
+                       placeholder="Ej: Consultorio 3" required>
+ 
                 <button type="button">Publicar turno</button>
             </form>
         </section>
-
+ 
         <section class="turnos">
             <h2>Turnos publicados</h2>
-
+ 
             <div class="lista-turnos">
-
+ 
                 <article class="card-turno">
                     <h3>Clínica médica</h3>
                     <p>Dra. María González</p>
-                    <p>25/10/2026 · 09:30 hs</p>
-                    <p>Consultorio 1</p>
-                    <button type="button">Eliminar</button>
+                    <p>23/11/2026 · 09:30 hs</p>
+                    <p>Sede Lugano · Consultorio 1</p>
+                    <button type="button" class="button-eliminar">Eliminar</button>
                 </article>
-
+ 
                 <article class="card-turno">
                     <h3>Cardiología</h3>
                     <p>Dr. Carlos Ramírez</p>
-                    <p>28/10/2026 · 11:00 hs</p>
-                    <p>Consultorio 3</p>
-                    <button type="button">Eliminar</button>
+                    <p>26/11/2026 · 11:00 hs</p>
+                    <p>Sede Ramos Mejía · Consultorio 3</p>
+                    <button type="button" class="button-eliminar">Eliminar</button>
                 </article>
-
+ 
                 <article class="card-turno">
                     <h3>Dermatología</h3>
                     <p>Dra. Laura Medina</p>
-                    <p>03/11/2026 · 14:30 hs</p>
-                    <p>Consultorio 2</p>
-                    <button type="button">Eliminar</button>
+                    <p>03/12/2026 · 14:30 hs</p>
+                    <p>Consulta virtual</p>
+                    <button type="button" class="button-eliminar">Eliminar</button>
                 </article>
-
+ 
             </div>
         </section>
-
+ 
+        <section class="turnos-reservados">
+            <h2>Turnos reservados</h2>
+ 
+            <div class="lista-turnos">
+ 
+                <article class="card-turno">
+                    <h3>Clínica médica</h3>
+                    <p>Dra. María González</p>
+                    <p>18/11/2026 · 10:00 hs</p>
+                    <p>Sede Lugano · Consultorio 1</p>
+                    <p>Paciente: Juan Pérez</p>
+                    <button type="button">Modificar</button>
+                </article>
+ 
+                <article class="card-turno">
+                    <h3>Cardiología</h3>
+                    <p>Dr. Carlos Ramírez</p>
+                    <p>20/11/2026 · 11:30 hs</p>
+                    <p>Sede Ramos Mejía · Consultorio 3</p>
+                    <p>Paciente: Ana Rodríguez</p>
+                    <button type="button">Modificar</button>
+                </article>
+ 
+            </div>
+        </section>
+ 
     </main>
     <script src="../.js/script.js" defer></script>
-
+ 
 </body>
 </html>
