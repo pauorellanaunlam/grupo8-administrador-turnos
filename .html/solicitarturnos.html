@@ -19,63 +19,300 @@
         </nav>
     </header>
 
-    <main class="pagina-solicitud">
+    
+<main class="pagina-solicitar">
 
-        <a href="usuario.html" class="volver-solicitud">
-            ← Volver
-        </a>
+    <section class="encabezado-solicitud">
+        <div>
+            <span class="subtitulo">TURNOS SALUD / PACIENTES</span>
+            <h1>Solicitá tu turno</h1>
+            <p>Elegí un profesional y encontrá el horario que mejor te quede.</p>
+        </div>
 
-        <h2>Elegí tu turno</h2>
+        <div class="imagen-encabezado">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700"
+                 alt="Atención médica">
+        </div>
+    </section>
 
-        <section class="turnos-disponibles">
-            <div class="lista-turnos">
+    <div class="pasos-solicitud">
+        <div class="paso activo">
+            <span>1</span>
+            <div>
+                <strong>Especialidad</strong>
+                <small>Elegí un profesional</small>
+            </div>
+        </div>
 
-                <article class="card-turno">
-                    <h3>Dra. María González</h3>
-                    <p>Clínica médica</p>
-                    <p>📅 25/10/2026 · 🕘 09:30 hs</p>
-                    <p>📍 Consultorio 1</p>
-                    <button type="button" class="button-confirmar">
-                        Elegir
-                    </button>
-                </article>
+        <div class="linea-paso"></div>
 
-                <article class="card-turno">
-                    <h3>Dr. Carlos Ramírez</h3>
-                    <p>Cardiología</p>
-                    <p>📅 28/10/2026 · 🕘 11:00 hs</p>
-                    <p>📍 Consultorio 3</p>
-                    <button type="button" class="button-confirmar">
-                        Elegir
-                    </button>
-                </article>
+        <div class="paso">
+            <span>2</span>
+            <div>
+                <strong>Fecha y horario</strong>
+                <small>Elegí tu disponibilidad</small>
+            </div>
+        </div>
 
-                <article class="card-turno">
-                    <h3>Dra. Laura Medina</h3>
-                    <p>Dermatología</p>
-                    <p>📅 03/11/2026 · 🕘 14:30 hs</p>
-                    <p>📍 Consultorio 2</p>
-                    <button type="button" class="button-confirmar">
-                        Elegir
-                    </button>
-                </article>
+        <div class="linea-paso"></div>
+
+        <div class="paso">
+            <span>3</span>
+            <div>
+                <strong>Confirmación</strong>
+                <small>Reservá tu turno</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenido-solicitud">
+
+        <section class="seleccion-turno">
+
+            <div class="titulo-seccion">
+                <div>
+                    <span class="numero-seccion">01</span>
+                    <h2>¿Qué tipo de atención necesitás?</h2>
+                    <p>Seleccioná una especialidad para ver los profesionales disponibles.</p>
+                </div>
+            </div>
+
+            <div class="especialidades-grid">
+
+                <label class="especialidad-opcion">
+                    <input type="radio" name="especialidad" checked>
+                    <div class="especialidad-card">
+                        <span class="icono-especialidad">❤︎</span>
+                        <strong>Cardiología</strong>
+                        <small>Corazón y circulación</small>
+                    </div>
+                </label>
+
+                <label class="especialidad-opcion">
+                    <input type="radio" name="especialidad">
+                    <div class="especialidad-card">
+                        <span class="icono-especialidad">👨🏼‍⚕️</span>
+                        <strong>Clínica médica</strong>
+                        <small>Atención general</small>
+                    </div>
+                </label>
+
+                <label class="especialidad-opcion">
+                    <input type="radio" name="especialidad">
+                    <div class="especialidad-card">
+                        <span class="icono-especialidad">✿</span>
+                        <strong>Dermatología</strong>
+                        <small>Salud de la piel</small>
+                    </div>
+                </label>
+
+                <label class="especialidad-opcion">
+                    <input type="radio" name="especialidad">
+                    <div class="especialidad-card">
+                        <span class="icono-especialidad">🦷</span>
+                        <strong>Odontología</strong>
+                        <small>Salud bucal</small>
+                    </div>
+                </label>
 
             </div>
+
+            <div class="separador-seccion"></div>
+
+            <div class="titulo-seccion">
+                <div>
+                    <span class="numero-seccion">02</span>
+                    <h2>Elegí a tu profesional</h2>
+                    <p>Estos son los profesionales disponibles para la especialidad seleccionada.</p>
+                </div>
+            </div>
+
+            <div class="profesionales-grid">
+
+                <label class="profesional-opcion">
+                    <input type="radio" name="profesional" checked>
+                    <div class="profesional-card">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300"
+                             alt="Profesional médica">
+                        <div class="datos-profesional">
+                            <strong>Dra. Laura Martínez</strong>
+                            <span>Cardiología</span>
+                            <small>Atención presencial</small>
+                        </div>
+                        <span class="seleccion-check">✓</span>
+                    </div>
+                </label>
+
+                <label class="profesional-opcion">
+                    <input type="radio" name="profesional">
+                    <div class="profesional-card">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300"
+                             alt="Profesional médico">
+                        <div class="datos-profesional">
+                            <strong>Dr. Martín López</strong>
+                            <span>Cardiología</span>
+                            <small>Atención presencial</small>
+                        </div>
+                        <span class="seleccion-check">✓</span>
+                    </div>
+                </label>
+
+            </div>
+
+            <div class="separador-seccion"></div>
+
+            <div class="titulo-seccion">
+                <div>
+                    <span class="numero-seccion">03</span>
+                    <h2>Seleccioná una fecha</h2>
+                    <p>Solo se muestran los días con disponibilidad publicada.</p>
+                </div>
+            </div>
+
+            <div class="fechas-disponibles">
+
+                <label class="fecha-opcion">
+                    <input type="radio" name="fecha" checked>
+                    <div class="fecha-card">
+                        <small>LUN</small>
+                        <strong>16</strong>
+                        <span>Nov</span>
+                    </div>
+                </label>
+
+                <label class="fecha-opcion">
+                    <input type="radio" name="fecha">
+                    <div class="fecha-card">
+                        <small>MAR</small>
+                        <strong>17</strong>
+                        <span>Nov</span>
+                    </div>
+                </label>
+
+                <label class="fecha-opcion">
+                    <input type="radio" name="fecha">
+                    <div class="fecha-card">
+                        <small>MIÉ</small>
+                        <strong>18</strong>
+                        <span>Nov</span>
+                    </div>
+                </label>
+
+                <label class="fecha-opcion">
+                    <input type="radio" name="fecha">
+                    <div class="fecha-card">
+                        <small>JUE</small>
+                        <strong>19</strong>
+                        <span>Nov</span>
+                    </div>
+                </label>
+
+                <label class="fecha-opcion">
+                    <input type="radio" name="fecha">
+                    <div class="fecha-card">
+                        <small>VIE</small>
+                        <strong>20</strong>
+                        <span>Nov</span>
+                    </div>
+                </label>
+
+            </div>
+
+            <div class="horarios-contenedor">
+                <div class="horarios-titulo">
+                    <h3>Horarios disponibles</h3>
+                    <span>Elige un horario</span>
+                </div>
+
+                <div class="horarios-grid">
+
+                    <label class="horario-opcion">
+                        <input type="radio" name="horario" checked>
+                        <span>09:00</span>
+                    </label>
+
+                    <label class="horario-opcion">
+                        <input type="radio" name="horario">
+                        <span>09:30</span>
+                    </label>
+
+                    <label class="horario-opcion">
+                        <input type="radio" name="horario">
+                        <span>10:00</span>
+                    </label>
+
+                    <label class="horario-opcion">
+                        <input type="radio" name="horario">
+                        <span>10:30</span>
+                    </label>
+
+                    <label class="horario-opcion">
+                        <input type="radio" name="horario">
+                        <span>11:00</span>
+                    </label>
+
+                    <label class="horario-opcion">
+                        <input type="radio" name="horario">
+                        <span>11:30</span>
+                    </label>
+
+                </div>
+            </div>
+
         </section>
 
-        <section class="carrito-turnos">
-            <h2>Tu selección</h2>
+        <aside class="resumen-turno">
 
-            <article class="turno-seleccionado">
-                <p>Todavía no seleccionaste ningún turno.</p>
-            </article>
+            <div class="resumen-imagen">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700"
+                     alt="Consultorio médico">
+                <span>ATENCIÓN PRESENCIAL</span>
+            </div>
 
-            <button type="button" class="button-confirmar">
-                Confirmar reserva
-            </button>
-        </section>
+            <div class="resumen-contenido">
+                <span class="resumen-etiqueta">RESUMEN DE RESERVA</span>
+                <h2>Tu próximo turno</h2>
+                <p>Revisá los datos antes de confirmar.</p>
 
-    </main>
-</body>
+                <div class="resumen-dato">
+                    <span>Especialidad</span>
+                    <strong>Cardiología</strong>
+                </div>
 
-</html>
+                <div class="resumen-dato">
+                    <span>Profesional</span>
+                    <strong>Dra. Laura Martínez</strong>
+                </div>
+
+                <div class="resumen-dato">
+                    <span>Fecha</span>
+                    <strong>16 de noviembre</strong>
+                </div>
+
+                <div class="resumen-dato">
+                    <span>Horario</span>
+                    <strong>09:00 hs</strong>
+                </div>
+
+                <div class="resumen-ubicacion">
+                    <span>⌖</span>
+                    <div>
+                        <strong>Centro Médico Turnos Salud</strong>
+                        <small>Consultorio 204</small>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-confirmar">
+                    Confirmar turno →
+                </button>
+
+                <small class="nota-reserva">
+                    El horario quedará reservado una vez confirmada la solicitud.
+                </small>
+            </div>
+
+        </aside>
+
+    </div>
+ <script src="../.js/script.js" defer></script>
+</main>
