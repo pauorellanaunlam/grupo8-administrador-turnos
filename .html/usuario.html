@@ -11,7 +11,9 @@
 <body class="pagina-inicio-usuario">
 
     <header class="header-principal">
-        <h1>Turnos <span>Salud</span></h1>
+        <div class="logo-container">
+            <a href="usuario.html" class="logo-link"><img src="../.img/logo.png" alt="Logo" class="logo-img"></a>
+        </div>
 
         <nav class="header-principal-nav">
             <a href="miperfil.html">Mi cuenta</a>
@@ -24,15 +26,6 @@
     </header>
 
     <main class="pagina-usuario">
-
-        <aside>
-            <nav>
-                <a href="usuario.html">Inicio</a>
-                <a href="solicitarturnos.html">Reservar turno</a>
-                <a href="misturnos.html">Mis turnos</a>
-                <a href="#favoritos">Mis favoritos</a>
-            </nav>
-        </aside>
 
         <div class="contenido-usuario">
 
@@ -82,11 +75,11 @@
                 </p>
                 <div class="selector-vista">
                     <span>Vista:</span>
-                    <a href="usuario.html" class="button-vista">Tarjetas</a>
-                    <a href="vistaLista.html" class="button-vista">Lista</a>
+                    <button type="button" class="button-vista activo" data-vista="tarjetas">Tarjetas</button>
+                    <button type="button" class="button-vista" data-vista="lista">Lista</button>
                 </div>
 
-                <div class="lista-turnos">
+                <div class="lista-turnos" id="lista-profesionales">
 
                     <article class="card-turno">
                         <h3>Dra. María González</h3>
