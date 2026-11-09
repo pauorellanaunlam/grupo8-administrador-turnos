@@ -845,77 +845,833 @@ body.modo-oscuro .header-inicio {
 /* ---- PÁGINA SOLICITAR TURNOS ---- */
 
 
+/* =========================================
+   TURNOS SALUD - SOLICITAR TURNO
+========================================= */
 
-.pagina-solicitud {
-    width: 80%;
-    max-width: 700px;
-    margin: 40px auto;
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-
-.pagina-solicitud .formulario {
-    background-color: white;
-    border: 1px solid #88a8ff;
-    border-radius: 10px;
-    padding: 30px;
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f8fa;
+    color: #29445b;
 }
 
+/* =========================================
+   HEADER PRINCIPAL
+========================================= */
 
-
-.pagina-solicitud h2 {
-    font-size: 24px;
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-
-
-.pagina-solicitud form {
+.header-principal {
+    width: 100%;
+    min-height: 76px;
+    padding: 0 5.5%;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-bottom: 1px solid #e8eef1;
 }
 
-
-
-.pagina-solicitud label {
-    margin-bottom: 5px;
-    margin-top: 15px;
+.header-principal h1 {
+    color: #29445b;
+    font-size: 25px;
+    font-weight: 750;
+    letter-spacing: -1px;
 }
 
-
-
-.pagina-solicitud input {
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    font-size: 16px;
+.header-principal h1 span {
+    color: #5795a0;
 }
 
-.pagina-solicitud button {
-    background-color: #88a8ff;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 20px;
-    margin-top: 25px;
+.header-principal-nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.header-principal-nav a {
+    text-decoration: none;
+    color: #718593;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.header-principal-nav a:hover {
+    color: #5795a0;
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
+.pagina-solicitar {
+    width: 92%;
+    max-width: 1320px;
+    margin: 35px auto 70px;
+    color: #29445b;
+}
+
+/* =========================================
+   ENCABEZADO DE SOLICITUD
+========================================= */
+
+.encabezado-solicitud {
+    min-height: 215px;
+    padding: 35px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(115deg, #e5f1f3, #f0f6f7 65%, #dcebed);
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.encabezado-solicitud h1 {
+    font-size: 34px;
+    font-weight: 750;
+    letter-spacing: -1.2px;
+    color: #29445b;
+    margin: 12px 0;
+}
+
+.encabezado-solicitud p {
+    color: #748b99;
+    font-size: 14px;
+}
+
+.subtitulo {
+    color: #5795a0;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.imagen-encabezado {
+    width: 290px;
+    height: 165px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px #29445b18;
+    transform: rotate(2deg);
+}
+
+.imagen-encabezado img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================================
+   PASOS DE RESERVA
+========================================= */
+
+.pasos-solicitud {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background: #ffffff;
+    border: 1px solid #e8eef1;
+    border-radius: 14px;
+}
+
+.paso {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: .45;
+}
+
+.paso.activo {
+    opacity: 1;
+}
+
+.paso > span {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #edf2f4;
+    color: #718593;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.paso.activo > span {
+    background: #5795a0;
+    color: white;
+}
+
+.paso strong {
+    display: block;
+    color: #345267;
+    font-size: 12px;
+}
+
+.paso small {
+    display: block;
+    margin-top: 4px;
+    color: #98a8b1;
+    font-size: 10px;
+}
+
+.linea-paso {
+    width: 65px;
+    height: 1px;
+    background: #e0e9ed;
+}
+
+/* =========================================
+   DISTRIBUCIÓN
+========================================= */
+
+.contenido-solicitud {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 315px;
+    align-items: start;
+    gap: 24px;
+}
+
+.seleccion-turno {
+    min-width: 0;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #e8eef1;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px #304e5a07;
+}
+
+/* =========================================
+   TÍTULOS DE SECCIÓN
+========================================= */
+
+.titulo-seccion {
+    margin-bottom: 22px;
+}
+
+.numero-seccion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 9px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    background: #eaf3f4;
+    color: #5795a0;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.titulo-seccion h2 {
+    margin-bottom: 7px;
+    color: #29445b;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -.4px;
+}
+
+.titulo-seccion p {
+    color: #91a1aa;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.separador-seccion {
+    height: 1px;
+    margin: 30px 0;
+    background: #edf1f3;
+}
+
+/* =========================================
+   ESPECIALIDADES
+========================================= */
+
+.especialidades-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.especialidad-opcion {
     cursor: pointer;
 }
 
-
-.pagina-solicitud button:hover {
-    background-color: #6e92f5;
-
+.especialidad-opcion input,
+.profesional-opcion input,
+.fecha-opcion input,
+.horario-opcion input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.pagina-solicitud .volver-solicitud {
-    display: inline-block;
-    background-color: #88a8ff;
-    color: black;
-    text-decoration: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin-top: 20px;
+.especialidad-card {
+    min-height: 120px;
+    padding: 16px 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid #e6edef;
+    border-radius: 12px;
+    transition: .2s ease;
+}
+
+.icono-especialidad {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #edf5f6;
+    color: #5795a0;
+    font-size: 20px;
+}
+
+.especialidad-card strong {
+    color: #3b5669;
+    font-size: 12px;
+}
+
+.especialidad-card small {
+    color: #98a7af;
+    font-size: 10px;
+}
+
+.especialidad-opcion input:checked + .especialidad-card {
+    background: #f0f7f7;
+    border-color: #5795a0;
+    box-shadow: 0 0 0 2px #5795a015;
+}
+
+.especialidad-opcion:hover .especialidad-card {
+    border-color: #8bb7bd;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   PROFESIONALES
+========================================= */
+
+.profesionales-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.profesional-opcion {
+    cursor: pointer;
+}
+
+.profesional-card {
+    min-height: 95px;
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e6edef;
+    border-radius: 12px;
+    transition: .2s;
+}
+
+.profesional-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.datos-profesional {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.datos-profesional strong {
+    color: #345267;
+    font-size: 12px;
+}
+
+.datos-profesional span {
+    color: #5795a0;
+    font-size: 11px;
+}
+
+.datos-profesional small {
+    color: #98a7af;
+    font-size: 10px;
+}
+
+.seleccion-check {
+    display: none;
+    width: 22px;
+    height: 22px;
+    margin-left: auto;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #5795a0;
+    color: #ffffff;
+    text-align: center;
+    line-height: 22px;
+    font-size: 12px;
+}
+
+.profesional-opcion input:checked + .profesional-card {
+    background: #f0f7f7;
+    border-color: #5795a0;
+    box-shadow: 0 0 0 2px #5795a015;
+}
+
+.profesional-opcion input:checked + .profesional-card .seleccion-check {
+    display: block;
+}
+
+.profesional-opcion:hover .profesional-card {
+    border-color: #8bb7bd;
+}
+
+/* =========================================
+   FECHAS
+========================================= */
+
+.fechas-disponibles {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 11px;
+}
+
+.fecha-opcion {
+    cursor: pointer;
+}
+
+.fecha-card {
+    padding: 13px 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    background: #ffffff;
+    border: 1px solid #e6edef;
+    border-radius: 11px;
+    transition: .2s;
+}
+
+.fecha-card small {
+    color: #91a2ab;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.fecha-card strong {
+    color: #345267;
+    font-size: 23px;
+}
+
+.fecha-card span {
+    color: #91a2ab;
+    font-size: 10px;
+}
+
+.fecha-opcion input:checked + .fecha-card {
+    background: #5795a0;
+    border-color: #5795a0;
+    box-shadow: 0 4px 12px #5795a025;
+}
+
+.fecha-opcion input:checked + .fecha-card * {
+    color: #ffffff;
+}
+
+.fecha-opcion:hover .fecha-card {
+    border-color: #5795a0;
+}
+
+/* =========================================
+   HORARIOS
+========================================= */
+
+.horarios-contenedor {
+    margin-top: 25px;
+    padding: 19px;
+    background: #f7fafb;
+    border: 1px solid #edf1f3;
+    border-radius: 12px;
+}
+
+.horarios-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.horarios-titulo h3 {
+    color: #345267;
+    font-size: 13px;
+}
+
+.horarios-titulo span {
+    color: #91a2ab;
+    font-size: 10px;
+}
+
+.horarios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.horario-opcion {
+    cursor: pointer;
+}
+
+.horario-opcion span {
+    display: block;
+    padding: 11px 7px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e1e9ec;
+    border-radius: 8px;
+    color: #547486;
+    font-size: 12px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.horario-opcion input:checked + span {
+    background: #e5f1f2;
+    color: #397987;
+    border-color: #5795a0;
+}
+
+.horario-opcion:hover span {
+    border-color: #5795a0;
+}
+
+/* =========================================
+   RESUMEN DEL TURNO
+========================================= */
+
+.resumen-turno {
+    position: sticky;
+    top: 20px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e7edef;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px #304e5a0b;
+}
+
+.resumen-imagen {
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.resumen-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.resumen-imagen > span {
+    position: absolute;
+    left: 13px;
+    bottom: 12px;
+    padding: 7px 10px;
+    background: #ffffff;
+    color: #4d8997;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.resumen-contenido {
+    padding: 22px;
+}
+
+.resumen-etiqueta {
+    color: #5795a0;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.resumen-contenido h2 {
+    margin: 9px 0 6px;
+    color: #29445b;
+    font-size: 21px;
+}
+
+.resumen-contenido > p {
+    margin-bottom: 19px;
+    color: #96a5ad;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.resumen-dato {
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-bottom: 1px solid #edf1f3;
+}
+
+.resumen-dato span {
+    color: #99a8b0;
+    font-size: 10px;
+}
+
+.resumen-dato strong {
+    color: #3c586b;
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.resumen-ubicacion {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 18px 0;
+    padding: 13px;
+    background: #f0f6f7;
+    border-radius: 10px;
+}
+
+.resumen-ubicacion > span {
+    color: #5795a0;
+    font-size: 22px;
+}
+
+.resumen-ubicacion strong {
+    display: block;
+    color: #3c586b;
+    font-size: 10px;
+}
+
+.resumen-ubicacion small {
+    display: block;
+    margin-top: 4px;
+    color: #94a5ad;
+    font-size: 10px;
+}
+
+.btn-confirmar {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: #4d8997;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-confirmar:hover {
+    background: #376e7c;
+    box-shadow: 0 5px 12px #376e7c25;
+    transform: translateY(-2px);
+}
+
+.btn-confirmar:disabled {
+    background: #8eafa9;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.nota-reserva {
+    display: block;
+    margin-top: 12px;
+    color: #a1adb4;
+    font-size: 9px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* =========================================
+   ACCESIBILIDAD
+========================================= */
+
+.especialidad-opcion input:focus-visible + .especialidad-card,
+.profesional-opcion input:focus-visible + .profesional-card,
+.fecha-opcion input:focus-visible + .fecha-card,
+.horario-opcion input:focus-visible + span {
+    outline: 2px solid #5795a0;
+    outline-offset: 3px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .contenido-solicitud {
+        grid-template-columns: minmax(0, 1fr) 280px;
+        gap: 16px;
+    }
+
+    .seleccion-turno {
+        padding: 23px;
+    }
+
+    .especialidades-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+
+    .contenido-solicitud {
+        grid-template-columns: 1fr;
+    }
+
+    .resumen-turno {
+        position: static;
+    }
+
+    .encabezado-solicitud {
+        padding: 30px;
+    }
+
+    .imagen-encabezado {
+        width: 230px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .header-principal {
+        min-height: 70px;
+        padding: 12px 5%;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .header-principal h1 {
+        font-size: 22px;
+    }
+
+    .header-principal-nav {
+        gap: 16px;
+    }
+
+    .header-principal-nav a {
+        font-size: 11px;
+    }
+
+    .pagina-solicitar {
+        width: 94%;
+        margin: 22px auto 45px;
+    }
+
+    .encabezado-solicitud {
+        min-height: 160px;
+        padding: 24px;
+    }
+
+    .encabezado-solicitud h1 {
+        font-size: 27px;
+    }
+
+    .encabezado-solicitud p {
+        max-width: 250px;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .imagen-encabezado {
+        display: none;
+    }
+
+    .pasos-solicitud {
+        gap: 9px;
+        padding: 15px 10px;
+        justify-content: space-between;
+    }
+
+    .paso {
+        gap: 6px;
+    }
+
+    .paso > span {
+        width: 29px;
+        height: 29px;
+        font-size: 11px;
+    }
+
+    .paso strong {
+        font-size: 9px;
+    }
+
+    .paso small {
+        display: none;
+    }
+
+    .linea-paso {
+        width: 12px;
+    }
+
+    .seleccion-turno {
+        padding: 18px;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 16px;
+    }
+
+    .titulo-seccion p {
+        font-size: 11px;
+    }
+
+    .especialidades-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .profesionales-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fechas-disponibles {
+        gap: 6px;
+    }
+
+    .fecha-card {
+        padding: 10px 3px;
+    }
+
+    .fecha-card strong {
+        font-size: 18px;
+    }
+
+    .horarios-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .resumen-contenido {
+        padding: 19px;
+    }
 }
 
 
