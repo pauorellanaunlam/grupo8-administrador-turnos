@@ -1,30 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Turnos - Turnos Médicos</title>
+    <title>Mis Turnos - Turnos Salud</title>
     <link rel="stylesheet" href="../.css/styles.css">
+    <script src="../.js/misturnos.js" defer></script>
 </head>
 
-<body>
+<body class="pagina-inicio-usuario">
 
     <header class="header-principal">
-        <h1>Turnos Médicos</h1>
+        <h1>Turnos <span>Salud</span></h1>
 
         <nav class="header-principal-nav">
-            <a href="usuario.html">Inicio</a>
-            <a href="miperfil.html">Mi Cuenta</a>
+            <a href="miperfil.html">Mi cuenta</a>
+            <a href="admin.html">Vista Administrador</a>
             <a href="../index.html">Cerrar sesión</a>
             <button type="button" class="button-tema-pagina">
-                Claro / Oscuro
+                Claro/Oscuro
             </button>
         </nav>
     </header>
 
-    <main class="pagina-usuario">
+    <main class="pagina-usuario pagina-mis-turnos-layout">
 
         <aside>
             <nav>
@@ -36,132 +36,210 @@
             </nav>
         </aside>
 
-        <div class="contenido-usuario">
 
-            <section class="home-usuario">
+<div class="contenido-usuario pagina-mis-turnos">
 
-                <h2>Mis turnos</h2>
-                <p>Consultá tus turnos médicos.</p>
+    <!-- ENCABEZADO -->
+    <section class="mis-turnos-header">
+        <div>
+            <span class="etiqueta-seccion">ESPACIO PERSONAL</span>
+            <h2>Mi agenda médica</h2>
+            <p>Hola, Rocío. Estos son tus próximos compromisos de salud.</p>
+        </div>
 
-                <div class="selector-vista">
-                    <span>Visualizar como:</span>
-                    <a href="misturnos.html" class="button-vista">
-                        Vista Tarjetas
-                    </a>
-                    <a href="vistalista.html" class="button-vista">
-                        Vista Lista
-                    </a>
+        <a href="solicitarturnos.html" class="btn-nuevo-turno">
+            <span>+</span> Agendar consulta
+        </a>
+    </section>
+
+
+    <!-- DESTACADO: PRÓXIMA CONSULTA -->
+    <section class="turno-destacado">
+
+        <div class="destacado-principal">
+
+            <div class="destacado-superior">
+                <span class="destacado-indicador">
+                    <span></span> TU PRÓXIMA CONSULTA
+                </span>
+                <span class="destacado-numero">01 / 03</span>
+            </div>
+
+            <div class="destacado-fecha">
+                <div class="fecha-bloque">
+                    <span>JUEVES</span>
+                    <strong>12</strong>
+                    <span>NOVIEMBRE 2026</span>
                 </div>
 
-                <div class="lista-turnos">
-
-                    <article class="card-turno">
-                        <div class="card-turno-cabecera">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl8X-lT56jiiSbzxJbwUiQQ0hHTkdAG6TaCv5QXEorNEdbDLcs2qZiGrs&s=10" alt="Dra. María González" class="foto-medico">
-                            <h3 class="card-turno-especialidad">
-                                Clínica médica
-                            </h3>
-                        </div>
-
-                        <ul class="card-turno-datos">
-                            <li>Profesional: Dra. María González</li>
-                            <li>Fecha: 25/10/2026</li>
-                            <li>Hora: 09:30 hs</li>
-                            <li>Lugar: Consultorio 1</li>
-                        </ul>
-
-                        <button type="button"
-                                class="button-favorito activo">
-                            ♥ Favorito
-                        </button>
-
-                        <a href="#cancelar-1"
-                           class="button-cancelar-turno">
-                            Cancelar turno
-                        </a>
-                    </article>
-
-                    <article class="card-turno">
-                        <div class="card-turno-cabecera">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBOPumyCr7CNYET0DyPHgt4Y311NOgmzTUfXUK9OzCS_-T9a3fDnfk-bo&s=10" alt="Dr. Carlos Ramírez" class="foto-medico">
-
-                            <h3 class="card-turno-especialidad">
-                                Cardiología
-                            </h3>
-                        </div>
-
-                        <ul class="card-turno-datos">
-                            <li>Profesional: Dr. Carlos Ramírez</li>
-                            <li>Fecha: 28/10/2026</li>
-                            <li>Hora: 11:00 hs</li>
-                            <li>Lugar: Consultorio 3</li>
-                        </ul>
-
-                        <button type="button" class="button-favorito">
-                            ♡ Agregar a favoritos
-                        </button>
-
-                        <a href="#cancelar-2"
-                           class="button-cancelar-turno">
-                            Cancelar turno
-                        </a>
-                    </article>
-
-                    <article class="card-turno">
-                        <div class="card-turno-cabecera">
-                             <img src="https://img.magnific.com/foto-gratis/hermosa-joven-doctora-mirando-camara-oficina_1301-7807.jpg?semt=ais_hybrid&w=740&q=80" alt="Dra. Laura Medina" class="foto-medico">
-
-                            <h3 class="card-turno-especialidad">
-                                Dermatología
-                            </h3>
-                        </div>
-
-                        <ul class="card-turno-datos">
-                            <li>Profesional: Dra. Laura Medina</li>
-                            <li>Fecha: 03/11/2026</li>
-                            <li>Hora: 14:30 hs</li>
-                            <li>Lugar: Consultorio 2</li>
-                        </ul>
-
-                        <button type="button" class="button-favorito">
-                            ♡ Agregar a favoritos
-                        </button>
-
-                        <a href="#cancelar-3"
-                           class="button-cancelar-turno">
-                            Cancelar turno
-                        </a>
-                    </article>
-
-                    <article class="card-turno card-turno-cancelado">
-                        <div class="card-turno-cabecera">
-                            <img src="https://thumbs.dreamstime.com/b/doctor-profesional-implicado-en-trabajo-61594558.jpg" alt="Dr. Pablo Suárez" class="foto-medico">
-
-                            <h3 class="card-turno-especialidad">
-                                Pediatría
-                            </h3>
-                        </div>
-
-                        <ul class="card-turno-datos">
-                            <li>Profesional: Dr. Pablo Suárez</li>
-                            <li>Fecha: 10/10/2026</li>
-                            <li>Hora: 10:00 hs</li>
-                            <li>Estado: Cancelado</li>
-                        </ul>
-                    </article>
-
+                <div class="fecha-descripcion">
+                    <span>09:30 HS</span>
+                    <h2>Es momento de tu<br>control médico.</h2>
+                    <p>Tené a mano los detalles de tu consulta.</p>
                 </div>
+            </div>
 
-                <a href="solicitarturnos.html"
-                   class="button-vista">
-                    Solicitar nuevo turno
-                </a>
-
-            </section>
+            <div class="destacado-medico">
+                <div class="avatar-medico">MG</div>
+                <div>
+                    <strong>Dra. María González</strong>
+                    <span>Clínica médica</span>
+                </div>
+                <span class="estado-confirmado">Confirmado</span>
+            </div>
 
         </div>
 
-    </main>
+        <aside class="destacado-lateral">
+            <div class="lateral-icono">
+                <span>✚</span>
+            </div>
 
-</body>
-</html>
+            <span class="lateral-etiqueta">DETALLES DE LA VISITA</span>
+
+            <div class="lateral-dato">
+                <span>HORARIO</span>
+                <strong>09:30 hs</strong>
+            </div>
+
+            <div class="lateral-dato">
+                <span>UBICACIÓN</span>
+                <strong>Consultorio 1</strong>
+            </div>
+
+            <div class="lateral-dato">
+                <span>ESPECIALIDAD</span>
+                <strong>Clínica médica</strong>
+            </div>
+
+            <div class="lateral-mensaje">
+                Recordá llegar unos minutos antes de tu turno.
+            </div>
+        </aside>
+
+    </section>
+
+
+    <!-- AGENDA -->
+    <section class="agenda-turnos">
+
+        <div class="agenda-titulo">
+            <div>
+                <span class="etiqueta-seccion">NOVIEMBRE 2026</span>
+                <h2>Tu agenda</h2>
+                <p>Otras consultas que tenés programadas.</p>
+            </div>
+
+            <span class="agenda-total">02 próximos turnos</span>
+        </div>
+
+
+        <div class="agenda-listado">
+
+            <article class="agenda-item">
+
+                <div class="agenda-calendario">
+                    <span>LUN</span>
+                    <strong>16</strong>
+                    <small>NOV</small>
+                </div>
+
+                <div class="agenda-descripcion">
+                    <span class="agenda-categoria">CARDIOLOGÍA</span>
+                    <h3>Dr. Carlos Ramírez</h3>
+                    <p>Control cardiológico</p>
+                </div>
+
+                <div class="agenda-horario">
+                    <span>HORARIO</span>
+                    <strong>11:00 hs</strong>
+                </div>
+
+                <div class="agenda-consultorio">
+                    <span>UBICACIÓN</span>
+                    <strong>Consultorio 3</strong>
+                </div>
+
+                <div class="agenda-estado">
+                    <span class="estado-confirmado">Confirmado</span>
+                    <button type="button" class="button-cancelar-turno">
+                        Cancelar
+                    </button>
+                </div>
+
+            </article>
+
+
+            <article class="agenda-item">
+
+                <div class="agenda-calendario">
+                    <span>JUE</span>
+                    <strong>19</strong>
+                    <small>NOV</small>
+                </div>
+
+                <div class="agenda-descripcion">
+                    <span class="agenda-categoria">DERMATOLOGÍA</span>
+                    <h3>Dra. Laura Medina</h3>
+                    <p>Consulta dermatológica</p>
+                </div>
+
+                <div class="agenda-horario">
+                    <span>HORARIO</span>
+                    <strong>14:30 hs</strong>
+                </div>
+
+                <div class="agenda-consultorio">
+                    <span>UBICACIÓN</span>
+                    <strong>Consultorio 2</strong>
+                </div>
+
+                <div class="agenda-estado">
+                    <span class="estado-confirmado">Confirmado</span>
+                    <button type="button" class="button-cancelar-turno">
+                        Cancelar
+                    </button>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- HISTORIAL -->
+    <section class="historial-turnos">
+
+        <div class="historial-cabecera">
+            <div>
+                <span class="etiqueta-seccion">REGISTRO PERSONAL</span>
+                <h2>Actividad reciente</h2>
+            </div>
+
+            <span class="historial-total">01 registro</span>
+        </div>
+
+        <div class="historial-registro">
+
+            <div class="historial-fecha">
+                <strong>05</strong>
+                <span>NOV</span>
+            </div>
+
+            <div class="historial-detalle">
+                <strong>Dr. Pablo Suárez</strong>
+                <span>Pediatría · Consulta médica</span>
+            </div>
+
+            <span class="estado-cancelado">Cancelado</span>
+
+            <a href="solicitarturnos.html?profesional=4">
+                Volver a solicitar →
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
