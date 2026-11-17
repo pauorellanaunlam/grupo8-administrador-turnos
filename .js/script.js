@@ -110,3 +110,64 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+// ------- PAGINA USUARIO :) ---------
+
+// buscar por especialidad
+
+const selectBuscar = document.getElementById("buscar-especialidad");
+const botonBuscarTurnos = document.querySelector(".button-nuevo-turno");
+const tarjetasProfesionales = document.querySelectorAll(".card-turno");
+
+if (selectBuscar && botonBuscarTurnos) {
+
+    botonBuscarTurnos.addEventListener("click", function() {
+
+        const especialidadSeleccionada = selectBuscar.value;
+
+        tarjetasProfesionales.forEach(function(tarjeta) {
+
+            const especialidad = tarjeta.querySelector(":scope > p").textContent.toLowerCase();
+
+            if (
+                especialidadSeleccionada === "" ||
+                (especialidadSeleccionada === "clinica" && especialidad.includes("clínica")) ||
+                (especialidadSeleccionada === "cardiologia" && especialidad.includes("cardiología")) ||
+                (especialidadSeleccionada === "dermatologia" && especialidad.includes("dermatología"))
+            ) {
+                tarjeta.style.display = "";
+            } else {
+                tarjeta.style.display = "none";
+            }
+
+        });
+
+    });
+
+}
+
+// Favs
+
+const botonesFavoritosUsuario = document.querySelectorAll(".button-favorito");
+
+botonesFavoritosUsuario.forEach(function(boton) {
+
+    boton.addEventListener("click", function() {
+
+        boton.classList.toggle("activo");
+
+        if (boton.classList.contains("activo")) {
+
+            boton.textContent = "♥";
+            boton.setAttribute("aria-label", "Quitar de favoritos");
+
+        } else {
+
+            boton.textContent = "♡";
+            boton.setAttribute("aria-label", "Agregar a favoritos");
+
+        }
+
+    });
+
+});
