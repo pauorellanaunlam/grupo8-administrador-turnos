@@ -16,11 +16,14 @@
         </div>
 
         <nav class="header-principal-nav">
-            <a href="miperfil.html">Mi cuenta</a>
             <a href="admin.html">Vista Administrador</a>
+            <a href="miperfil.html">Mi cuenta</a>
             <a href="../index.html">Cerrar sesión</a>
+            <a href="solicitarturnos.html" class="button-reservar-turno">
+                Reservar turno
+            </a>
             <button type="button" class="button-tema-pagina" id="boton-tema">
-                Modo oscuro
+                🌙
             </button>
         </nav>
     </header>
@@ -52,7 +55,7 @@
                         </select>
                     </div>
 
-                    <button type="button" class="button-nuevo-turno">
+                    <button type="button" class="button-nuevo-turno" id="btn-buscar-turnos">
                         Buscar turnos
                     </button>
 
@@ -80,61 +83,6 @@
                 </div>
 
                 <div class="lista-turnos" id="lista-profesionales">
-
-                    <article class="card-turno">
-                        <h3>Dra. María González</h3>
-                        <p>Clínica médica</p>
-
-                        <div class="card-turno-datos">
-                            <p>Próximo turno: 09/11/2026 · 09:30 hs</p>
-                            <p>Consultorio 1</p>
-                        </div>
-
-                        <button type="button" class="button-favorito activo" aria-label="Quitar de favoritos">
-                            ♥
-                        </button>
-
-                        <a href="solicitarturnos.html?profesional=1" class="button-vista">
-                            Ver turnos
-                        </a>
-                    </article>
-
-                    <article class="card-turno">
-                        <h3>Dr. Carlos Ramírez</h3>
-                        <p>Cardiología</p>
-
-                        <div class="card-turno-datos">
-                            <p>Próximo turno: 10/11/2026 · 11:00 hs</p>
-                            <p>Consultorio 3</p>
-                        </div>
-
-                        <button type="button" class="button-favorito" aria-label="Agregar a favoritos">
-                            ♡
-                        </button>
-
-                        <a href="solicitarturnos.html?profesional=2" class="button-vista">
-                            Ver turnos
-                        </a>
-                    </article>
-
-                    <article class="card-turno">
-                        <h3>Dra. Laura Medina</h3>
-                        <p>Dermatología</p>
-
-                        <div class="card-turno-datos">
-                            <p>Próximo turno: 11/11/2026 · 14:30 hs</p>
-                            <p>Consultorio 2</p>
-                        </div>
-
-                        <button type="button" class="button-favorito" aria-label="Agregar a favoritos">
-                            ♡
-                        </button>
-
-                        <a href="solicitarturnos.html?profesional=3" class="button-vista">
-                            Ver turnos
-                        </a>
-                    </article>
-
                 </div>
 
             </section>
@@ -142,6 +90,7 @@
         </div>
 
     </main>
+    <script src="../.js/usuario.js" defer></script>
     <script src="../.js/script.js" defer></script>
 </body>
 
