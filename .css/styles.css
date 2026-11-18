@@ -1785,64 +1785,164 @@ body {
     }
 }
 
+/* =============================================================================
+   PAGINA ADMINISTRADOR
+   ============================================================================= */
 
-/* ---- PÁGINA ADMINISTRADOR ---- */
+/*modo oscuro y modo claro*/
+
+body.modo-oscuro .pagina-admin {
+    color: #e8f3f1;
+}
+
+body.modo-oscuro .admin-seccion {
+    background-color: #162a2d;
+    border: 1px solid #2c4a4d;
+}
+
+body.modo-oscuro .admin-input {
+    color: #e8f3f1;
+    background-color: #0f1c1e;
+    border: 1px solid #2c4a4d;
+}
+
+body.modo-oscuro .admin-input:focus {
+    outline: 2px solid #5cc4c0;
+}
+
+body.modo-oscuro .admin-input-invalido {
+    border: 2px solid #d93025;
+}
+
+body.modo-oscuro .admin-input-valido {
+    border: 2px solid #2e9e4f;
+}
+
+body.modo-oscuro .admin-boton-publicar {
+    color: #0c1b1d;
+    background-color: #5cc4c0;
+}
+
+body.modo-oscuro .admin-boton-publicar:hover {
+    background-color: #4aa9a5;
+}
+
+body.modo-oscuro .admin-mensaje-vacio {
+    color: #9db5b2;
+}
+
+body.modo-oscuro .card-turno-admin {
+    color: #e8f3f1;
+    background-color: #0f1c1e;
+    border: 1px solid #2c4a4d;
+    border-left: 5px solid #5cc4c0;
+}
+
+body.modo-oscuro .card-turno-admin-titulo {
+    color: #5cc4c0;
+}
+
+body.modo-oscuro .card-turno-admin-cancelado {
+    border-left-color: #ff9b94;
+}
+
+body.modo-oscuro .card-turno-admin-cancelado .card-turno-admin-titulo {
+    color: #ff9b94;
+}
+
+body.modo-oscuro .card-turno-admin-boton {
+    color: #5cc4c0;
+    background-color: transparent;
+    border: 1px solid #5cc4c0;
+}
+
+body.modo-oscuro .card-turno-admin-boton:hover {
+    color: #0c1b1d;
+    background-color: #dcefeb;
+}
+
+body.modo-oscuro .card-turno-admin-boton-eliminar,
+body.modo-oscuro .card-turno-admin-boton-cancelar {
+    color: #ff9b94;
+    border-color: #ff9b94;
+}
+
+body.modo-oscuro .card-turno-admin-boton-eliminar:hover,
+body.modo-oscuro .card-turno-admin-boton-cancelar:hover {
+    color: #883b35;
+    background-color: #fbeae9;
+}
+
+
+/* pagina admin */
 
 .pagina-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     max-width: 900px;
     margin: 0 auto;
     padding: 30px 20px;
-    font-family: Arial, sans-serif;
     font-size: 16px;
     color: #12272b;
 }
- 
-.pagina-admin h1 {
-    margin-bottom: 20px;
-}
- 
-.pagina-admin h2 {
-    margin-top: 0;
-}
 
-.crear-turno,
-.turnos,
-.turnos-reservados {
+.admin-seccion {
     background-color: white;
     border: 1px solid #c3d8d5;
     border-radius: 12px;
     padding: 20px;
-    margin-bottom: 20px;
 }
- 
-#form-crear-turno {
-    min-width: 100%;
-}
- 
-#form-crear-turno label {
-    display: block;
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     margin-top: 15px;
-    margin-bottom: 5px;
+}
+
+.admin-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.admin-label {
     font-weight: bold;
 }
- 
-#form-crear-turno input,
-#form-crear-turno select {
-    display: block;
-    width: 100%;
+
+.admin-input {
     padding: 10px;
     font-size: 16px;
+    color: #12272b;
+    background-color: white;
     border: 1px solid #c3d8d5;
     border-radius: 8px;
 }
- 
-#form-crear-turno input:focus,
-#form-crear-turno select:focus {
+
+.admin-input:focus {
     outline: 2px solid #0a7ea4;
 }
- 
-#form-crear-turno button {
-    margin-top: 20px;
+
+.admin-input-invalido {
+    border: 2px solid #d93025;
+}
+
+.admin-input-valido {
+    border: 2px solid #2e9e4f;
+}
+
+.admin-error {
+    font-size: 0.85rem;
+    color: #d93025;
+}
+
+.admin-error:empty {
+    display: none;
+}
+
+.admin-boton-publicar {
+    margin-top: 5px;
     padding: 12px 24px;
     font-size: 16px;
     font-weight: bold;
@@ -1851,47 +1951,54 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    width: 100%;
 }
- 
-#form-crear-turno button:hover {
+
+.admin-boton-publicar:hover {
     background-color: #0a5559;
 }
- 
-/* ---------- Cards ---------- */
+
 .lista-turnos-admin {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
     padding-top: 25px;
 }
- 
+
+.admin-mensaje-vacio {
+    color: #777;
+    font-style: italic;
+}
+
 .card-turno-admin {
     display: flex;
     flex-direction: column;
+    gap: 4px;
     width: 260px;
+    min-height: 220px;
     padding: 16px;
+    color: #12272b;
     background-color: #f5f9f8;
     border: 1px solid #c3d8d5;
     border-left: 5px solid #0a7ea4;
     border-radius: 8px;
-    min-height: 220px;
-
 }
- 
-.card-turno-admin h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
+
+.card-turno-admin-titulo {
+    margin-bottom: 6px;
     color: #0a7ea4;
 }
- 
-.card-turno-admin p {
-    margin: 4px 0;
+
+.card-turno-admin-cancelado {
+    border-left-color: #b3261e;
+    opacity: 0.85;
 }
- 
-.card-turno-admin button {
+
+.card-turno-admin-cancelado .card-turno-admin-titulo {
+    color: #b3261e;
+}
+
+.card-turno-admin-boton {
     margin-top: auto;
-    align-self: flex-start;
     padding: 8px 16px;
     font-size: 14px;
     color: #0a7ea4;
@@ -1899,81 +2006,23 @@ body {
     border: 1px solid #0a7ea4;
     border-radius: 20px;
     cursor: pointer;
-    width: 100%;
-
 }
- 
-.card-turno-admin button:hover {
+
+.card-turno-admin-boton:hover {
+    color: #0a7ea4;
     background-color: #dcefeb;
 }
- 
-.card-turno-admin .button-eliminar {
+
+.card-turno-admin-boton-eliminar,
+.card-turno-admin-boton-cancelar {
     color: #b3261e;
     border-color: #b3261e;
 }
- 
-.card-turno-admin .button-eliminar:hover {
+
+.card-turno-admin-boton-eliminar:hover,
+.card-turno-admin-boton-cancelar:hover {
+    color: #b3261e;
     background-color: #fbeae9;
-}
- 
-/* ---------- Modo oscuro ---------- */
-body.modo-oscuro .pagina-admin {
-    color: #e8f3f1;
-}
- 
-body.modo-oscuro .crear-turno,
-body.modo-oscuro .turnos,
-body.modo-oscuro .turnos-reservados {
-    background-color: #162a2d;
-    border-color: #2c4a4d;
-}
- 
-body.modo-oscuro #form-crear-turno input,
-body.modo-oscuro #form-crear-turno select {
-    background-color: #0f1c1e;
-    color: #e8f3f1;
-    border-color: #2c4a4d;
-}
- 
-body.modo-oscuro #form-crear-turno button {
-    color: #0c1b1d;
-    background-color: #5cc4c0;
-}
- 
-body.modo-oscuro .card-turno-admin {
-    background-color: #0f1c1e;
-    border-color: #2c4a4d;
-    border-left-color: #5cc4c0;
-    color: #e8f3f1;
-}
- 
-body.modo-oscuro .card-turno-admin h3 {
-    color: #5cc4c0;
-}
- 
-body.modo-oscuro .card-turno-admin button {
-    color: #5cc4c0;
-    background-color: transparent;
-    border-color: #5cc4c0;
-}
- 
-body.modo-oscuro .card-turno-admin .button-eliminar {
-    color: #ff9b94;
-    border-color: #ff9b94;
-}
-
-body.modo-oscuro .card-turno-admin .button-eliminar:hover {
-    background-color: #fbeae9;
-    color: #883b35;
-}
-
-body.modo-oscuro .card-turno-admin button:hover {
-    background-color: #dcefeb;
-    color: #0c1b1d;
-}
-
-body.modo-oscuro #form-crear-turno button:hover {
-    background-color: #4aa9a5;
 }
 
 /* pagina mis turnos */
