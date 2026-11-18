@@ -2530,7 +2530,20 @@ body.modo-oscuro .card-turno-admin-boton-cancelar:hover {
 .historial-registro a:hover {
     text-decoration: underline;
 }
+.input-editar-perfil {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #0789b2;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #244a6b;
+    background: white;
+}
 
+.input-editar-perfil:focus {
+    outline: none;
+    border-color: #066f91;
+}
 
 /* =====================================
    RESPONSIVE

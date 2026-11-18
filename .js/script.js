@@ -82,5 +82,70 @@ document.addEventListener("DOMContentLoaded", () => {
             actualizarContadores();
         });
     });
+    const turnosGuardados = JSON.parse(localStorage.getItem("turnosUsuario")) || [];
+    
+    if (agendaListado && turnosGuardados.length > 0) {
+        turnosGuardados.forEach((turno, index) => {
+            const articulo = document.createElement("article");
+            articulo.className = "agenda-item";
+            
+            const partesFecha = turno.fecha ? turno.fecha.split(" de ") : ["16", "noviembre"];
+            const diaNum = partesFecha[0] ? partesFecha[0].padStart(2, "0") : "16";
+            const mesStr = partesFecha[1] ? partesFecha[1].substring(0, 3).toUpperCase() : "NOV";
+
+            articulo.innerHTML = `
+                <div class="agenda-calendario">
+                    <span>TUR</span>
+                    <strong>${diaNum}</strong>
+                    <small>${mesStr}</small>
+                </div>
+
+                <div class="agenda-descripcion">
+                    <span class="agenda-categoria">${turno.especialidad}</span>
+                    <h3>${turno.profesional}</h3>
+                    <p>Atención médica</p>
+                </div>
+
+                <div class="agenda-horario">
+                    <span>HORARIO</span>
+                    <strong>${turno.horario}</strong>
+                </div>
+
+                <div class="agenda-consultorio">
+                    <span>UBICACIÓN</span>
+                    <strong>${turno.consultorio}</strong>
+                </div>
+
+                <div class="agenda-estado">
+                    <span class="estado-confirmado">Confirmado</span>
+                    <button type="button" class="button-cancelar-turno">
+                        Cancelar
+                    </button>
+                </div>
+            `;
+
+            agendaListado.appendChild(articulo);
+
+            const btnNuevoCancel = articulo.querySelector(".button-cancelar-turno");
+            btnNuevoCancel.addEventListener("click", () => {
+                if (!confirm("¿Querés cancelar este turno?")) return;
+
+                articulo.remove();
+                agregarAHistorial({
+                    diaNumero: diaNum,
+                    mesCorto: mesStr,
+                    especialidad: turno.especialidad,
+                    profesional: turno.profesional,
+                    descripcion: "Atención médica"
+                });
+                actualizarContadores();
+
+                turnosGuardados.splice(index, 1);
+                localStorage.setItem("turnosUsuario", JSON.stringify(turnosGuardados));
+            });
+        });
+
+        actualizarContadores();
+    }
 });
 

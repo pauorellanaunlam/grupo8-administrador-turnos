@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi perfil - Turno Salud</title>
     <link rel="stylesheet" href="../.css/styles.css">
+    <script src="../.js/script.js" defer></script>
 </head>
 
 <body>
@@ -41,7 +42,6 @@
 
             <a href="misturnos.html">Mis turnos</a>
 
-            <a>Mis favoritos</a>
 
             <a>Configuración</a>
 
@@ -63,7 +63,7 @@
             <section class="presentacion-paciente">
 
                 <div class="foto-paciente">
-                    <img src=".img/medica.png" alt="Foto de perfil de María Pérez" class="avatar-paciente">
+                    <img src="../.img/MARIAPEREZ.png" alt="Foto de perfil de María Pérez" class="avatar-paciente">
                 </div>
 
                 <div class="datos-presentacion">
@@ -72,7 +72,7 @@
                         ● Cuenta activa
                     </span>
 
-                    <h3>María Pérez</h3>
+                    <h3 id="nombre-presentacion">María Pérez</h3>
 
                     <p>Paciente N.º 000124</p>
 
@@ -82,7 +82,7 @@
 
                 </div>
 
-                <button type="button" class="button-editar-perfil">
+                <button type="button" class="button-editar-perfil" id="editar-perfil">
                     ✎ Editar perfil
                 </button>
 
@@ -108,32 +108,32 @@
 
                     <div class="dato-perfil">
                         <span>Nombre completo</span>
-                        <p>María Pérez</p>
+                        <p id="nombre-perfil">María Pérez</p>
                     </div>
 
                     <div class="dato-perfil">
                         <span>DNI</span>
-                        <p>12.345.678</p>
+                        <p id="dni-perfil">12.345.678</p>
                     </div>
 
                     <div class="dato-perfil">
                         <span>Correo electrónico</span>
-                        <p>maria@email.com</p>
+                        <p id="correo-perfil">maria@email.com</p>
                     </div>
 
                     <div class="dato-perfil">
                         <span>Teléfono</span>
-                        <p>11 2345-6789</p>
+                        <p id="telefono-perfil">11 2345-6789</p>
                     </div>
 
                     <div class="dato-perfil">
                         <span>Fecha de nacimiento</span>
-                        <p>15/06/1998</p>
+                        <p id="nacimiento-perfil">15/06/1998</p>
                     </div>
 
                     <div class="dato-perfil">
                         <span>Domicilio</span>
-                        <p>Buenos Aires, Argentina</p>
+                        <p id="domicilio-perfil">Buenos Aires, Argentina</p>
                     </div>
 
                 </div>
@@ -142,6 +142,7 @@
 
 
 
+            <!-- ESTADÍSTICAS -->
             <section class="estadisticas-perfil">
 
                 <article class="estadistica-paciente">
@@ -151,7 +152,7 @@
                     </div>
 
                     <div>
-                        <strong>02</strong>
+                        <strong id="contador-proximos">0</strong>
                         <p>Próximos turnos</p>
                     </div>
 
@@ -165,7 +166,7 @@
                     </div>
 
                     <div>
-                        <strong>03</strong>
+                        <strong id="contador-favoritos">0</strong>
                         <p>Médicos favoritos</p>
                     </div>
 
@@ -174,7 +175,7 @@
             </section>
 
 
-
+            <!-- PRÓXIMA CONSULTA -->
             <section class="tarjeta-perfil">
 
                 <div class="encabezado-perfil-seccion">
@@ -193,35 +194,16 @@
 
                 </div>
 
+                <div id="proxima-consulta-perfil">
 
-                <article class="consulta-perfil">
+                    <!-- JavaScript genera la próxima consulta -->
 
-                    <div class="fecha-consulta">
-
-                        <strong>25</strong>
-                        <span>OCT</span>
-
-                    </div>
-
-                    <div class="datos-consulta">
-
-                        <h4>Clínica médica</h4>
-
-                        <p>Dra. María González</p>
-
-                        <span>09:30 hs</span>
-
-                    </div>
-
-                    <span class="estado-consulta">
-                        Confirmado
-                    </span>
-
-                </article>
+                </div>
 
             </section>
 
 
+            <!-- MÉDICOS FAVORITOS -->
             <section class="tarjeta-perfil">
 
                 <div class="encabezado-perfil-seccion">
@@ -234,41 +216,21 @@
                         </p>
                     </div>
 
-                    <a href="favoritos.html">
-                        Ver todos
-                    </a>
-
                 </div>
 
+                <div id="lista-favoritos-perfil">
 
-                <article class="medico-favorito-perfil">
+                    <!-- JavaScript genera los médicos favoritos -->
 
-                    <div class="avatar-medico-perfil">
-                        MG
-                    </div>
-
-                    <div class="datos-medico-perfil">
-
-                        <h4>Dra. María González</h4>
-
-                        <p>Clínica médica</p>
-
-                    </div>
-
-                    <span class="corazon-favorito">♥</span>
-
-                    <a href="solicitarturnos.html" class="button-solicitar-perfil">
-                        Solicitar turno
-                    </a>
-
-                </article>
+                </div>
 
             </section>
 
         </div>
 
     </main>
-
+    <script src="../.js/miperfil.js" defer></script>
+    <script src="../.js/script.js" defer></script>
 </body>
 
 </html>
