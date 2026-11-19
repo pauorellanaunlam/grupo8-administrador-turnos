@@ -1,11 +1,9 @@
-// Garantiza que el atributo "hidden" oculte el elemento aunque el CSS
-// del proyecto tenga display:flex/grid en los formularios
+
 const estiloHidden = document.createElement("style");
 estiloHidden.textContent = "[hidden] { display: none !important; }";
 document.head.appendChild(estiloHidden);
 
-// ================== CONFIGURACIÓN ==================
-// Ajustá estas rutas según cómo se llamen tus carpetas
+
 const RUTA_ADMIN = ".html/admin.html";
 const RUTA_USUARIO = ".html/usuario.html";
 
@@ -173,7 +171,7 @@ formAdmin.addEventListener("submit", (e) => {
         id: Date.now(),
         nombre,
         email,
-        password, // OJO: en un sistema real NUNCA se guarda en texto plano
+        password, 
         perfil: PERFIL_ADMIN
     });
     guardarUsuarios(usuarios);
