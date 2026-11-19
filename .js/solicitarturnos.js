@@ -105,6 +105,63 @@
   document.querySelectorAll('input[name="fecha"], input[name="horario"]').forEach((input) => {
     input.addEventListener("change", () => actualizarResumen(2));
   });
+function leerLista(clave) {
+    try {
+      const lista = JSON.parse(localStorage.getItem(clave));
+      return Array.isArray(lista) ? lista : [];
+    } catch {
+      return [];
+    }
+  }
 
+  function guardarLista(clave, lista) {
+    localStorage.setItem(clave, JSON.stringify(lista));
+  }
+
+  function obtenerNombrePaciente() {
+    try {
+      const perfil = JSON.parse(localStorage.getItem(CLAVE_PERFIL));
+      if (perfil && perfil.nombre) return perfil.nombre;
+    } catch {}
+    return "María Pérez";
+  }
+
+  if (botonConfirmar) {
+    botonConfirmar.addEventListener("click", () => {
+      const especialidad = obtenerEspecialidadSeleccionada();
+      const profesional = obtenerProfesionalSeleccionado();
+      const fecha = obtenerFechaSeleccionada();
+      const horario = obtenerHorarioSeleccionado();
+
+      const nuevaReserva = {
+        id: Date.now(),
+        especialidad,
+        profesional: profesional.nombre,
+        fecha: fecha.fechaISO,
+        hora: horario,
+        sede: "Centro Médico Turnos Salud",
+        comentario: "Consultorio 204",
+        paciente: obtenerNombrePaciente(),
+        reservadoPor: PACIENTE_ACTUAL_ID,
+        reservadoEl: new Date().toLocaleString()
+      };
+
+      const reservados = leerLista(CLAVE_RESERVADOS);
+      reservados.unshift(nuevaReserva);
+      guardarLista(CLAVE_RESERVADOS, reservados);
+
+      alert(
+        `¡Turno confirmado!\n\n` +
+        `Profesional: ${nuevaReserva.profesional}\n` +
+        `Especialidad: ${nuevaReserva.especialidad}\n` +
+        `Fecha: ${fecha.textoLegible}\n` +
+        `Horario: ${nuevaReserva.hora} hs`
+      );
+
+      if (confirm("¿Querés ir a 'Mis turnos' para ver tu reserva?")) {
+        window.location.href = "misturnos.html";
+      }
+    });
+  }
   actualizarResumen(0);
 })();
