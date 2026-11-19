@@ -1,3 +1,5 @@
+/* --- BASE --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,19 +11,78 @@
 
 body {
     background-color: #f4f8fb;
-    color: #222222;
+    color: #31536f;
     transition: 0.3s;
 }
 
-body.modo-oscuro {
-    background-color: #222222;
-    color: #f5f5f5;
+
+/* --- HEADER (compartido) --- */
+
+.header-principal {
+    width: 100%;
+    min-height: 76px;
+    padding: 0 5.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-bottom: 1px solid #dce7ef;
 }
 
-body.modo-oscuro .header-inicio {
-    background-color: #222222;
-    color: #f5f5f5;
+.logo-container {
+    display: flex;
+    align-items: center;
 }
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-img {
+    max-width: 150px;
+}
+
+.header-principal-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-principal-nav a {
+    padding: 10px 14px;
+    color: #42637a;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 9px;
+    transition: 0.2s;
+}
+
+.header-principal-nav a:hover {
+    background: #e8f4fa;
+    color: #0789b2;
+}
+
+.header-principal-nav .button-reservar-turno {
+    background: #e8f4fa;
+    color: #0789b2;
+}
+
+.button-tema-pagina {
+    padding: 11px 15px;
+    background: none;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.button-tema-pagina:hover {
+    background: #e8f4fa;
+}
+
 
 /* --- INICIO --- */
 
@@ -29,6 +90,8 @@ body.modo-oscuro .header-inicio {
     display: flex;
     min-height: 100vh;
 }
+
+/* ---------- Lado izquierdo ---------- */
 
 .aside-left-img {
     flex: 0 0 60%;
@@ -38,16 +101,6 @@ body.modo-oscuro .header-inicio {
     justify-content: flex-start;
 }
 
-.aside-right-form {
-    flex: 0 0 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px;
-}
-
-/* ---------- Lado izquierdo ---------- */
 .img-container {
     position: absolute;
     inset: 0;
@@ -68,9 +121,9 @@ body.modo-oscuro .header-inicio {
 
 .text-container {
     position: relative;
-    padding: 0px 10px 70px 60px;
+    padding: 0 10px 70px 60px;
     max-width: 720px;
-    color: #fff;
+    color: #ffffff;
 }
 
 .text-container h1 {
@@ -79,20 +132,26 @@ body.modo-oscuro .header-inicio {
 }
 
 /* ---------- Lado derecho ---------- */
-.logo-img {
-    max-width: 150px;
+
+.aside-right-form {
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
 }
 
 .acceso-rapido {
-    background: #0a7da473;
     padding: 10px;
+    background: #0789b273;
     border-radius: 8px;
 }
 
 .acceso-rapido p {
     margin-bottom: 8px;
+    color: #153e63;
     font-size: 14px;
-    color: #1d4e7c;
     font-weight: 600;
 }
 
@@ -103,20 +162,19 @@ body.modo-oscuro .header-inicio {
 
 .btn-acceso-rapido {
     flex: 1;
-    display: block;
+    padding: 10px;
+    background: #ffffff;
+    color: #0789b2;
+    font-size: 14px;
     text-align: center;
     text-decoration: none;
-    font-size: 14px;
-    padding: 10px;
-    border: 1px solid #0a7ea4;
+    border: 1px solid #0789b2;
     border-radius: 6px;
-    background: #fff;
-    color: #0a7ea4;
     cursor: pointer;
 }
 
 .btn-acceso-rapido:hover {
-    background: #e8f6fb;
+    background: #e8f4fa;
 }
 
 .formulario-inicio {
@@ -133,87 +191,69 @@ body.modo-oscuro .header-inicio {
 
 .input-form {
     padding: 10px;
-    border: 1px solid #ccc;
+    background: #ffffff;
+    color: #222222;
+    border: 1px solid #cccccc;
     border-radius: 6px;
 }
 
 .input-form:focus {
     outline: none;
-    border-color: #0a7ea4;
+    border-color: #0789b2;
 }
 
 .button-iniciar {
     padding: 13px;
+    background: #0789b2;
+    color: #ffffff;
+    font-size: 16px;
     border: none;
     border-radius: 6px;
-    background: #0a7ea4;
-    color: #fff;
-    font-size: 16px;
     cursor: pointer;
 }
 
 .button-iniciar:hover {
-    background: #086583;
+    background: #066f91;
 }
 
 .form-container a {
-    color: #0a7ea4;
+    color: #0789b2;
     font-size: 14px;
 }
 
 .footer-container p {
+    color: #777777;
     font-size: 14px;
-    color: #777;
-}
-
-[hidden] {
-    display: none !important;
 }
 
 
-/*-- MI PERFIL --*/
-
-.pagina-perfil {
-    width: 90%;
-    max-width: 1450px;
-    margin: 40px auto;
-}
-
+/* --- MI PERFIL --- */
 
 .layout-perfil {
-    display: grid;
-    grid-template-columns: 250px minmax(0, 1fr);
+    display: flex;
+    align-items: flex-start;
     gap: 30px;
-
     max-width: 1550px;
     margin: 40px auto;
     padding: 0 35px;
-    align-items: start;
 }
-
-.contenido-perfil {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    min-width: 0;
-}
-
 
 .menu-lateral-perfil {
-    background: white;
-    border: 1px solid #dce7ef;
-    border-radius: 18px;
-    padding: 25px 16px;
-
+    width: 250px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     gap: 9px;
+    padding: 25px 16px;
+    background: #ffffff;
+    border: 1px solid #dce7ef;
+    border-radius: 18px;
 }
 
 .menu-lateral-perfil a {
+    padding: 13px 15px;
     color: #31536f;
     text-decoration: none;
-    padding: 13px 15px;
     border-radius: 9px;
     transition: 0.2s;
 }
@@ -224,27 +264,32 @@ body.modo-oscuro .header-inicio {
     color: #0789b2;
 }
 
+.contenido-perfil {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
 
 .titulo-perfil h2 {
+    margin-bottom: 8px;
     color: #153e63;
     font-size: 28px;
-    margin: 0 0 8px;
 }
 
 .titulo-perfil p {
     color: #648099;
-    margin: 0;
     font-size: 14px;
 }
 
+/* ---------- Presentación del paciente ---------- */
 
 .presentacion-paciente {
     display: flex;
     align-items: center;
     gap: 22px;
-
     padding: 25px 30px;
-
     background: linear-gradient(110deg, #dceff7, #eff8fc);
     border: 1px solid #cfe5f0;
     border-radius: 18px;
@@ -254,10 +299,9 @@ body.modo-oscuro .header-inicio {
     width: 100px;
     height: 100px;
     flex-shrink: 0;
-
-    border-radius: 50%;
     overflow: hidden;
-    border: 4px solid white;
+    border: 4px solid #ffffff;
+    border-radius: 50%;
 }
 
 .foto-paciente img {
@@ -278,15 +322,15 @@ body.modo-oscuro .header-inicio {
 }
 
 .datos-presentacion h3 {
+    margin: 7px 0;
     color: #153e63;
     font-size: 25px;
-    margin: 7px 0;
 }
 
 .datos-presentacion p {
+    margin-bottom: 5px;
     color: #31536f;
     font-size: 14px;
-    margin: 0 0 5px;
 }
 
 .fecha-registro {
@@ -295,10 +339,10 @@ body.modo-oscuro .header-inicio {
 }
 
 .button-editar-perfil {
-    background: #0789b2;
-    color: white;
-    border: none;
     padding: 12px 18px;
+    background: #0789b2;
+    color: #ffffff;
+    border: none;
     border-radius: 9px;
     cursor: pointer;
     transition: 0.2s;
@@ -308,13 +352,13 @@ body.modo-oscuro .header-inicio {
     background: #066f91;
 }
 
+/* ---------- Tarjetas de datos ---------- */
 
 .tarjeta-perfil {
-    background: white;
+    padding: 25px 28px;
+    background: #ffffff;
     border: 1px solid #dce7ef;
     border-radius: 17px;
-    padding: 25px 28px;
-    box-shadow: 0 3px 10px rgba(21, 62, 99, 0.035);
 }
 
 .encabezado-perfil-seccion {
@@ -326,15 +370,14 @@ body.modo-oscuro .header-inicio {
 }
 
 .encabezado-perfil-seccion h3 {
+    margin-bottom: 7px;
     color: #153e63;
     font-size: 20px;
-    margin: 0 0 7px;
 }
 
 .encabezado-perfil-seccion p {
     color: #648099;
     font-size: 13px;
-    margin: 0;
 }
 
 .encabezado-perfil-seccion a {
@@ -348,42 +391,60 @@ body.modo-oscuro .header-inicio {
     text-decoration: underline;
 }
 
-
 .datos-personales-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 23px 35px;
+}
+
+.dato-perfil {
+    flex: 1 1 calc(50% - 18px);
+    min-width: 0;
 }
 
 .dato-perfil span {
     display: block;
+    margin-bottom: 7px;
     color: #648099;
     font-size: 12px;
-    margin-bottom: 7px;
 }
 
 .dato-perfil p {
     color: #244a6b;
     font-size: 14px;
     font-weight: 500;
-    margin: 0;
     overflow-wrap: anywhere;
 }
 
+.input-editar-perfil {
+    width: 100%;
+    padding: 8px;
+    background: #ffffff;
+    color: #244a6b;
+    font-size: 14px;
+    border: 1px solid #0789b2;
+    border-radius: 6px;
+}
+
+.input-editar-perfil:focus {
+    outline: none;
+    border-color: #066f91;
+}
+
+/* ---------- Estadísticas ---------- */
 
 .estadisticas-perfil {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
     gap: 18px;
 }
 
 .estadistica-paciente {
+    flex: 1;
     display: flex;
     align-items: center;
     gap: 16px;
     padding: 20px 22px;
-
-    background: white;
+    background: #ffffff;
     border: 1px solid #dce7ef;
     border-radius: 15px;
 }
@@ -394,11 +455,10 @@ body.modo-oscuro .header-inicio {
     display: flex;
     align-items: center;
     justify-content: center;
-
     background: #e8f4fa;
     color: #0789b2;
-    border-radius: 12px;
     font-size: 26px;
+    border-radius: 12px;
 }
 
 .estadistica-paciente strong {
@@ -407,18 +467,18 @@ body.modo-oscuro .header-inicio {
 }
 
 .estadistica-paciente p {
+    margin-top: 3px;
     color: #648099;
     font-size: 12px;
-    margin: 3px 0 0;
 }
 
+/* ---------- Próxima consulta ---------- */
 
 .consulta-perfil {
     display: flex;
     align-items: center;
     gap: 17px;
     padding: 16px;
-
     background: #f8fbfd;
     border: 1px solid #e0eaf0;
     border-radius: 13px;
@@ -428,13 +488,11 @@ body.modo-oscuro .header-inicio {
     width: 62px;
     height: 62px;
     flex-shrink: 0;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    background: #e5f3f9;
+    background: #e8f4fa;
     color: #0789b2;
     border-radius: 11px;
 }
@@ -453,15 +511,15 @@ body.modo-oscuro .header-inicio {
 }
 
 .datos-consulta h4 {
+    margin-bottom: 5px;
     color: #153e63;
     font-size: 15px;
-    margin: 0 0 5px;
 }
 
 .datos-consulta p {
+    margin-bottom: 5px;
     color: #648099;
     font-size: 13px;
-    margin: 0 0 5px;
 }
 
 .datos-consulta span {
@@ -470,22 +528,23 @@ body.modo-oscuro .header-inicio {
 }
 
 .estado-consulta {
+    padding: 7px 12px;
     background: #e4f5ed;
     color: #16865d;
-    padding: 7px 12px;
-    border-radius: 20px;
     font-size: 11px;
     font-weight: 600;
     white-space: nowrap;
+    border-radius: 20px;
 }
 
+/* ---------- Médicos favoritos ---------- */
 
 .medico-favorito-perfil {
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-bottom: 10px;
     padding: 15px;
-
     background: #f8fbfd;
     border: 1px solid #e0eaf0;
     border-radius: 13px;
@@ -495,15 +554,13 @@ body.modo-oscuro .header-inicio {
     width: 46px;
     height: 46px;
     flex-shrink: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background: #e5f3f9;
+    background: #e8f4fa;
     color: #0789b2;
-    border-radius: 50%;
     font-weight: 600;
+    border-radius: 50%;
 }
 
 .datos-medico-perfil {
@@ -511,15 +568,14 @@ body.modo-oscuro .header-inicio {
 }
 
 .datos-medico-perfil h4 {
+    margin-bottom: 5px;
     color: #153e63;
     font-size: 14px;
-    margin: 0 0 5px;
 }
 
 .datos-medico-perfil p {
     color: #648099;
     font-size: 12px;
-    margin: 0;
 }
 
 .corazon-favorito {
@@ -528,100 +584,33 @@ body.modo-oscuro .header-inicio {
 }
 
 .button-solicitar-perfil {
-    background: #0789b2;
-    color: white;
-    text-decoration: none;
-    text-align: center;
     padding: 10px 15px;
-    border-radius: 9px;
+    background: #0789b2;
+    color: #ffffff;
     font-size: 12px;
+    text-align: center;
+    text-decoration: none;
     white-space: nowrap;
+    border-radius: 9px;
 }
 
 .button-solicitar-perfil:hover {
     background: #066f91;
 }
 
-/* ---- PÁGINA USUARIO ---- */
+
+/* --- PÁGINA USUARIO --- */
 
 .pagina-inicio-usuario {
-    background: #f4f8fb;
     min-height: 100vh;
-}
-
-
-.header-principal {
-    background: #b2c0c5;
-    padding: 20px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #e1eaf0;
-}
-
-.header-principal h1 {
-    color: #17365d;
-    font-size: 24px;
-}
-
-.header-principal h1 span {
-    color: #0a7ea4;
-}
-
-.header-principal-nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.logo-link{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-}
-
-.header-principal a {
-    color: #42637a;
-    padding: 10px 14px;
-    text-decoration: none;
-    border-radius: 9px;
-    font-weight: 500;
-}
-
-.header-principal a:hover {
-    background: #eaf5fa;
-    color: #0a7ea4;
-}
-
-.button-tema-pagina{
-    background: none;
-    border: none;
-    border-radius: 9px;
-    padding: 11px 15px;
-    cursor: pointer;
-}
-
-.button-tema-pagina:hover {
-    background: #eaf5fa;
-    color: #0a7ea4;
-}
-
-.button-reservar-turno {
-    background: #eaf5fa;
-    color: #0a7ea4;
-    border: none;
-    border-radius: 9px;
-    padding: 11px 15px;
-    cursor: pointer;
 }
 
 .pagina-usuario {
     display: flex;
     gap: 28px;
-    padding: 35px 30px;
     max-width: 1450px;
     margin: auto;
+    padding: 35px 30px;
 }
 
 .contenido-usuario {
@@ -632,79 +621,47 @@ body.modo-oscuro .header-inicio {
     gap: 25px;
 }
 
-.pagina-usuario aside {
-    width: 220px;
-    flex-shrink: 0;
-    background: white;
-    border: 1px solid #e1eaf0;
-    border-radius: 18px;
-    padding: 24px 15px;
-    box-sizing: border-box;
-}
-
-.pagina-usuario aside nav {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.pagina-usuario aside a {
-    display: block;
-    padding: 13px 15px;
-    border-radius: 10px;
-    color: #536f85;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.pagina-usuario aside a:hover {
-    background: #eaf5fa;
-    color: #0a7ea4;
-}
-
 .home-usuario {
-    background: white;
-    border: 1px solid #e1eaf0;
-    border-radius: 20px;
     padding: 30px;
+    background: #ffffff;
+    border: 1px solid #dce7ef;
+    border-radius: 20px;
 }
 
 .home-usuario h2 {
-    color: #17365d;
-    font-size: 25px;
     margin-bottom: 12px;
+    color: #153e63;
+    font-size: 25px;
 }
 
 .home-usuario p {
-    color: #667f92;
-    font-size: 14px;
     margin-bottom: 10px;
+    color: #648099;
+    font-size: 14px;
 }
 
-
+/* ---------- Bienvenida y búsqueda ---------- */
 
 .bienvenida-usuario {
     position: relative;
     min-height: 310px;
     padding: 45px 280px 40px 45px;
     background: linear-gradient(115deg, #d9edf7, #eef8fc 75%);
-    border: 1px solid #d3e8f2;
+    border: 1px solid #cfe5f0;
     overflow: hidden;
 }
 
 .bienvenida-usuario h2 {
+    margin-bottom: 12px;
     font-size: 32px;
     line-height: 1.2;
-    margin-bottom: 12px;
 }
 
 .bienvenida-usuario p {
     max-width: 520px;
-    line-height: 1.7;
     margin-bottom: 25px;
+    line-height: 1.7;
 }
-
-
 
 .formulario-busqueda {
     display: flex;
@@ -714,17 +671,17 @@ body.modo-oscuro .header-inicio {
 }
 
 .campo-busqueda {
+    flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 7px;
-    flex: 1;
-    min-width: 0;
 }
 
 .campo-busqueda label {
+    color: #31536f;
     font-size: 13px;
     font-weight: 600;
-    color: #315b76;
 }
 
 .campo-busqueda select,
@@ -732,33 +689,31 @@ body.modo-oscuro .header-inicio {
     width: 100%;
     height: 48px;
     padding: 0 12px;
-    background: white;
+    background: #ffffff;
+    color: #31536f;
     border: 1px solid #c9dfeb;
     border-radius: 10px;
-    color: #315b76;
-    box-sizing: border-box;
 }
 
 .campo-busqueda select:focus,
 .campo-busqueda input:focus {
     outline: none;
-    border-color: #0a7ea4;
+    border-color: #0789b2;
 }
 
 .button-nuevo-turno {
-    background: #0a7ea4;
-    color: white;
+    height: 48px;
+    padding: 0 24px;
+    background: #0789b2;
+    color: #ffffff;
     border: none;
     border-radius: 10px;
-    padding: 0 24px;
-    height: 48px;
     cursor: pointer;
 }
 
 .button-nuevo-turno:hover {
-    background: #086583;
+    background: #066f91;
 }
-
 
 .imagen-bienvenida {
     position: absolute;
@@ -774,10 +729,9 @@ body.modo-oscuro .header-inicio {
     object-fit: contain;
 }
 
+/* ---------- Profesionales ---------- */
 
 .descripcion-profesionales {
-    color: #667f92;
-    font-size: 14px;
     margin-bottom: 20px;
 }
 
@@ -787,54 +741,61 @@ body.modo-oscuro .header-inicio {
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
-    color: #71869a;
+    color: #648099;
     font-size: 13px;
 }
 
 .button-vista {
-    background: #eaf5fa;
-    color: #0a7ea4;
+    padding: 9px 13px;
+    background: #e8f4fa;
+    color: #0789b2;
+    font-size: 13px;
     border: 1px solid #d5e8f0;
     border-radius: 9px;
-    padding: 9px 13px;
-    text-decoration: none;
-    font-size: 13px;
+    cursor: pointer;
 }
 
+.button-vista.activo {
+    background: #0789b2;
+    color: #ffffff;
+    border-color: #0789b2;
+}
 
 .pagina-inicio-usuario .lista-turnos {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
 .pagina-inicio-usuario .card-turno {
+    flex: 1 1 calc(33.333% - 14px);
+    max-width: calc(33.333% - 13px);
     display: flex;
     flex-direction: column;
     gap: 12px;
-    background: white;
+    padding: 24px;
+    background: #ffffff;
     border: 1px solid #e0eaf0;
     border-radius: 16px;
-    padding: 24px;
 }
 
 .pagina-inicio-usuario .card-turno:hover {
-    border-color: #0a7ea4;
+    border-color: #0789b2;
 }
 
 .pagina-inicio-usuario .card-turno h3 {
-    color: #17365d;
+    color: #153e63;
     font-size: 17px;
 }
 
-.pagina-inicio-usuario .card-turno>p {
-    color: #0a7ea4;
+.pagina-inicio-usuario .card-turno > p {
+    color: #0789b2;
     font-size: 13px;
 }
 
 .pagina-inicio-usuario .card-turno-datos {
-    background: #f3f8fb;
     padding: 14px;
+    background: #f3f8fb;
     border-radius: 10px;
 }
 
@@ -846,52 +807,63 @@ body.modo-oscuro .header-inicio {
     align-self: flex-end;
     background: none;
     border: none;
-    font-size: 26px;
     color: #9baebc;
+    font-size: 26px;
     cursor: pointer;
 }
 
 .pagina-inicio-usuario .button-favorito.activo {
-    color: #e46a85;
+    color: #e63946;
 }
 
-.pagina-inicio-usuario .card-turno>a.button-vista {
-    display: block;
+.pagina-inicio-usuario .card-turno > .button-reservar-card {
+    width: 100%;
     margin-top: auto;
-    text-align: center;
-    background: #0a7ea4;
-    color: white;
     padding: 12px;
+    background: #0789b2;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    border: none;
     border-radius: 10px;
-}
-
-/* Botones del selector de vista */
-.selector-vista button.button-vista {
     cursor: pointer;
-    font-family: inherit;
 }
 
-.selector-vista .button-vista.activo {
-    background: #0a7ea4;
-    color: white;
-    border-color: #0a7ea4;
+.pagina-inicio-usuario .card-turno > .button-reservar-card:hover {
+    background: #066f91;
 }
 
-/* ---- VISTA LISTA ---- */
+.pagina-inicio-usuario .mensaje-sin-turnos {
+    flex: 1 1 100%;
+    color: #648099;
+}
+
+/* ---------- Vista lista ---------- */
+
 .pagina-inicio-usuario .lista-turnos.vista-lista {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 12px;
 }
 
 .vista-lista .card-turno {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 2fr auto auto;
+    flex: none;
+    max-width: none;
+    flex-direction: row;
     align-items: center;
     gap: 20px;
     padding: 16px 24px;
 }
 
+.vista-lista .card-turno h3 {
+    flex: 1.2 1 0;
+}
+
+.vista-lista .card-turno > p {
+    flex: 1 1 0;
+}
+
 .vista-lista .card-turno-datos {
+    flex: 2 1 0;
     display: flex;
     flex-wrap: wrap;
     gap: 6px 24px;
@@ -906,163 +878,88 @@ body.modo-oscuro .header-inicio {
     align-self: center;
 }
 
-.pagina-inicio-usuario .vista-lista .card-turno>a.button-vista {
+.pagina-inicio-usuario .vista-lista .card-turno > .button-reservar-card {
+    width: auto;
     margin-top: 0;
     padding: 10px 18px;
     white-space: nowrap;
 }
 
-@media (max-width: 900px) {
-    .vista-lista .card-turno {
-        grid-template-columns: 1fr auto;
-        gap: 8px 16px;
-    }
-
-    .vista-lista .card-turno h3,
-    .vista-lista .card-turno>p {
-        grid-column: 1;
-    }
-
-    .pagina-inicio-usuario .vista-lista .button-favorito {
-        grid-column: 2;
-        grid-row: 1 / span 2;
-    }
-
-    .vista-lista .card-turno-datos,
-    .pagina-inicio-usuario .vista-lista .card-turno>a.button-vista {
-        grid-column: 1 / -1;
-    }
-}
-
-.button-favorito.activo { color: #e63946; }
+/* ---------- Popup de favoritos ---------- */
 
 .popup-favorito {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translate(-50%, 20px);
-  padding: 12px 22px;
-  border-radius: 10px;
-  color: #fff;
-  background: #2a9d5c;
-  box-shadow: 0 6px 20px rgba(0,0,0,.25);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .3s, transform .3s;
-  z-index: 1000;
-}
-.popup-favorito.quitado { background: #555; }
-.popup-favorito.visible { opacity: 1; transform: translate(-50%, 0); }
-
-
-
-/* ---- PÁGINA SOLICITAR TURNOS ---- */
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    padding: 12px 22px;
+    background: #2a9d5c;
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
 }
 
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f5f8fa;
-    color: #29445b;
+.popup-favorito.quitado {
+    background: #555555;
+}
+
+.popup-favorito.visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
 }
 
 
-
-.header-principal {
-    width: 100%;
-    min-height: 76px;
-    padding: 0 5.5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #ffffff;
-    border-bottom: 1px solid #e8eef1;
-}
-
-.header-principal h1 {
-    color: #29445b;
-    font-size: 25px;
-    font-weight: 750;
-    letter-spacing: -1px;
-}
-
-.header-principal h1 span {
-    color: #5795a0;
-}
-
-.header-principal-nav {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-}
-
-.header-principal-nav a {
-    text-decoration: none;
-    color: #718593;
-    font-size: 13px;
-    font-weight: 600;
-    transition: .2s;
-}
-
-.header-principal-nav a:hover {
-    color: #5795a0;
-}
-
+/* --- SOLICITAR TURNO --- */
 
 .pagina-solicitar {
     width: 92%;
     max-width: 1320px;
     margin: 35px auto 70px;
-    color: #29445b;
 }
 
-/* =========================================
-   ENCABEZADO DE SOLICITUD
-========================================= */
+/* ---------- Encabezado ---------- */
 
 .encabezado-solicitud {
     min-height: 215px;
-    padding: 35px 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(115deg, #e5f1f3, #f0f6f7 65%, #dcebed);
+    margin-bottom: 25px;
+    padding: 35px 48px;
+    background: linear-gradient(115deg, #dceff7, #eff8fc 65%, #dceff7);
     border-radius: 18px;
     overflow: hidden;
-    margin-bottom: 25px;
 }
 
 .encabezado-solicitud h1 {
-    font-size: 34px;
-    font-weight: 750;
-    letter-spacing: -1.2px;
-    color: #29445b;
     margin: 12px 0;
+    color: #153e63;
+    font-size: 34px;
+    font-weight: 700;
 }
 
 .encabezado-solicitud p {
-    color: #748b99;
+    color: #648099;
     font-size: 14px;
 }
 
 .subtitulo {
-    color: #5795a0;
+    color: #0789b2;
     font-size: 10px;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 1.7px;
 }
 
 .imagen-encabezado {
     width: 290px;
     height: 165px;
-    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 25px #29445b18;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(21, 62, 99, 0.1);
     transform: rotate(2deg);
 }
 
@@ -1072,19 +969,17 @@ body {
     object-fit: cover;
 }
 
-/* =========================================
-   PASOS DE RESERVA
-========================================= */
+/* ---------- Pasos ---------- */
 
 .pasos-solicitud {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 25px;
-    padding: 20px;
     margin-bottom: 25px;
+    padding: 20px;
     background: #ffffff;
-    border: 1px solid #e8eef1;
+    border: 1px solid #dce7ef;
     border-radius: 14px;
 }
 
@@ -1092,7 +987,7 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    opacity: .45;
+    opacity: 0.45;
 }
 
 .paso.activo {
@@ -1102,24 +997,25 @@ body {
 .paso > span {
     width: 36px;
     height: 36px;
-    display: grid;
-    place-items: center;
     flex-shrink: 0;
-    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #edf2f4;
-    color: #718593;
+    color: #648099;
     font-size: 13px;
     font-weight: 700;
+    border-radius: 50%;
 }
 
 .paso.activo > span {
-    background: #5795a0;
-    color: white;
+    background: #0789b2;
+    color: #ffffff;
 }
 
 .paso strong {
     display: block;
-    color: #345267;
+    color: #31536f;
     font-size: 12px;
 }
 
@@ -1133,32 +1029,25 @@ body {
 .linea-paso {
     width: 65px;
     height: 1px;
-    background: #e0e9ed;
+    background: #dce7ef;
 }
 
-/* =========================================
-   DISTRIBUCIÓN
-========================================= */
+/* ---------- Distribución ---------- */
 
 .contenido-solicitud {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 315px;
-    align-items: start;
+    display: flex;
+    align-items: flex-start;
     gap: 24px;
 }
 
 .seleccion-turno {
+    flex: 1;
     min-width: 0;
     padding: 30px;
     background: #ffffff;
-    border: 1px solid #e8eef1;
+    border: 1px solid #dce7ef;
     border-radius: 16px;
-    box-shadow: 0 4px 18px #304e5a07;
 }
-
-/* =========================================
-   TÍTULOS DE SECCIÓN
-========================================= */
 
 .titulo-seccion {
     margin-bottom: 22px;
@@ -1168,25 +1057,24 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 5px 9px;
     margin-bottom: 10px;
-    border-radius: 6px;
-    background: #eaf3f4;
-    color: #5795a0;
+    padding: 5px 9px;
+    background: #e8f4fa;
+    color: #0789b2;
     font-size: 10px;
-    font-weight: 800;
+    font-weight: 700;
+    border-radius: 6px;
 }
 
 .titulo-seccion h2 {
     margin-bottom: 7px;
-    color: #29445b;
+    color: #153e63;
     font-size: 19px;
     font-weight: 700;
-    letter-spacing: -.4px;
 }
 
 .titulo-seccion p {
-    color: #91a1aa;
+    color: #648099;
     font-size: 12px;
     line-height: 1.6;
 }
@@ -1197,17 +1085,13 @@ body {
     background: #edf1f3;
 }
 
-/* =========================================
-   ESPECIALIDADES
-========================================= */
+/* ---------- Opciones con radio oculto ---------- */
 
-.especialidades-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-}
-
-.especialidad-opcion {
+.especialidad-opcion,
+.profesional-opcion,
+.fecha-opcion,
+.horario-opcion {
+    position: relative;
     cursor: pointer;
 }
 
@@ -1220,33 +1104,47 @@ body {
     pointer-events: none;
 }
 
+/* ---------- Especialidades ---------- */
+
+.especialidades-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.especialidad-opcion {
+    flex: 1 1 calc(25% - 9px);
+    min-width: 0;
+}
+
 .especialidad-card {
     min-height: 120px;
-    padding: 16px 13px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     gap: 8px;
+    padding: 16px 13px;
     background: #ffffff;
-    border: 1px solid #e6edef;
+    border: 1px solid #dce7ef;
     border-radius: 12px;
-    transition: .2s ease;
+    transition: 0.2s;
 }
 
 .icono-especialidad {
     width: 35px;
     height: 35px;
-    display: grid;
-    place-items: center;
-    border-radius: 10px;
-    background: #edf5f6;
-    color: #5795a0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8f4fa;
+    color: #0789b2;
     font-size: 20px;
+    border-radius: 10px;
 }
 
 .especialidad-card strong {
-    color: #3b5669;
+    color: #31536f;
     font-size: 12px;
 }
 
@@ -1256,41 +1154,39 @@ body {
 }
 
 .especialidad-opcion input:checked + .especialidad-card {
-    background: #f0f7f7;
-    border-color: #5795a0;
-    box-shadow: 0 0 0 2px #5795a015;
+    background: #f0f8fb;
+    border-color: #0789b2;
 }
 
 .especialidad-opcion:hover .especialidad-card {
-    border-color: #8bb7bd;
+    border-color: #0789b2;
     transform: translateY(-2px);
 }
 
-/* =========================================
-   PROFESIONALES
-========================================= */
+/* ---------- Profesionales ---------- */
 
 .profesionales-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 13px;
 }
 
 .profesional-opcion {
-    cursor: pointer;
+    flex: 1 1 calc(50% - 7px);
+    min-width: 0;
 }
 
 .profesional-card {
     min-height: 95px;
-    padding: 13px;
+    position: relative;
     display: flex;
     align-items: center;
     gap: 13px;
-    position: relative;
+    padding: 13px;
     background: #ffffff;
-    border: 1px solid #e6edef;
+    border: 1px solid #dce7ef;
     border-radius: 12px;
-    transition: .2s;
+    transition: 0.2s;
 }
 
 .profesional-card img {
@@ -1308,12 +1204,12 @@ body {
 }
 
 .datos-profesional strong {
-    color: #345267;
+    color: #31536f;
     font-size: 12px;
 }
 
 .datos-profesional span {
-    color: #5795a0;
+    color: #0789b2;
     font-size: 11px;
 }
 
@@ -1323,67 +1219,65 @@ body {
 }
 
 .seleccion-check {
-    display: none;
     width: 22px;
     height: 22px;
-    margin-left: auto;
     flex-shrink: 0;
-    border-radius: 50%;
-    background: #5795a0;
+    margin-left: auto;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: #0789b2;
     color: #ffffff;
-    text-align: center;
-    line-height: 22px;
     font-size: 12px;
+    border-radius: 50%;
 }
 
 .profesional-opcion input:checked + .profesional-card {
-    background: #f0f7f7;
-    border-color: #5795a0;
-    box-shadow: 0 0 0 2px #5795a015;
+    background: #f0f8fb;
+    border-color: #0789b2;
 }
 
 .profesional-opcion input:checked + .profesional-card .seleccion-check {
-    display: block;
+    display: flex;
 }
 
 .profesional-opcion:hover .profesional-card {
-    border-color: #8bb7bd;
+    border-color: #0789b2;
 }
 
-/* =========================================
-   FECHAS
-========================================= */
+/* ---------- Fechas ---------- */
 
 .fechas-disponibles {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 11px;
 }
 
 .fecha-opcion {
-    cursor: pointer;
+    flex: 1 1 calc(20% - 9px);
+    min-width: 0;
 }
 
 .fecha-card {
-    padding: 13px 7px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 6px;
+    padding: 13px 7px;
     background: #ffffff;
-    border: 1px solid #e6edef;
+    border: 1px solid #dce7ef;
     border-radius: 11px;
-    transition: .2s;
+    transition: 0.2s;
 }
 
 .fecha-card small {
     color: #91a2ab;
     font-size: 9px;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .fecha-card strong {
-    color: #345267;
+    color: #31536f;
     font-size: 23px;
 }
 
@@ -1393,9 +1287,8 @@ body {
 }
 
 .fecha-opcion input:checked + .fecha-card {
-    background: #5795a0;
-    border-color: #5795a0;
-    box-shadow: 0 4px 12px #5795a025;
+    background: #0789b2;
+    border-color: #0789b2;
 }
 
 .fecha-opcion input:checked + .fecha-card * {
@@ -1403,12 +1296,10 @@ body {
 }
 
 .fecha-opcion:hover .fecha-card {
-    border-color: #5795a0;
+    border-color: #0789b2;
 }
 
-/* =========================================
-   HORARIOS
-========================================= */
+/* ---------- Horarios ---------- */
 
 .horarios-contenedor {
     margin-top: 25px;
@@ -1426,7 +1317,7 @@ body {
 }
 
 .horarios-titulo h3 {
-    color: #345267;
+    color: #31536f;
     font-size: 13px;
 }
 
@@ -1436,50 +1327,50 @@ body {
 }
 
 .horarios-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
 .horario-opcion {
-    cursor: pointer;
+    flex: 1 1 calc(25% - 8px);
+    min-width: 0;
 }
 
 .horario-opcion span {
     display: block;
     padding: 11px 7px;
-    text-align: center;
     background: #ffffff;
-    border: 1px solid #e1e9ec;
-    border-radius: 8px;
-    color: #547486;
+    color: #31536f;
     font-size: 12px;
     font-weight: 600;
-    transition: .2s;
+    text-align: center;
+    border: 1px solid #dce7ef;
+    border-radius: 8px;
+    transition: 0.2s;
 }
 
 .horario-opcion input:checked + span {
-    background: #e5f1f2;
-    color: #397987;
-    border-color: #5795a0;
+    background: #e8f4fa;
+    color: #066f91;
+    border-color: #0789b2;
 }
 
 .horario-opcion:hover span {
-    border-color: #5795a0;
+    border-color: #0789b2;
 }
 
-/* =========================================
-   RESUMEN DEL TURNO
-========================================= */
+/* ---------- Resumen del turno ---------- */
 
 .resumen-turno {
+    width: 315px;
+    flex-shrink: 0;
     position: sticky;
     top: 20px;
     overflow: hidden;
     background: #ffffff;
-    border: 1px solid #e7edef;
+    border: 1px solid #dce7ef;
     border-radius: 16px;
-    box-shadow: 0 5px 20px #304e5a0b;
 }
 
 .resumen-imagen {
@@ -1500,10 +1391,10 @@ body {
     bottom: 12px;
     padding: 7px 10px;
     background: #ffffff;
-    color: #4d8997;
-    border-radius: 6px;
+    color: #0789b2;
     font-size: 9px;
-    font-weight: 800;
+    font-weight: 700;
+    border-radius: 6px;
 }
 
 .resumen-contenido {
@@ -1511,30 +1402,30 @@ body {
 }
 
 .resumen-etiqueta {
-    color: #5795a0;
+    color: #0789b2;
     font-size: 9px;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 1.3px;
 }
 
 .resumen-contenido h2 {
     margin: 9px 0 6px;
-    color: #29445b;
+    color: #153e63;
     font-size: 21px;
 }
 
 .resumen-contenido > p {
     margin-bottom: 19px;
-    color: #96a5ad;
+    color: #648099;
     font-size: 11px;
     line-height: 1.5;
 }
 
 .resumen-dato {
-    padding: 12px 0;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    padding: 12px 0;
     border-bottom: 1px solid #edf1f3;
 }
 
@@ -1544,9 +1435,9 @@ body {
 }
 
 .resumen-dato strong {
-    color: #3c586b;
+    color: #31536f;
     font-size: 12px;
-    font-weight: 650;
+    font-weight: 500;
 }
 
 .resumen-ubicacion {
@@ -1555,18 +1446,18 @@ body {
     gap: 11px;
     margin: 18px 0;
     padding: 13px;
-    background: #f0f6f7;
+    background: #f0f8fb;
     border-radius: 10px;
 }
 
 .resumen-ubicacion > span {
-    color: #5795a0;
+    color: #0789b2;
     font-size: 22px;
 }
 
 .resumen-ubicacion strong {
     display: block;
-    color: #3c586b;
+    color: #31536f;
     font-size: 10px;
 }
 
@@ -1580,19 +1471,18 @@ body {
 .btn-confirmar {
     width: 100%;
     padding: 14px;
-    border: none;
-    border-radius: 9px;
-    background: #4d8997;
+    background: #0789b2;
     color: #ffffff;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 600;
+    border: none;
+    border-radius: 9px;
     cursor: pointer;
-    transition: .2s;
+    transition: 0.2s;
 }
 
 .btn-confirmar:hover {
-    background: #376e7c;
-    box-shadow: 0 5px 12px #376e7c25;
+    background: #066f91;
     transform: translateY(-2px);
 }
 
@@ -1600,7 +1490,6 @@ body {
     background: #8eafa9;
     cursor: not-allowed;
     transform: none;
-    box-shadow: none;
 }
 
 .nota-reserva {
@@ -1612,372 +1501,24 @@ body {
     text-align: center;
 }
 
-/* =========================================
-   ACCESIBILIDAD
-========================================= */
-
 .especialidad-opcion input:focus-visible + .especialidad-card,
 .profesional-opcion input:focus-visible + .profesional-card,
 .fecha-opcion input:focus-visible + .fecha-card,
 .horario-opcion input:focus-visible + span {
-    outline: 2px solid #5795a0;
+    outline: 2px solid #0789b2;
     outline-offset: 3px;
 }
 
-/* =========================================
-   RESPONSIVE
-========================================= */
 
-@media (max-width: 1050px) {
-
-    .contenido-solicitud {
-        grid-template-columns: minmax(0, 1fr) 280px;
-        gap: 16px;
-    }
-
-    .seleccion-turno {
-        padding: 23px;
-    }
-
-    .especialidades-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 800px) {
-
-    .contenido-solicitud {
-        grid-template-columns: 1fr;
-    }
-
-    .resumen-turno {
-        position: static;
-    }
-
-    .encabezado-solicitud {
-        padding: 30px;
-    }
-
-    .imagen-encabezado {
-        width: 230px;
-    }
-}
-
-@media (max-width: 550px) {
-
-    .header-principal {
-        min-height: 70px;
-        padding: 12px 5%;
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-    .header-principal h1 {
-        font-size: 22px;
-    }
-
-    .header-principal-nav {
-        gap: 16px;
-    }
-
-    .header-principal-nav a {
-        font-size: 11px;
-    }
-
-    .pagina-solicitar {
-        width: 94%;
-        margin: 22px auto 45px;
-    }
-
-    .encabezado-solicitud {
-        min-height: 160px;
-        padding: 24px;
-    }
-
-    .encabezado-solicitud h1 {
-        font-size: 27px;
-    }
-
-    .encabezado-solicitud p {
-        max-width: 250px;
-        font-size: 12px;
-        line-height: 1.6;
-    }
-
-    .imagen-encabezado {
-        display: none;
-    }
-
-    .pasos-solicitud {
-        gap: 9px;
-        padding: 15px 10px;
-        justify-content: space-between;
-    }
-
-    .paso {
-        gap: 6px;
-    }
-
-    .paso > span {
-        width: 29px;
-        height: 29px;
-        font-size: 11px;
-    }
-
-    .paso strong {
-        font-size: 9px;
-    }
-
-    .paso small {
-        display: none;
-    }
-
-    .linea-paso {
-        width: 12px;
-    }
-
-    .seleccion-turno {
-        padding: 18px;
-    }
-
-    .titulo-seccion h2 {
-        font-size: 16px;
-    }
-
-    .titulo-seccion p {
-        font-size: 11px;
-    }
-
-    .especialidades-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .profesionales-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .fechas-disponibles {
-        gap: 6px;
-    }
-
-    .fecha-card {
-        padding: 10px 3px;
-    }
-
-    .fecha-card strong {
-        font-size: 18px;
-    }
-
-    .horarios-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .resumen-contenido {
-        padding: 19px;
-    }
-}
-
-
-/* ---- PÁGINA ADMINISTRADOR ---- */
-
-.pagina-admin {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 30px 20px;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    color: #12272b;
-}
- 
-.pagina-admin h1 {
-    margin-bottom: 20px;
-}
- 
-.pagina-admin h2 {
-    margin-top: 0;
-}
-
-.crear-turno,
-.turnos,
-.turnos-reservados {
-    background-color: white;
-    border: 1px solid #c3d8d5;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
- 
-#form-crear-turno {
-    min-width: 100%;
-}
- 
-#form-crear-turno label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
- 
-#form-crear-turno input,
-#form-crear-turno select {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #c3d8d5;
-    border-radius: 8px;
-}
- 
-#form-crear-turno input:focus,
-#form-crear-turno select:focus {
-    outline: 2px solid #0a7ea4;
-}
- 
-#form-crear-turno button {
-    margin-top: 20px;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    background-color: #0a7ea4;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-}
- 
-#form-crear-turno button:hover {
-    background-color: #0a5559;
-}
- 
-/* ---------- Cards ---------- */
-.lista-turnos-admin {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    padding-top: 25px;
-}
- 
-.card-turno-admin {
-    display: flex;
-    flex-direction: column;
-    width: 260px;
-    padding: 16px;
-    background-color: #f5f9f8;
-    border: 1px solid #c3d8d5;
-    border-left: 5px solid #0a7ea4;
-    border-radius: 8px;
-    min-height: 220px;
-
-}
- 
-.card-turno-admin h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #0a7ea4;
-}
- 
-.card-turno-admin p {
-    margin: 4px 0;
-}
- 
-.card-turno-admin button {
-    margin-top: auto;
-    align-self: flex-start;
-    padding: 8px 16px;
-    font-size: 14px;
-    color: #0a7ea4;
-    background-color: white;
-    border: 1px solid #0a7ea4;
-    border-radius: 20px;
-    cursor: pointer;
-    width: 100%;
-
-}
- 
-.card-turno-admin button:hover {
-    background-color: #dcefeb;
-}
- 
-.card-turno-admin .button-eliminar {
-    color: #b3261e;
-    border-color: #b3261e;
-}
- 
-.card-turno-admin .button-eliminar:hover {
-    background-color: #fbeae9;
-}
- 
-/* ---------- Modo oscuro ---------- */
-body.modo-oscuro .pagina-admin {
-    color: #e8f3f1;
-}
- 
-body.modo-oscuro .crear-turno,
-body.modo-oscuro .turnos,
-body.modo-oscuro .turnos-reservados {
-    background-color: #162a2d;
-    border-color: #2c4a4d;
-}
- 
-body.modo-oscuro #form-crear-turno input,
-body.modo-oscuro #form-crear-turno select {
-    background-color: #0f1c1e;
-    color: #e8f3f1;
-    border-color: #2c4a4d;
-}
- 
-body.modo-oscuro #form-crear-turno button {
-    color: #0c1b1d;
-    background-color: #5cc4c0;
-}
- 
-body.modo-oscuro .card-turno-admin {
-    background-color: #0f1c1e;
-    border-color: #2c4a4d;
-    border-left-color: #5cc4c0;
-    color: #e8f3f1;
-}
- 
-body.modo-oscuro .card-turno-admin h3 {
-    color: #5cc4c0;
-}
- 
-body.modo-oscuro .card-turno-admin button {
-    color: #5cc4c0;
-    background-color: transparent;
-    border-color: #5cc4c0;
-}
- 
-body.modo-oscuro .card-turno-admin .button-eliminar {
-    color: #ff9b94;
-    border-color: #ff9b94;
-}
-
-body.modo-oscuro .card-turno-admin .button-eliminar:hover {
-    background-color: #fbeae9;
-    color: #883b35;
-}
-
-body.modo-oscuro .card-turno-admin button:hover {
-    background-color: #dcefeb;
-    color: #0c1b1d;
-}
-
-body.modo-oscuro #form-crear-turno button:hover {
-    background-color: #4aa9a5;
-}
-
-/* pagina mis turnos */
+/* --- MIS TURNOS --- */
 
 .pagina-mis-turnos {
     width: 91%;
     max-width: 1350px;
     margin: 38px auto;
-    color: #29445f;
 }
 
-/* ENCABEZADO */
+/* ---------- Encabezado ---------- */
 
 .mis-turnos-header {
     display: flex;
@@ -1987,22 +1528,21 @@ body.modo-oscuro #form-crear-turno button:hover {
 }
 
 .etiqueta-seccion {
-    color: #078db5;
+    color: #0789b2;
     font-size: 10px;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 2px;
 }
 
 .mis-turnos-header h2 {
     margin: 9px 0 5px;
-    color: #233f59;
+    color: #153e63;
     font-size: 30px;
     font-weight: 700;
 }
 
 .mis-turnos-header p {
-    margin: 0;
-    color: #8495a5;
+    color: #648099;
     font-size: 14px;
 }
 
@@ -2011,13 +1551,13 @@ body.modo-oscuro #form-crear-turno button:hover {
     align-items: center;
     gap: 9px;
     padding: 13px 20px;
-    color: white;
-    background: #078db5;
-    border-radius: 9px;
-    text-decoration: none;
+    background: #0789b2;
+    color: #ffffff;
     font-size: 13px;
     font-weight: 600;
-    transition: .2s;
+    text-decoration: none;
+    border-radius: 9px;
+    transition: 0.2s;
 }
 
 .btn-nuevo-turno span {
@@ -2025,27 +1565,48 @@ body.modo-oscuro #form-crear-turno button:hover {
 }
 
 .btn-nuevo-turno:hover {
-    background: #067696;
+    background: #066f91;
     transform: translateY(-2px);
 }
 
+.mis-turnos-vacio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 48px;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #dce7ef;
+    border-radius: 17px;
+}
 
-/* PRÓXIMO TURNO */
+.mis-turnos-vacio h2 {
+    color: #153e63;
+    font-size: 22px;
+}
+
+.mis-turnos-vacio p,
+.mensaje-vacio {
+    color: #648099;
+    font-size: 13px;
+}
+
+/* ---------- Próximo turno destacado ---------- */
 
 .turno-destacado {
-    display: grid;
-    grid-template-columns: minmax(0, 1.65fr) minmax(230px, .7fr);
     min-height: 320px;
-    overflow: hidden;
+    display: flex;
     margin-bottom: 48px;
+    overflow: hidden;
     background: #173e58;
     border-radius: 17px;
-    box-shadow: 0 12px 30px rgba(25, 66, 91, .10);
 }
 
 .destacado-principal {
+    flex: 1.65;
     padding: 30px 34px;
-    color: white;
+    color: #ffffff;
 }
 
 .destacado-superior {
@@ -2084,15 +1645,15 @@ body.modo-oscuro #form-crear-turno button:hover {
 }
 
 .fecha-bloque {
+    width: 112px;
+    min-width: 112px;
+    height: 130px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 112px;
-    min-width: 112px;
-    height: 130px;
-    background: rgba(255, 255, 255, .10);
-    border: 1px solid rgba(255, 255, 255, .15);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
 }
 
@@ -2105,7 +1666,7 @@ body.modo-oscuro #form-crear-turno button:hover {
 
 .fecha-bloque strong {
     margin: 4px 0;
-    color: white;
+    color: #ffffff;
     font-size: 55px;
     line-height: 1;
 }
@@ -2119,13 +1680,12 @@ body.modo-oscuro #form-crear-turno button:hover {
 
 .fecha-descripcion h2 {
     margin: 9px 0;
-    color: white;
+    color: #ffffff;
     font-size: 25px;
     line-height: 1.25;
 }
 
 .fecha-descripcion p {
-    margin: 0;
     color: #b0c7d5;
     font-size: 12px;
 }
@@ -2135,31 +1695,32 @@ body.modo-oscuro #form-crear-turno button:hover {
     align-items: center;
     gap: 12px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .avatar-medico {
-    display: grid;
-    place-items: center;
     width: 42px;
     height: 42px;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #d8eff5;
-    color: #147c9d;
-    border-radius: 50%;
+    color: #0789b2;
     font-size: 12px;
-    font-weight: 800;
+    font-weight: 700;
+    border-radius: 50%;
 }
 
 .destacado-medico > div:nth-child(2) {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    flex: 1;
     gap: 4px;
 }
 
 .destacado-medico strong {
-    color: white;
+    color: #ffffff;
     font-size: 13px;
 }
 
@@ -2171,39 +1732,42 @@ body.modo-oscuro #form-crear-turno button:hover {
 .estado-confirmado {
     display: inline-block;
     padding: 6px 10px;
-    color: #27865f;
-    background: #e5f5ec;
-    border-radius: 20px;
+    background: #e4f5ed;
+    color: #16865d;
     font-size: 10px;
     font-weight: 700;
+    border-radius: 20px;
 }
 
-/* LATERAL DEL DESTACADO */
+/* ---------- Lateral del destacado ---------- */
 
 .destacado-lateral {
+    flex: 0.7;
+    min-width: 230px;
     display: flex;
     flex-direction: column;
     padding: 28px 25px;
-    background: #e8f4f8;
+    background: #e8f4fa;
 }
 
 .lateral-icono {
-    display: grid;
-    place-items: center;
     width: 43px;
     height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
-    color: #078db5;
-    background: white;
-    border-radius: 12px;
+    background: #ffffff;
+    color: #0789b2;
     font-size: 25px;
+    border-radius: 12px;
 }
 
 .lateral-etiqueta {
     margin-bottom: 20px;
-    color: #718b9d;
+    color: #648099;
     font-size: 9px;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 1.3px;
 }
 
@@ -2216,27 +1780,26 @@ body.modo-oscuro #form-crear-turno button:hover {
 }
 
 .lateral-dato span {
-    color: #8298a8;
+    color: #648099;
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1px;
 }
 
 .lateral-dato strong {
-    color: #294c64;
+    color: #153e63;
     font-size: 13px;
 }
 
 .lateral-mensaje {
     margin-top: auto;
     padding-top: 16px;
-    color: #69889b;
+    color: #648099;
     font-size: 11px;
     line-height: 1.6;
 }
 
-
-/* AGENDA */
+/* ---------- Agenda ---------- */
 
 .agenda-turnos {
     margin-bottom: 48px;
@@ -2252,24 +1815,23 @@ body.modo-oscuro #form-crear-turno button:hover {
 .agenda-titulo h2,
 .historial-cabecera h2 {
     margin: 7px 0 5px;
-    color: #29445f;
+    color: #153e63;
     font-size: 23px;
 }
 
 .agenda-titulo p {
-    margin: 0;
-    color: #8999a8;
+    color: #648099;
     font-size: 13px;
 }
 
 .agenda-total,
 .historial-total {
     padding: 7px 12px;
-    color: #568097;
-    background: #edf4f7;
-    border-radius: 20px;
+    background: #e8f4fa;
+    color: #31536f;
     font-size: 11px;
     font-weight: 600;
+    border-radius: 20px;
 }
 
 .agenda-listado {
@@ -2279,69 +1841,67 @@ body.modo-oscuro #form-crear-turno button:hover {
 }
 
 .agenda-item {
-    display: grid;
-    grid-template-columns: 65px minmax(150px, 1.5fr) minmax(95px, .8fr) minmax(110px, .9fr) auto;
+    display: flex;
     align-items: center;
     gap: 19px;
     padding: 20px;
-    background: white;
-    border: 1px solid #e6edf1;
+    background: #ffffff;
+    border: 1px solid #dce7ef;
     border-radius: 13px;
-    transition: .2s;
+    transition: 0.2s;
 }
 
 .agenda-item:hover {
-    border-color: #badde8;
-    box-shadow: 0 6px 18px rgba(30, 80, 110, .06);
+    border-color: #0789b2;
     transform: translateY(-2px);
 }
 
 .agenda-calendario {
+    width: 62px;
+    height: 75px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 62px;
-    height: 75px;
-    background: #eaf5f9;
+    background: #e8f4fa;
     border-radius: 10px;
 }
 
-.agenda-calendario span {
-    color: #7192a5;
+.agenda-calendario span,
+.agenda-calendario small {
+    color: #648099;
     font-size: 9px;
     font-weight: 700;
 }
 
 .agenda-calendario strong {
     margin: 1px 0;
-    color: #078db5;
+    color: #0789b2;
     font-size: 28px;
     line-height: 1;
 }
 
-.agenda-calendario small {
-    color: #7192a5;
-    font-size: 9px;
-    font-weight: 700;
+.agenda-descripcion {
+    flex: 1.5 1 150px;
+    min-width: 0;
 }
 
 .agenda-categoria {
-    color: #078db5;
+    color: #0789b2;
     font-size: 9px;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 1px;
 }
 
 .agenda-descripcion h3 {
     margin: 6px 0 4px;
-    color: #29445f;
+    color: #153e63;
     font-size: 14px;
 }
 
 .agenda-descripcion p {
-    margin: 0;
-    color: #8a9aa8;
+    color: #648099;
     font-size: 11px;
 }
 
@@ -2352,17 +1912,25 @@ body.modo-oscuro #form-crear-turno button:hover {
     gap: 7px;
 }
 
+.agenda-horario {
+    flex: 0.8 1 95px;
+}
+
+.agenda-consultorio {
+    flex: 0.9 1 110px;
+}
+
 .agenda-horario span,
 .agenda-consultorio span {
-    color: #9aa8b3;
+    color: #98a8b1;
     font-size: 9px;
     font-weight: 700;
-    letter-spacing: .7px;
+    letter-spacing: 0.7px;
 }
 
 .agenda-horario strong,
 .agenda-consultorio strong {
-    color: #526e82;
+    color: #31536f;
     font-size: 12px;
 }
 
@@ -2375,28 +1943,27 @@ body.modo-oscuro #form-crear-turno button:hover {
 
 .button-cancelar-turno {
     padding: 7px 11px;
-    color: #b56c7b;
-    background: white;
-    border: 1px solid #ebd4d9;
-    border-radius: 7px;
+    background: #ffffff;
+    color: #b3261e;
     font-size: 10px;
     font-weight: 600;
+    border: 1px solid #ebd4d9;
+    border-radius: 7px;
     cursor: pointer;
-    transition: .2s;
+    transition: 0.2s;
 }
 
 .button-cancelar-turno:hover {
-    color: white;
-    background: #b56c7b;
-    border-color: #b56c7b;
+    background: #b3261e;
+    color: #ffffff;
+    border-color: #b3261e;
 }
 
-
-/*  HISTORIAL */
+/* ---------- Historial ---------- */
 
 .historial-turnos {
     padding-top: 25px;
-    border-top: 1px solid #e8eef1;
+    border-top: 1px solid #dce7ef;
 }
 
 .historial-cabecera {
@@ -2406,65 +1973,77 @@ body.modo-oscuro #form-crear-turno button:hover {
     margin-bottom: 20px;
 }
 
+.historial-listado {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .historial-registro {
     display: flex;
     align-items: center;
     gap: 17px;
     padding: 17px 20px;
-    background: #f6f9fa;
+    background: #f3f8fb;
     border-radius: 12px;
 }
 
 .historial-fecha {
+    width: 49px;
+    height: 51px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 49px;
-    height: 51px;
-    flex-shrink: 0;
-    background: white;
-    border: 1px solid #e8edf0;
+    background: #ffffff;
+    border: 1px solid #dce7ef;
     border-radius: 9px;
 }
 
 .historial-fecha strong {
-    color: #71889a;
+    color: #31536f;
     font-size: 21px;
     line-height: 1.1;
 }
 
 .historial-fecha span {
-    color: #9aa8b3;
+    color: #98a8b1;
     font-size: 9px;
     font-weight: 700;
 }
 
 .historial-detalle {
-    display: flex;
     flex: 1;
+    display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
 .historial-detalle strong {
-    color: #405d73;
+    color: #153e63;
     font-size: 13px;
 }
 
 .historial-detalle span {
-    color: #8999a8;
+    color: #648099;
     font-size: 11px;
 }
 
 .estado-cancelado {
-    color: #b66b7b;
+    color: #b3261e;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.estado-finalizado {
+    color: #16865d;
     font-size: 11px;
     font-weight: 700;
 }
 
 .historial-registro a {
-    color: #078db5;
+    color: #0789b2;
     font-size: 11px;
     font-weight: 600;
     text-decoration: none;
@@ -2473,29 +2052,713 @@ body.modo-oscuro #form-crear-turno button:hover {
 .historial-registro a:hover {
     text-decoration: underline;
 }
-.input-editar-perfil {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #0789b2;
-    border-radius: 6px;
+
+
+/* --- ADMINISTRADOR --- */
+
+.pagina-admin {
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    font-size: 16px;
+    color: #153e63;
+}
+
+.admin-seccion {
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #dce7ef;
+    border-radius: 12px;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.admin-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.admin-label {
+    font-weight: 600;
+}
+
+.admin-input {
+    padding: 10px;
+    background: #ffffff;
+    color: #153e63;
+    font-size: 16px;
+    border: 1px solid #dce7ef;
+    border-radius: 8px;
+}
+
+.admin-input:focus {
+    outline: 2px solid #0789b2;
+}
+
+.admin-input-invalido {
+    border: 2px solid #d93025;
+}
+
+.admin-input-valido {
+    border: 2px solid #2e9e4f;
+}
+
+.admin-error {
+    color: #d93025;
+    font-size: 0.85rem;
+}
+
+.admin-error:empty {
+    display: none;
+}
+
+.admin-boton-publicar {
+    margin-top: 5px;
+    padding: 12px 24px;
+    background: #0789b2;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.admin-boton-publicar:hover {
+    background: #066f91;
+}
+
+.lista-turnos-admin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 25px;
+}
+
+.admin-mensaje-vacio {
+    color: #777777;
+    font-style: italic;
+}
+
+.card-turno-admin {
+    width: 260px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px;
+    background: #f3f8fb;
+    color: #153e63;
+    border: 1px solid #dce7ef;
+    border-left: 5px solid #0789b2;
+    border-radius: 8px;
+}
+
+.card-turno-admin-titulo {
+    margin-bottom: 6px;
+    color: #0789b2;
+}
+
+.card-turno-admin-cancelado {
+    border-left-color: #b3261e;
+    opacity: 0.85;
+}
+
+.card-turno-admin-cancelado .card-turno-admin-titulo {
+    color: #b3261e;
+}
+
+.card-turno-admin-boton {
+    margin-top: auto;
+    padding: 8px 16px;
+    background: #ffffff;
+    color: #0789b2;
     font-size: 14px;
-    color: #244a6b;
-    background: white;
+    border: 1px solid #0789b2;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
-.input-editar-perfil:focus {
-    outline: none;
-    border-color: #066f91;
+.card-turno-admin-boton:hover {
+    background: #e8f4fa;
 }
 
-/* =====================================
-   RESPONSIVE
-===================================== */
+.card-turno-admin-boton-eliminar,
+.card-turno-admin-boton-cancelar {
+    color: #b3261e;
+    border-color: #b3261e;
+}
+
+.card-turno-admin-boton-eliminar:hover,
+.card-turno-admin-boton-cancelar:hover {
+    background: #fbeae9;
+}
+
+
+/* --- MODO OSCURO --- */
+
+/* ---------- General y header ---------- */
+
+body.modo-oscuro {
+    background: #222222;
+    color: #f5f5f5;
+}
+
+body.modo-oscuro .header-principal {
+    background: #2c2c2c;
+    border-bottom-color: #444444;
+}
+
+body.modo-oscuro .header-principal-nav a {
+    color: #d5dde3;
+}
+
+body.modo-oscuro .header-principal-nav a:hover,
+body.modo-oscuro .button-tema-pagina:hover {
+    background: #3a3a3a;
+    color: #4fc3e8;
+}
+
+body.modo-oscuro .header-principal-nav .button-reservar-turno {
+    background: #1f3a45;
+    color: #4fc3e8;
+}
+
+/* ---------- Inicio ---------- */
+
+body.modo-oscuro .acceso-rapido {
+    background: #1f3a45;
+}
+
+body.modo-oscuro .acceso-rapido p {
+    color: #9fdcf0;
+}
+
+body.modo-oscuro .btn-acceso-rapido {
+    background: #2c2c2c;
+    color: #4fc3e8;
+    border-color: #4fc3e8;
+}
+
+body.modo-oscuro .btn-acceso-rapido:hover {
+    background: #1f3a45;
+}
+
+body.modo-oscuro .input-form {
+    background: #2c2c2c;
+    color: #f5f5f5;
+    border-color: #444444;
+}
+
+body.modo-oscuro .input-form:focus {
+    border-color: #4fc3e8;
+}
+
+body.modo-oscuro .form-container a {
+    color: #4fc3e8;
+}
+
+body.modo-oscuro .footer-container p {
+    color: #b5bcc2;
+}
+
+/* ---------- Mi perfil ---------- */
+
+body.modo-oscuro .menu-lateral-perfil,
+body.modo-oscuro .tarjeta-perfil,
+body.modo-oscuro .estadistica-paciente {
+    background: #2c2c2c;
+    border-color: #444444;
+}
+
+body.modo-oscuro .menu-lateral-perfil a {
+    color: #d5dde3;
+}
+
+body.modo-oscuro .menu-lateral-perfil a:hover,
+body.modo-oscuro .menu-lateral-perfil a.activo {
+    background: #1f3a45;
+    color: #4fc3e8;
+}
+
+body.modo-oscuro .presentacion-paciente {
+    background: linear-gradient(110deg, #2c3a40, #2a2f33);
+    border-color: #444444;
+}
+
+body.modo-oscuro .foto-paciente {
+    border-color: #2c2c2c;
+}
+
+body.modo-oscuro .titulo-perfil h2,
+body.modo-oscuro .datos-presentacion h3,
+body.modo-oscuro .encabezado-perfil-seccion h3,
+body.modo-oscuro .estadistica-paciente strong,
+body.modo-oscuro .datos-consulta h4,
+body.modo-oscuro .datos-medico-perfil h4 {
+    color: #f5f5f5;
+}
+
+body.modo-oscuro .titulo-perfil p,
+body.modo-oscuro .datos-presentacion p,
+body.modo-oscuro .fecha-registro,
+body.modo-oscuro .encabezado-perfil-seccion p,
+body.modo-oscuro .dato-perfil span,
+body.modo-oscuro .estadistica-paciente p,
+body.modo-oscuro .datos-consulta p,
+body.modo-oscuro .datos-consulta span,
+body.modo-oscuro .datos-medico-perfil p {
+    color: #b5bcc2;
+}
+
+body.modo-oscuro .dato-perfil p {
+    color: #f5f5f5;
+}
+
+body.modo-oscuro .encabezado-perfil-seccion a,
+body.modo-oscuro .corazon-favorito {
+    color: #4fc3e8;
+}
+
+body.modo-oscuro .icono-estadistica,
+body.modo-oscuro .fecha-consulta,
+body.modo-oscuro .avatar-medico-perfil {
+    background: #1f3a45;
+    color: #4fc3e8;
+}
+
+body.modo-oscuro .consulta-perfil,
+body.modo-oscuro .medico-favorito-perfil {
+    background: #333333;
+    border-color: #444444;
+}
+
+body.modo-oscuro .estado-consulta {
+    background: #1d3b2e;
+    color: #6fd6a5;
+}
+
+body.modo-oscuro .input-editar-perfil {
+    background: #333333;
+    color: #f5f5f5;
+    border-color: #4fc3e8;
+}
+
+/* ---------- Usuario ---------- */
+
+body.modo-oscuro .home-usuario {
+    background: #2c2c2c;
+    border-color: #444444;
+}
+
+body.modo-oscuro .home-usuario h2,
+body.modo-oscuro .pagina-inicio-usuario .card-turno h3 {
+    color: #f5f5f5;
+}
+
+body.modo-oscuro .home-usuario p,
+body.modo-oscuro .selector-vista,
+body.modo-oscuro .pagina-inicio-usuario .mensaje-sin-turnos {
+    color: #b5bcc2;
+}
+
+body.modo-oscuro .bienvenida-usuario {
+    background: linear-gradient(115deg, #2c3a40, #2a2f33 75%);
+}
+
+body.modo-oscuro .campo-busqueda label {
+    color: #d5dde3;
+}
+
+body.modo-oscuro .campo-busqueda select,
+body.modo-oscuro .campo-busqueda input {
+    background: #333333;
+    color: #f5f5f5;
+    border-color: #444444;
+}
+
+body.modo-oscuro .button-vista {
+    background: #1f3a45;
+    color: #4fc3e8;
+    border-color: #2f5361;
+}
+
+body.modo-oscuro .button-vista.activo {
+    background: #0789b2;
+    color: #ffffff;
+    border-color: #0789b2;
+}
+
+body.modo-oscuro .pagina-inicio-usuario .card-turno {
+    background: #333333;
+    border-color: #444444;
+}
+
+body.modo-oscuro .pagina-inicio-usuario .card-turno:hover {
+    border-color: #4fc3e8;
+}
+
+body.modo-oscuro .pagina-inicio-usuario .card-turno > p {
+    color: #4fc3e8;
+}
+
+body.modo-oscuro .pagina-inicio-usuario .card-turno-datos {
+    background: #2c2c2c;
+}
+
+/* ---------- Solicitar turno ---------- */
+
+body.modo-oscuro .encabezado-solicitud {
+    background: linear-gradient(115deg, #2c3a40, #2a2f33 65%, #2c3a40);
+}
+
+body.modo-oscuro .encabezado-solicitud h1,
+body.modo-oscuro .titulo-seccion h2,
+body.modo-oscuro .resumen-contenido h2 {
+    color: #f5f5f5;
+}
+
+body.modo-oscuro .encabezado-solicitud p,
+body.modo-oscuro .titulo-seccion p,
+body.modo-oscuro .resumen-contenido > p {
+    color: #b5bcc2;
+}
+
+body.modo-oscuro .subtitulo,
+body.modo-oscuro .resumen-etiqueta,
+body.modo-oscuro .datos-profesional span {
+    color: #4fc3e8;
+}
+
+body.modo-oscuro .pasos-solicitud,
+body.modo-oscuro .seleccion-turno,
+body.modo-oscuro .resumen-turno {
+    background: #2c2c2c;
+    border-color: #444444;
+}
+
+body.modo-oscuro .paso > span {
+    background: #3a3a3a;
+    color: #b5bcc2;
+}
+
+body.modo-oscuro .paso.activo > span {
+    background: #0789b2;
+    color: #ffffff;
+}
+
+body.modo-oscuro .paso strong,
+body.modo-oscuro .especialidad-card strong,
+body.modo-oscuro .datos-profesional strong,
+body.modo-oscuro .fecha-card strong,
+body.modo-oscuro .horarios-titulo h3,
+body.modo-oscuro .resumen-dato strong,
+body.modo-oscuro .resumen-ubicacion strong {
+    color: #f5f5f5;
+}
+
+body.modo-oscuro .linea-paso,
+body.modo-oscuro .separador-seccion {
+    background: #444444;
+}
+
+body.modo-oscuro .numero-seccion,
+body.modo-oscuro .icono-especialidad {
+    background: #1f3a45;
+    color: #4fc3e8;
+}
+
+body.modo-oscuro .especialidad-card,
+body.modo-oscuro .profesional-card,
+body.modo-oscuro .fecha-card,
+body.modo-oscuro .horario-opcion span {
+    background: #333333;
+    border-color: #444444;
+}
+
+body.modo-oscuro .especialidad-opcion input:checked + .especialidad-card,
+body.modo-oscuro .profesional-opcion input:checked + .profesional-card {
+    background: #1f3a45;
+    border-color: #4fc3e8;
+}
+
+body.modo-oscuro .fecha-opcion input:checked + .fecha-card {
+    background: #0789b2;
+    border-color: #0789b2;
+}
+
+body.modo-oscuro .horario-opcion span {
+    color: #d5dde3;
+}
+
+body.modo-oscuro .horario-opcion input:checked + span {
+    background: #1f3a45;
+    color: #4fc3e8;
+    border-color: #4fc3e8;
+}
+
+body.modo-oscuro .horarios-contenedor {
+    background: #2a2a2a;
+    border-color: #444444;
+}
+
+body.modo-oscuro .resumen-dato {
+    border-bottom-color: #444444;
+}
+
+body.modo-oscuro .resumen-ubicacion {
+    background: #333333;
+}
+
+body.modo-oscuro .resumen-ubicacion > span {
+    color: #4fc3e8;
+}
+
+/* ---------- Mis turnos ---------- */
+
+body.modo-oscuro .mis-turnos-header h2,
+body.modo-oscuro .agenda-titulo h2,
+body.modo-oscuro .historial-cabecera h2,
+body.modo-oscuro .agenda-descripcion h3,
+body.modo-oscuro .historial-detalle strong,
+body.modo-oscuro .mis-turnos-vacio h2 {
+    color: #f5f5f5;
+}
+
+body.modo-oscuro .mis-turnos-header p,
+body.modo-oscuro .agenda-titulo p,
+body.modo-oscuro .agenda-descripcion p,
+body.modo-oscuro .historial-detalle span,
+body.modo-oscuro .mis-turnos-vacio p,
+body.modo-oscuro .mensaje-vacio {
+    color: #b5bcc2;
+}
+
+body.modo-oscuro .etiqueta-seccion,
+body.modo-oscuro .agenda-categoria,
+body.modo-oscuro .historial-registro a {
+    color: #4fc3e8;
+}
+
+body.modo-oscuro .agenda-total,
+body.modo-oscuro .historial-total {
+    background: #1f3a45;
+    color: #9fdcf0;
+}
+
+body.modo-oscuro .agenda-item,
+body.modo-oscuro .mis-turnos-vacio {
+    background: #2c2c2c;
+    border-color: #444444;
+}
+
+body.modo-oscuro .agenda-item:hover {
+    border-color: #4fc3e8;
+}
+
+body.modo-oscuro .agenda-calendario {
+    background: #1f3a45;
+}
+
+body.modo-oscuro .agenda-calendario span,
+body.modo-oscuro .agenda-calendario small {
+    color: #9fdcf0;
+}
+
+body.modo-oscuro .agenda-calendario strong {
+    color: #4fc3e8;
+}
+
+body.modo-oscuro .agenda-horario strong,
+body.modo-oscuro .agenda-consultorio strong {
+    color: #f5f5f5;
+}
+
+body.modo-oscuro .button-cancelar-turno {
+    background: transparent;
+    color: #ff9b94;
+    border-color: #ff9b94;
+}
+
+body.modo-oscuro .button-cancelar-turno:hover {
+    background: #b3261e;
+    color: #ffffff;
+    border-color: #b3261e;
+}
+
+body.modo-oscuro .historial-turnos {
+    border-top-color: #444444;
+}
+
+body.modo-oscuro .historial-registro {
+    background: #2c2c2c;
+}
+
+body.modo-oscuro .historial-fecha {
+    background: #333333;
+    border-color: #444444;
+}
+
+body.modo-oscuro .historial-fecha strong {
+    color: #f5f5f5;
+}
+
+body.modo-oscuro .estado-cancelado {
+    color: #ff9b94;
+}
+
+body.modo-oscuro .estado-finalizado {
+    color: #6fd6a5;
+}
+
+body.modo-oscuro .destacado-lateral {
+    background: #2c2c2c;
+}
+
+body.modo-oscuro .lateral-icono {
+    background: #1f3a45;
+    color: #4fc3e8;
+}
+
+body.modo-oscuro .lateral-etiqueta,
+body.modo-oscuro .lateral-dato span,
+body.modo-oscuro .lateral-mensaje {
+    color: #b5bcc2;
+}
+
+body.modo-oscuro .lateral-dato {
+    border-bottom-color: #444444;
+}
+
+body.modo-oscuro .lateral-dato strong {
+    color: #f5f5f5;
+}
+
+/* ---------- Administrador ---------- */
+
+body.modo-oscuro .pagina-admin {
+    color: #f5f5f5;
+}
+
+body.modo-oscuro .admin-seccion {
+    background: #2c2c2c;
+    border-color: #444444;
+}
+
+body.modo-oscuro .admin-input {
+    background: #333333;
+    color: #f5f5f5;
+    border-color: #444444;
+}
+
+body.modo-oscuro .admin-input:focus {
+    outline-color: #4fc3e8;
+}
+
+body.modo-oscuro .admin-input-invalido {
+    border: 2px solid #d93025;
+}
+
+body.modo-oscuro .admin-input-valido {
+    border: 2px solid #2e9e4f;
+}
+
+body.modo-oscuro .admin-error {
+    color: #ff9b94;
+}
+
+body.modo-oscuro .admin-mensaje-vacio {
+    color: #b5bcc2;
+}
+
+body.modo-oscuro .card-turno-admin {
+    background: #333333;
+    color: #f5f5f5;
+    border-color: #444444;
+    border-left-color: #4fc3e8;
+}
+
+body.modo-oscuro .card-turno-admin-titulo {
+    color: #4fc3e8;
+}
+
+body.modo-oscuro .card-turno-admin-cancelado {
+    border-left-color: #ff9b94;
+}
+
+body.modo-oscuro .card-turno-admin-cancelado .card-turno-admin-titulo {
+    color: #ff9b94;
+}
+
+body.modo-oscuro .card-turno-admin-boton {
+    background: transparent;
+    color: #4fc3e8;
+    border-color: #4fc3e8;
+}
+
+body.modo-oscuro .card-turno-admin-boton:hover {
+    background: #1f3a45;
+}
+
+body.modo-oscuro .card-turno-admin-boton-eliminar,
+body.modo-oscuro .card-turno-admin-boton-cancelar {
+    color: #ff9b94;
+    border-color: #ff9b94;
+}
+
+body.modo-oscuro .card-turno-admin-boton-eliminar:hover,
+body.modo-oscuro .card-turno-admin-boton-cancelar:hover {
+    background: #4a2b29;
+}
+
+
+/* --- MEDIA QUERIES --- */
+
+/* ---------- 1100px ---------- */
+
+@media (max-width: 1100px) {
+
+    .bienvenida-usuario {
+        padding-right: 220px;
+    }
+
+    .imagen-bienvenida {
+        width: 185px;
+    }
+
+    .pagina-inicio-usuario .card-turno {
+        flex-basis: calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+}
+
+/* ---------- 1050px ---------- */
 
 @media (max-width: 1050px) {
 
-    .agenda-item {
-        grid-template-columns: 60px minmax(130px, 1fr) 100px auto;
+    .resumen-turno {
+        width: 280px;
+    }
+
+    .contenido-solicitud {
+        gap: 16px;
+    }
+
+    .seleccion-turno {
+        padding: 23px;
+    }
+
+    .especialidad-opcion {
+        flex-basis: calc(50% - 6px);
     }
 
     .agenda-consultorio {
@@ -2503,291 +2766,118 @@ body.modo-oscuro #form-crear-turno button:hover {
     }
 }
 
-@media (max-width: 750px) {
+/* ---------- 1000px ---------- */
 
-    .turno-destacado {
-        grid-template-columns: 1fr;
-    }
-
-    .destacado-lateral {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px 20px;
-    }
-
-    .lateral-icono,
-    .lateral-etiqueta,
-    .lateral-mensaje {
-        grid-column: 1 / -1;
-    }
-
-    .lateral-dato {
-        border-bottom: none;
-    }
-
-    .agenda-item {
-        grid-template-columns: 60px 1fr auto;
-        gap: 14px;
-    }
-
-    .agenda-horario {
-        grid-column: 2;
-    }
-
-    .agenda-estado {
-        grid-column: 3;
-        grid-row: 1 / span 2;
-    }
-}
-
-@media (max-width: 550px) {
-
-    .pagina-mis-turnos {
-        width: 94%;
-        margin: 25px auto;
-    }
-
-    .mis-turnos-header {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 18px;
-    }
-
-    .mis-turnos-header h2 {
-        font-size: 25px;
-    }
-
-    .destacado-principal {
-        padding: 23px 19px;
-    }
-
-    .destacado-fecha {
-        gap: 15px;
-    }
-
-    .fecha-bloque {
-        width: 85px;
-        min-width: 85px;
-        height: 110px;
-    }
-
-    .fecha-bloque strong {
-        font-size: 43px;
-    }
-
-    .fecha-descripcion h2 {
-        font-size: 19px;
-    }
-
-    .destacado-medico {
-        flex-wrap: wrap;
-    }
-
-    .destacado-medico .estado-confirmado {
-        margin-left: 54px;
-    }
-
-    .agenda-titulo {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .agenda-item {
-        grid-template-columns: 53px minmax(0, 1fr);
-        gap: 13px;
-        padding: 15px;
-    }
-
-    .agenda-calendario {
-        width: 53px;
-        height: 68px;
-    }
-
-    .agenda-estado {
-        grid-column: 2;
-        grid-row: auto;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .agenda-horario {
-        grid-column: 2;
-    }
-
-    .historial-registro {
-        flex-wrap: wrap;
-        padding: 14px;
-    }
-
-    .historial-detalle {
-        min-width: 65%;
-    }
-
-    .historial-registro a {
-        width: 100%;
-        padding-left: 66px;
-    }
-}
-
-/* media queries */
-@media (max-width: 750px) {
-
-    .header-principal {
-        flex-direction: row;
-        align-items: flex-start;
-        width: 100%;
-    }
-
-    .header-principal-nav,
-    .header-admin nav {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 10px;
-    }
-
-    .lista-turnos {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        margin: 20px 0;
-    }
-
-    .pagina-usuario {
-        flex-direction: column;
-    }
-
-    .pagina-usuario aside {
-        display: none;
-    }
-
-    .tarjetas-usuario {
-        flex-direction: column;
-    }
-
-    .pagina-solicitud {
-        width: 90%;
-    }
-
-    .pagina-admin {
-        width: 90%;
-    }
-}
-
-@media (max-width: 630px) {
-    .header-principal {
-        flex-direction: column;
-        align-items: flex-start;
-
-    }
-
-    .header-principal-nav {
-        margin-top: 10px;
-    }
-
-    .pagina-usuario {
-        padding: 15px;
-    }
-
-    .cards {
-        padding: 15px;
-        width: 100%;
-    }
-
-    .pagina-solicitud {
-        padding: 15px;
-    }
-
-    .pagina-admin {
-        padding: 15px;
-    }
-
-    /*Responsive para la página de usuario*/
-    @media (max-width: 1100px) {
-        .bienvenida-usuario {
-            padding-right: 220px;
-        }
-
-        .imagen-bienvenida {
-            width: 185px;
-        }
-
-        .pagina-inicio-usuario .lista-turnos {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (max-width: 750px) {
-
-        .pagina-inicio-usuario .header-principal,
-        .pagina-inicio-usuario .pagina-usuario {
-            flex-direction: column;
-        }
-
-        .header-principal-nav {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .pagina-usuario aside {
-            width: 100%;
-        }
-
-        .bienvenida-usuario {
-            padding: 30px;
-        }
-
-        .imagen-bienvenida {
-            display: none;
-        }
-
-        .formulario-busqueda {
-            flex-direction: column;
-            align-items: stretch;
-        }
-
-        .campo-busqueda {
-            width: 100%;
-        }
-
-        .pagina-inicio-usuario .lista-turnos {
-            grid-template-columns: 1fr;
-        }
-    }
-    
-
-    @media (max-width: 1000px) {
+@media (max-width: 1000px) {
 
     .layout-perfil {
-        grid-template-columns: 210px minmax(0, 1fr);
         gap: 20px;
         padding: 0 20px;
+    }
+
+    .menu-lateral-perfil {
+        width: 210px;
     }
 
     .tarjeta-perfil {
         padding: 22px;
     }
-
 }
 
-/* Responsive para la página de perfil */
+/* ---------- 900px ---------- */
+
+@media (max-width: 900px) {
+
+    .vista-lista .card-turno {
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    .vista-lista .card-turno-datos,
+    .pagina-inicio-usuario .vista-lista .card-turno > .button-reservar-card {
+        flex-basis: 100%;
+        width: 100%;
+    }
+}
+
+/* ---------- 800px ---------- */
+
+@media (max-width: 800px) {
+
+    .contenido-solicitud {
+        flex-direction: column;
+    }
+
+    .seleccion-turno,
+    .resumen-turno {
+        width: 100%;
+    }
+
+    .resumen-turno {
+        position: static;
+    }
+
+    .encabezado-solicitud {
+        padding: 30px;
+    }
+
+    .imagen-encabezado {
+        width: 230px;
+    }
+}
+
+/* ---------- 750px ---------- */
 
 @media (max-width: 750px) {
 
+    /* General */
+    .header-principal {
+        align-items: flex-start;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .header-principal-nav {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    /* Usuario */
+    .pagina-usuario {
+        flex-direction: column;
+    }
+
+    .bienvenida-usuario {
+        padding: 30px;
+    }
+
+    .imagen-bienvenida {
+        display: none;
+    }
+
+    .formulario-busqueda {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pagina-inicio-usuario .card-turno {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+    /* Perfil */
     .layout-perfil {
-        grid-template-columns: 1fr;
-        padding: 0 15px;
+        flex-direction: column;
+        align-items: stretch;
         margin: 20px auto;
+        padding: 0 15px;
     }
 
     .menu-lateral-perfil {
+        width: 100%;
         flex-direction: row;
         flex-wrap: wrap;
-        min-height: auto;
         padding: 12px;
     }
 
@@ -2798,8 +2888,8 @@ body.modo-oscuro #form-crear-turno button:hover {
 
     .presentacion-paciente {
         flex-wrap: wrap;
-        padding: 20px;
         gap: 15px;
+        padding: 20px;
     }
 
     .foto-paciente {
@@ -2812,8 +2902,11 @@ body.modo-oscuro #form-crear-turno button:hover {
     }
 
     .datos-personales-grid {
-        grid-template-columns: 1fr;
         gap: 18px;
+    }
+
+    .dato-perfil {
+        flex-basis: 100%;
     }
 
     .estadisticas-perfil {
@@ -2829,134 +2922,177 @@ body.modo-oscuro #form-crear-turno button:hover {
         width: 100%;
     }
 
-}
-
-/* Responsive para la página de mis turnos*/
-
-@media (max-width: 900px) {
-    .resumen-turnos {
-        grid-template-columns: 1fr;
-    }
-
-    .imagen-encabezado-turnos {
-        opacity: 0.35;
-        width: 50%;
-    }
-
-    .card-turno {
-        flex-wrap: wrap;
-    }
-
-    .acciones-turno {
-        width: 100%;
-        justify-content: flex-end;
-    }
-}
-
-@media (max-width: 600px) {
-    .pagina-mis-turnos {
-        width: 94%;
-        padding: 15px;
-    }
-
-    .encabezado-turnos {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 25px;
-    }
-
-    .imagen-encabezado-turnos {
-        opacity: 0.2;
-    }
-
-    .titulo-seccion-turnos {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .barra-filtros {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-    }
-
-    .card-turno {
-        padding: 16px;
-        gap: 14px;
-    }
-
-    .acciones-turno {
-        justify-content: space-between;
-    }
-
-    .historial-turnos {
-        padding: 18px;
-    }
-}
-
-[hidden] {
-    display: none !important;
-}
-
-/* RESPONSIVE mis turnos */
-
-@media (max-width: 1050px) {
-
-    .agenda-item {
-        grid-template-columns: 60px minmax(130px, 1fr) 100px auto;
-    }
-
-    .agenda-consultorio {
-        display: none;
-    }
-}
-
-@media (max-width: 750px) {
-
+    /* Mis turnos */
     .turno-destacado {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
     .destacado-lateral {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 10px 20px;
     }
 
-    .lateral-icono,
     .lateral-etiqueta,
     .lateral-mensaje {
-        grid-column: 1 / -1;
+        flex-basis: 100%;
     }
 
     .lateral-dato {
+        flex: 1 1 calc(50% - 10px);
         border-bottom: none;
     }
 
     .agenda-item {
-        grid-template-columns: 60px 1fr auto;
+        flex-wrap: wrap;
         gap: 14px;
     }
 
-    .agenda-horario {
-        grid-column: 2;
+    .agenda-calendario {
+        width: 60px;
+    }
+
+    .agenda-descripcion {
+        flex: 1 1 0;
     }
 
     .agenda-estado {
-        grid-column: 3;
-        grid-row: 1 / span 2;
+        order: 2;
+    }
+
+    .agenda-horario {
+        flex-basis: 100%;
+        order: 3;
+        padding-left: 74px;
     }
 }
 
+/* ---------- 630px ---------- */
+
+@media (max-width: 630px) {
+
+    .header-principal {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-principal-nav {
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+    .pagina-usuario,
+    .pagina-admin {
+        padding: 15px;
+    }
+}
+
+/* ---------- 550px ---------- */
+
 @media (max-width: 550px) {
 
+    /* Solicitar turno */
+    .pagina-solicitar {
+        width: 94%;
+        margin: 22px auto 45px;
+    }
+
+    .encabezado-solicitud {
+        min-height: 160px;
+        padding: 24px;
+    }
+
+    .encabezado-solicitud h1 {
+        font-size: 27px;
+    }
+
+    .encabezado-solicitud p {
+        max-width: 250px;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .imagen-encabezado {
+        display: none;
+    }
+
+    .pasos-solicitud {
+        gap: 9px;
+        justify-content: space-between;
+        padding: 15px 10px;
+    }
+
+    .paso {
+        gap: 6px;
+    }
+
+    .paso > span {
+        width: 29px;
+        height: 29px;
+        font-size: 11px;
+    }
+
+    .paso strong {
+        font-size: 9px;
+    }
+
+    .paso small {
+        display: none;
+    }
+
+    .linea-paso {
+        width: 12px;
+    }
+
+    .seleccion-turno {
+        padding: 18px;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 16px;
+    }
+
+    .titulo-seccion p {
+        font-size: 11px;
+    }
+
+    .profesional-opcion {
+        flex-basis: 100%;
+    }
+
+    .fechas-disponibles {
+        gap: 6px;
+    }
+
+    .fecha-opcion {
+        flex-basis: calc(20% - 5px);
+    }
+
+    .fecha-card {
+        padding: 10px 3px;
+    }
+
+    .fecha-card strong {
+        font-size: 18px;
+    }
+
+    .horario-opcion {
+        flex-basis: calc(33.333% - 7px);
+    }
+
+    .resumen-contenido {
+        padding: 19px;
+    }
+
+    /* Mis turnos */
     .pagina-mis-turnos {
         width: 94%;
         margin: 25px auto;
     }
 
     .mis-turnos-header {
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
         gap: 18px;
     }
 
@@ -2995,13 +3131,12 @@ body.modo-oscuro #form-crear-turno button:hover {
     }
 
     .agenda-titulo {
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
         gap: 12px;
     }
 
     .agenda-item {
-        grid-template-columns: 53px minmax(0, 1fr);
         gap: 13px;
         padding: 15px;
     }
@@ -3012,15 +3147,14 @@ body.modo-oscuro #form-crear-turno button:hover {
     }
 
     .agenda-estado {
-        grid-column: 2;
-        grid-row: auto;
+        flex-basis: 100%;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
     }
 
     .agenda-horario {
-        grid-column: 2;
+        padding-left: 66px;
     }
 
     .historial-registro {
@@ -3036,6 +3170,4 @@ body.modo-oscuro #form-crear-turno button:hover {
         width: 100%;
         padding-left: 66px;
     }
-}
-
 }

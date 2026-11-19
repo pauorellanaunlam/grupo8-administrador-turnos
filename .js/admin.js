@@ -1,465 +1,271 @@
+(function () {
+  "use strict";
 
-document.addEventListener("DOMContentLoaded", () => {
+  const CLAVE_PUBLICADOS = "admin_turnosPublicados_v2";
+  const CLAVE_RESERVADOS = "admin_turnosReservados_v2";
+  const CLAVE_CANCELADOS = "admin_turnosCancelados_v2";
 
-    // ==========================================
-    // ELEMENTOS DEL HTML
-    // ==========================================
+  const ids = [
+    "form-crear-turno", "profesional", "especialidad", "fecha", "hora",
+    "sede", "comentario", "lista-publicados", "lista-reservados", "lista-cancelados"
+  ];
 
-    const formulario = document.getElementById("form-crear-turno");
+  const faltantes = ids.filter((id) => !document.getElementById(id));
+  if (faltantes.length > 0) {
+    console.error("[admin.js] Faltan estos ids en admin.html:", faltantes.join(", "));
+    return;
+  }
 
-    const listaTurnos = document.querySelector(
-        ".turnos .lista-turnos-admin"
-    );
+  const form = document.getElementById("form-crear-turno");
+  const inputProfesional = document.getElementById("profesional");
+  const selectEspecialidad = document.getElementById("especialidad");
+  const inputFecha = document.getElementById("fecha");
+  const inputHora = document.getElementById("hora");
+  const selectSede = document.getElementById("sede");
+  const inputComentario = document.getElementById("comentario");
 
-    const listaReservados = document.querySelector(
-        ".turnos-reservados .lista-turnos-admin"
-    );
+  const listaPublicados = document.getElementById("lista-publicados");
+  const listaReservados = document.getElementById("lista-reservados");
+  const listaCancelados = document.getElementById("lista-cancelados");
 
-    if (!formulario || !listaTurnos || !listaReservados) return;
+  const camposObligatorios = [
+    inputProfesional,
+    selectEspecialidad,
+    inputFecha,
+    inputHora,
+    selectSede
+  ];
 
-    const profesionalInput = document.getElementById("profesional");
-    const especialidadInput = document.getElementById("especialidad");
-    const fechaInput = document.getElementById("fecha");
-    const horaInput = document.getElementById("hora");
-    const sedeInput = document.getElementById("sede");
-    const comentarioInput = document.getElementById("comentario");
 
-    const botonPublicar = formulario.querySelector(
-        "button[type='submit']"
-    );
+  const PUBLICADOS_INICIALES = [
+    { id: 1, especialidad: "Clínica médica", profesional: "Dra. María González", fecha: "2026-11-23", hora: "09:30", sede: "Sede Lugano", comentario: "Consultorio 1" },
+    { id: 2, especialidad: "Cardiología", profesional: "Dr. Carlos Ramírez", fecha: "2026-11-24", hora: "11:00", sede: "Sede Ramos Mejía", comentario: "Consultorio 3" },
+  ];
 
-    // ==========================================
-    // LOCALSTORAGE
-    // ==========================================
+  const RESERVADOS_INICIALES = [
+    { id: 101, especialidad: "Clínica médica", profesional: "Dra. María González", fecha: "2026-11-18", hora: "10:00", sede: "Sede Lugano", comentario: "Consultorio 1", paciente: "Juan Pérez" },
+    { id: 102, especialidad: "Cardiología", profesional: "Dr. Carlos Ramírez", fecha: "2026-11-20", hora: "11:30", sede: "Sede Ramos Mejía", comentario: "Consultorio 3", paciente: "Ana Rodríguez" },
+    { id: 103, especialidad: "Dermatología", profesional: "Dra. Laura Medina", fecha: "2026-11-25", hora: "15:00", sede: "Consulta virtual", comentario: "", paciente: "Lucía Méndez" },
+    { id: 104, especialidad: "Clínica médica", profesional: "Dr. Martín Acosta", fecha: "2026-11-27", hora: "09:00", sede: "Sede San Isidro", comentario: "Consultorio 2", paciente: "Diego Fernández" }
+  ];
 
-    const KEY_TURNOS = "turnosPublicadosAdmin";
-    const KEY_RESERVADOS = "turnosReservadosAdmin";
+  // ---------------------------------------------------------------------------
 
-    const turnosIniciales = [
-        {
-            id: 1,
-            profesional: "Dra. María González",
-            especialidad: "clinica",
-            fecha: "2026-11-23",
-            hora: "09:30",
-            sede: "sede1",
-            comentario: "Consultorio 1"
-        },
-        {
-            id: 2,
-            profesional: "Dr. Carlos Ramírez",
-            especialidad: "cardiologia",
-            fecha: "2026-11-26",
-            hora: "11:00",
-            sede: "sede2",
-            comentario: "Consultorio 3"
-        },
-        {
-            id: 3,
-            profesional: "Dra. Laura Medina",
-            especialidad: "dermatologia",
-            fecha: "2026-12-03",
-            hora: "14:30",
-            sede: "virtual",
-            comentario: "Consulta virtual"
-        }
-    ];
+  function cargarLista(clave, valorInicial) {
+    const raw = localStorage.getItem(clave);
+    if (raw === null) return valorInicial.slice(); // primera vez: usamos los predeterminados
+    try {
+      const lista = JSON.parse(raw);
+      return Array.isArray(lista) ? lista : valorInicial.slice();
+    } catch {
+      return valorInicial.slice();
+    }
+  }
 
-    const reservadosIniciales = [
-        {
-            id: 1,
-            profesional: "Dra. María González",
-            especialidad: "clinica",
-            fecha: "2026-11-18",
-            hora: "10:00",
-            sede: "sede1",
-            comentario: "Consultorio 1",
-            paciente: "Juan Pérez"
-        },
-        {
-            id: 2,
-            profesional: "Dr. Carlos Ramírez",
-            especialidad: "cardiologia",
-            fecha: "2026-11-20",
-            hora: "11:30",
-            sede: "sede2",
-            comentario: "Consultorio 3",
-            paciente: "Ana Rodríguez"
-        }
-    ];
+  function guardarLista(clave, lista) {
+    localStorage.setItem(clave, JSON.stringify(lista));
+  }
 
-    function obtenerDatos(clave, datosIniciales) {
-        const datosGuardados = localStorage.getItem(clave);
+  let publicados = cargarLista(CLAVE_PUBLICADOS, PUBLICADOS_INICIALES);
+  let reservados = cargarLista(CLAVE_RESERVADOS, RESERVADOS_INICIALES);
+  let cancelados = cargarLista(CLAVE_CANCELADOS, []);
 
-        if (datosGuardados === null) {
-            localStorage.setItem(clave, JSON.stringify(datosIniciales));
-            return datosIniciales;
-        }
+  /** Convierte "2026-11-23" en "23/11/2026" */
+  function formatearFecha(fechaISO) {
+    const [anio, mes, dia] = fechaISO.split("-");
+    return `${dia}/${mes}/${anio}`;
+  }
 
-        try {
-            const datos = JSON.parse(datosGuardados);
-            return Array.isArray(datos) ? datos : datosIniciales;
-        } catch {
-            return datosIniciales;
-        }
+  /** Fecha de hoy en formato "AAAA-MM-DD" (hora local) */
+  function hoyISO() {
+    const d = new Date();
+    const mes = String(d.getMonth() + 1).padStart(2, "0");
+    const dia = String(d.getDate()).padStart(2, "0");
+    return `${d.getFullYear()}-${mes}-${dia}`;
+  }
+
+  /** Evita que lo que escribe el admin se interprete como HTML */
+  function escapar(texto) {
+    const div = document.createElement("div");
+    div.textContent = texto;
+    return div.innerHTML;
+  }
+
+  function validarCampo(input) {
+    const valor = input.value.trim();
+
+    if (valor === "") {
+      return { esValido: false, mensaje: "Este campo es obligatorio." };
     }
 
-    let turnos = obtenerDatos(KEY_TURNOS, turnosIniciales);
-
-    let turnosReservados = obtenerDatos(
-        KEY_RESERVADOS,
-        reservadosIniciales
-    );
-
-    let turnoEnEdicion = null;
-
-    // ==========================================
-    // FUNCIONES AUXILIARES
-    // ==========================================
-
-    function guardarTurnos() {
-        localStorage.setItem(KEY_TURNOS, JSON.stringify(turnos));
+    if (input.id === "fecha" && valor < hoyISO()) {
+      return { esValido: false, mensaje: "La fecha no puede ser anterior a hoy." };
     }
 
-    function guardarReservados() {
-        localStorage.setItem(
-            KEY_RESERVADOS,
-            JSON.stringify(turnosReservados)
-        );
+    return { esValido: true, mensaje: "" };
+  }
+
+  function aplicarEstilosValidacion(input, esValido, mensaje) {
+    const errorElement = document.getElementById(`error-${input.id}`);
+
+    if (esValido) {
+      input.classList.remove("admin-input-invalido");
+      input.classList.add("admin-input-valido");
+      if (errorElement) errorElement.textContent = "";
+    } else {
+      input.classList.remove("admin-input-valido");
+      input.classList.add("admin-input-invalido");
+      if (errorElement) errorElement.textContent = mensaje;
     }
+  }
 
-    function obtenerEspecialidad(valor) {
-        const especialidades = {
-            clinica: "Clínica médica",
-            cardiologia: "Cardiología",
-            dermatologia: "Dermatología"
-        };
+  camposObligatorios.forEach((campo) => {
+    ["input", "blur"].forEach((tipoEvento) => {
+      campo.addEventListener(tipoEvento, () => {
+        const res = validarCampo(campo);
+        aplicarEstilosValidacion(campo, res.esValido, res.mensaje);
+      });
+    });
+  });
 
-        return especialidades[valor] || valor;
-    }
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-    function obtenerSede(valor) {
-        const sedes = {
-            sede1: "Sede Lugano",
-            sede2: "Sede Ramos Mejía",
-            sede3: "Sede San Isidro",
-            virtual: "Consulta virtual"
-        };
+    let todoEsValido = true;
 
-        return sedes[valor] || valor;
-    }
-
-    function formatearFecha(fecha) {
-        const [anio, mes, dia] = fecha.split("-");
-        return `${dia}/${mes}/${anio}`;
-    }
-
-    function fechaValida(fecha, hora) {
-        const ahora = new Date();
-        const seleccionada = new Date(`${fecha}T${hora}:00`);
-
-        return seleccionada > ahora;
-    }
-
-    function crearElemento(etiqueta, contenido) {
-        const elemento = document.createElement(etiqueta);
-        elemento.textContent = contenido;
-        return elemento;
-    }
-
-    // ==========================================
-    // MOSTRAR TURNOS PUBLICADOS
-    // ==========================================
-
-    function mostrarTurnos() {
-
-        listaTurnos.innerHTML = "";
-
-        if (turnos.length === 0) {
-            listaTurnos.appendChild(
-                crearElemento("p", "No hay turnos publicados.")
-            );
-            return;
-        }
-
-        turnos.forEach(turno => {
-
-            const tarjeta = document.createElement("article");
-            tarjeta.classList.add("card-turno-admin");
-
-            tarjeta.appendChild(
-                crearElemento("h3", obtenerEspecialidad(turno.especialidad))
-            );
-
-            tarjeta.appendChild(
-                crearElemento("p", turno.profesional)
-            );
-
-            tarjeta.appendChild(
-                crearElemento(
-                    "p",
-                    `${formatearFecha(turno.fecha)} · ${turno.hora} hs`
-                )
-            );
-
-            tarjeta.appendChild(
-                crearElemento(
-                    "p",
-                    `${obtenerSede(turno.sede)} · ${turno.comentario}`
-                )
-            );
-
-            const botonEliminar = document.createElement("button");
-
-            botonEliminar.type = "button";
-            botonEliminar.classList.add("button-eliminar");
-            botonEliminar.textContent = "Eliminar";
-            botonEliminar.dataset.id = turno.id;
-
-            tarjeta.appendChild(botonEliminar);
-
-            listaTurnos.appendChild(tarjeta);
-        });
-    }
-
-    // ==========================================
-    // PUBLICAR NUEVO TURNO
-    // ==========================================
-
-    formulario.addEventListener("submit", (e) => {
-
-        e.preventDefault();
-
-        const profesional = profesionalInput.value.trim();
-        const especialidad = especialidadInput.value;
-        const fecha = fechaInput.value;
-        const hora = horaInput.value;
-        const sede = sedeInput.value;
-        const comentario = comentarioInput.value.trim();
-
-        if (
-            !profesional ||
-            !especialidad ||
-            !fecha ||
-            !hora ||
-            !sede ||
-            !comentario
-        ) {
-            alert("Completá todos los campos.");
-            return;
-        }
-
-        if (!fechaValida(fecha, hora)) {
-            alert("La fecha y el horario deben ser futuros.");
-            return;
-        }
-
-        // SI ESTAMOS MODIFICANDO UNA RESERVA
-        if (turnoEnEdicion !== null) {
-
-            const turno = turnosReservados.find(
-                t => t.id === turnoEnEdicion
-            );
-
-            if (!turno) return;
-
-            turno.profesional = profesional;
-            turno.especialidad = especialidad;
-            turno.fecha = fecha;
-            turno.hora = hora;
-            turno.sede = sede;
-            turno.comentario = comentario;
-
-            guardarReservados();
-
-            turnoEnEdicion = null;
-
-            botonPublicar.textContent = "Publicar turno";
-
-            formulario.reset();
-
-            mostrarReservados();
-
-            alert("¡Turno reservado modificado correctamente!");
-
-            return;
-        }
-
-        // PUBLICAR UN NUEVO TURNO
-
-        const nuevoTurno = {
-            id: Date.now(),
-            profesional,
-            especialidad,
-            fecha,
-            hora,
-            sede,
-            comentario
-        };
-
-        turnos.push(nuevoTurno);
-
-        guardarTurnos();
-
-        mostrarTurnos();
-
-        formulario.reset();
-
-        alert("¡Turno publicado correctamente!");
+    camposObligatorios.forEach((campo) => {
+      const res = validarCampo(campo);
+      aplicarEstilosValidacion(campo, res.esValido, res.mensaje);
+      if (!res.esValido) todoEsValido = false;
     });
 
-    // ==========================================
-    // ELIMINAR TURNOS PUBLICADOS
-    // ==========================================
+    if (!todoEsValido) return;
 
-    listaTurnos.addEventListener("click", (e) => {
+    const nuevoTurno = {
+      id: Date.now(), // id único simple
+      // Guardamos el TEXTO visible de los <select> (ej: "Cardiología"), no el value
+      especialidad: selectEspecialidad.options[selectEspecialidad.selectedIndex].text,
+      profesional: inputProfesional.value.trim(),
+      fecha: inputFecha.value,
+      hora: inputHora.value,
+      sede: selectSede.options[selectSede.selectedIndex].text,
+      comentario: inputComentario.value.trim()
+    };
 
-        const boton = e.target.closest(".button-eliminar");
+    publicados.unshift(nuevoTurno); // arriba de todo
+    guardarLista(CLAVE_PUBLICADOS, publicados);
 
-        if (!boton) return;
-
-        const id = Number(boton.dataset.id);
-
-        const confirmar = confirm(
-            "¿Estás segura de que querés eliminar este turno?"
-        );
-
-        if (!confirmar) return;
-
-        turnos = turnos.filter(turno => turno.id !== id);
-
-        guardarTurnos();
-
-        mostrarTurnos();
-
-        alert("Turno eliminado correctamente.");
+    form.reset();
+    camposObligatorios.forEach((campo) => {
+      campo.classList.remove("admin-input-valido", "admin-input-invalido");
     });
 
-    // ==========================================
-    // MOSTRAR TURNOS RESERVADOS
-    // ==========================================
+    renderizarTodo();
+  });
 
-    function mostrarReservados() {
+  listaPublicados.addEventListener("click", (e) => {
+    const boton = e.target.closest(".card-turno-admin-boton-eliminar");
+    if (!boton) return;
 
-        listaReservados.innerHTML = "";
+    const id = Number(boton.closest(".card-turno-admin").dataset.id);
 
-        if (turnosReservados.length === 0) {
-            listaReservados.appendChild(
-                crearElemento("p", "No hay turnos reservados.")
-            );
-            return;
-        }
-
-        turnosReservados.forEach(turno => {
-
-            const tarjeta = document.createElement("article");
-            tarjeta.classList.add("card-turno-admin");
-
-            tarjeta.appendChild(
-                crearElemento("h3", obtenerEspecialidad(turno.especialidad))
-            );
-
-            tarjeta.appendChild(
-                crearElemento("p", turno.profesional)
-            );
-
-            tarjeta.appendChild(
-                crearElemento(
-                    "p",
-                    `${formatearFecha(turno.fecha)} · ${turno.hora} hs`
-                )
-            );
-
-            tarjeta.appendChild(
-                crearElemento(
-                    "p",
-                    `${obtenerSede(turno.sede)} · ${turno.comentario}`
-                )
-            );
-
-            tarjeta.appendChild(
-                crearElemento("p", `Paciente: ${turno.paciente}`)
-            );
-
-            const botonModificar = document.createElement("button");
-
-            botonModificar.type = "button";
-            botonModificar.classList.add("button-modificar");
-            botonModificar.textContent = "Modificar";
-            botonModificar.dataset.id = turno.id;
-
-            tarjeta.appendChild(botonModificar);
-
-            listaReservados.appendChild(tarjeta);
-        });
+    if (confirm("¿Seguro que querés eliminar este turno?")) {
+      publicados = publicados.filter((t) => t.id !== id);
+      guardarLista(CLAVE_PUBLICADOS, publicados);
+      renderizarTodo();
     }
+  });
 
-    // ==========================================
-    // MODIFICAR TURNO RESERVADO
-    // ==========================================
+  listaReservados.addEventListener("click", (e) => {
+    const boton = e.target.closest(".card-turno-admin-boton-cancelar");
+    if (!boton) return;
 
-    listaReservados.addEventListener("click", (e) => {
+    const id = Number(boton.closest(".card-turno-admin").dataset.id);
+    const turno = reservados.find((t) => t.id === id);
+    if (!turno) return;
 
-        const boton = e.target.closest(".button-modificar");
+    if (confirm(`¿Cancelar el turno de ${turno.paciente}?`)) {
+      reservados = reservados.filter((t) => t.id !== id);
+      turno.canceladoEl = new Date().toLocaleString();
+      cancelados.unshift(turno);
 
-        if (!boton) return;
+      guardarLista(CLAVE_RESERVADOS, reservados);
+      guardarLista(CLAVE_CANCELADOS, cancelados);
+      renderizarTodo();
+    }
+  });
 
-        const id = Number(boton.dataset.id);
+  function detalleSede(t) {
+    return t.comentario
+      ? `${escapar(t.sede)} · ${escapar(t.comentario)}`
+      : escapar(t.sede);
+  }
 
-        const turno = turnosReservados.find(
-            t => t.id === id
-        );
+  function tarjetaBase(t, extra, boton, claseExtra = "") {
+    return `
+      <article class="card-turno-admin ${claseExtra}" data-id="${t.id}">
+        <h3 class="card-turno-admin-titulo">${escapar(t.especialidad)}</h3>
+        <p class="card-turno-admin-texto">${escapar(t.profesional)}</p>
+        <p class="card-turno-admin-texto">${formatearFecha(t.fecha)} · ${t.hora} hs</p>
+        <p class="card-turno-admin-texto">${detalleSede(t)}</p>
+        ${extra}
+        ${boton}
+      </article>
+    `;
+  }
 
-        if (!turno) return;
+  function mensajeVacio(texto) {
+    return `<p class="admin-mensaje-vacio">${texto}</p>`;
+  }
 
-        turnoEnEdicion = id;
+  function renderizarTodo() {
+    listaPublicados.innerHTML = publicados.length
+      ? publicados
+          .map((t) =>
+            tarjetaBase(
+              t,
+              "",
+              `<button type="button" class="card-turno-admin-boton card-turno-admin-boton-eliminar">Eliminar</button>`
+            )
+          )
+          .join("")
+      : mensajeVacio("No hay turnos publicados.");
 
-        // CARGAR LOS DATOS EN EL FORMULARIO
+    listaReservados.innerHTML = reservados.length
+      ? reservados
+          .map((t) =>
+            tarjetaBase(
+              t,
+              `<p class="card-turno-admin-texto">Paciente: ${escapar(t.paciente)}</p>`,
+              `<button type="button" class="card-turno-admin-boton card-turno-admin-boton-cancelar">Cancelar turno</button>`
+            )
+          )
+          .join("")
+      : mensajeVacio("No hay turnos reservados.");
 
-        profesionalInput.value = turno.profesional;
-        especialidadInput.value = turno.especialidad;
-        fechaInput.value = turno.fecha;
-        horaInput.value = turno.hora;
-        sedeInput.value = turno.sede;
-        comentarioInput.value = turno.comentario;
+    listaCancelados.innerHTML = cancelados.length
+      ? cancelados
+          .map((t) =>
+            tarjetaBase(
+              t,
+              `<p class="card-turno-admin-texto">Paciente: ${escapar(t.paciente)}</p>
+               <p class="card-turno-admin-texto"><small>Cancelado el ${escapar(t.canceladoEl)}</small></p>`,
+              "",
+              "card-turno-admin-cancelado"
+            )
+          )
+          .join("")
+      : mensajeVacio("No hay turnos cancelados.");
+  }
 
-        botonPublicar.textContent = "Guardar cambios";
+  // Si un paciente reserva desde usuario.html (otra pestaña), se actualiza solo
+  window.addEventListener("storage", () => {
+    publicados = cargarLista(CLAVE_PUBLICADOS, PUBLICADOS_INICIALES);
+    reservados = cargarLista(CLAVE_RESERVADOS, RESERVADOS_INICIALES);
+    cancelados = cargarLista(CLAVE_CANCELADOS, []);
+    renderizarTodo();
+  });
 
-        formulario.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    });
-
-    // ==========================================
-    // CANCELAR EDICIÓN AL LIMPIAR EL FORMULARIO
-    // ==========================================
-
-    formulario.addEventListener("reset", () => {
-
-        turnoEnEdicion = null;
-
-        botonPublicar.textContent = "Publicar turno";
-    });
-
-    // ==========================================
-    // FECHA MÍNIMA
-    // ==========================================
-
-    const hoy = new Date();
-
-    const anio = hoy.getFullYear();
-    const mes = String(hoy.getMonth() + 1).padStart(2, "0");
-    const dia = String(hoy.getDate()).padStart(2, "0");
-
-    fechaInput.min = `${anio}-${mes}-${dia}`;
-
-    // ==========================================
-    // CARGAR INFORMACIÓN AL INICIAR
-    // ==========================================
-
-    mostrarTurnos();
-
-    mostrarReservados();
-
-});
+  inputFecha.min = hoyISO();
+  renderizarTodo();
+})();

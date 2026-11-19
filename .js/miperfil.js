@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
     // ==========================================
@@ -139,41 +136,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ==========================================
-    // PROFESIONALES
+    // DATOS COMPARTIDOS (mismas claves que usuario.js y admin.js)
     // ==========================================
 
-    const profesionales = [
-        {
-            id: 1,
-            nombre: "Dra. María González",
-            especialidad: "Clínica médica"
-        },
-        {
-            id: 2,
-            nombre: "Dr. Carlos Ramírez",
-            especialidad: "Cardiología"
-        },
-        {
-            id: 3,
-            nombre: "Dra. Laura Medina",
-            especialidad: "Dermatología"
-        },
-        {
-            id: 4,
-            nombre: "Dr. Pablo Giménez",
-            especialidad: "Clínica médica"
-        },
-        {
-            id: 5,
-            nombre: "Dra. Laura Martínez",
-            especialidad: "Cardiología"
-        },
-        {
-            id: 6,
-            nombre: "Dr. Andrés Vega",
-            especialidad: "Dermatología"
+    const CLAVE_RESERVADOS = "admin_turnosReservados_v2";
+    const CLAVE_FAVORITOS = "favoritosProfesionales_v2";
+    const PACIENTE_ACTUAL_ID = "paciente-actual";
+
+    function leerLista(clave) {
+        try {
+            const lista = JSON.parse(localStorage.getItem(clave));
+            return Array.isArray(lista) ? lista : [];
+        } catch (error) {
+            console.error("Error al leer " + clave, error);
+            return [];
         }
-    ];
+    }
+
+    function escapar(texto) {
+        return String(texto ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
+    }
+
+    function hoyISO() {
+        const d = new Date();
+        const mes = String(d.getMonth() + 1).padStart(2, "0");
+        const dia = String(d.getDate()).padStart(2, "0");
+        return `${d.getFullYear()}-${mes}-${dia}`;
+    }
 
 
     // ==========================================
@@ -186,19 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!contenedor) return;
 
-        let favoritos = [];
-
-        try {
-            favoritos = JSON.parse(
-                localStorage.getItem("profesionalesFavoritos")
-            ) || [];
-        } catch (error) {
-            console.error("Error al recuperar favoritos:", error);
-        }
-
-        const medicosFavoritos = profesionales.filter(medico =>
-            favoritos.includes(medico.id)
-        );
+        const medicosFavoritos = leerLista(CLAVE_FAVORITOS);
 
         if (medicosFavoritos.length === 0) {
             contenedor.innerHTML = "<p>No tenés médicos favoritos todavía.</p>";
@@ -219,18 +201,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 <article class="medico-favorito-perfil">
 
                     <div class="avatar-medico-perfil">
-                        ${iniciales}
+                        ${escapar(iniciales)}
                     </div>
 
                     <div class="datos-medico-perfil">
-                        <h4>${medico.nombre}</h4>
-                        <p>${medico.especialidad}</p>
+                        <h4>${escapar(medico.nombre)}</h4>
+                        <p>${escapar(medico.especialidad)}</p>
                     </div>
 
                     <span class="corazon-favorito">♥</span>
 
-                    <a href="solicitarturnos.html?profesional=${medico.id}"
-                       class="button-solicitar-perfil">
+                    <a href="usuario.html" class="button-solicitar-perfil">
                         Solicitar turno
                     </a>
 
@@ -243,50 +224,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ==========================================
-    // OBTENER PRÓXIMOS TURNOS
+    // OBTENER PRÓXIMOS TURNOS (reservados por este paciente en usuario.html)
+    // Si el admin cancela un turno, deja de estar en "reservados" y desaparece acá.
     // ==========================================
 
     function obtenerProximosTurnos() {
 
-        let turnos = [];
+        const hoy = hoyISO();
 
-        try {
-            turnos = JSON.parse(
-                localStorage.getItem("turnos")
-            ) || [];
-        } catch (error) {
-            console.error("Error al recuperar turnos:", error);
-        }
-
-        const hoy = new Date();
-        hoy.setHours(0, 0, 0, 0);
-
-        return turnos.filter(turno => {
-
-            if (!turno.fecha) return false;
-
-            const fecha = new Date(turno.fecha + "T00:00:00");
-
-            if (isNaN(fecha.getTime()) || fecha < hoy) {
-                return false;
-            }
-
-            const estado = (turno.estado || "").toLowerCase();
-
-            if (
-                estado.includes("cancelado") ||
-                estado.includes("rechazado")
-            ) {
-                return false;
-            }
-
-            return true;
-
-        }).sort((a, b) => {
-
-            return new Date(a.fecha) - new Date(b.fecha);
-
-        });
+        return leerLista(CLAVE_RESERVADOS)
+            .filter(turno => turno.reservadoPor === PACIENTE_ACTUAL_ID && turno.fecha >= hoy)
+            .sort((a, b) => (a.fecha + a.hora).localeCompare(b.fecha + b.hora));
 
     }
 
@@ -304,23 +252,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const proximos = obtenerProximosTurnos();
 
         if (proximos.length === 0) {
-
-            contenedor.innerHTML = `
-                <p>No tenés próximos turnos reservados.</p>
-            `;
-
+            contenedor.innerHTML = `<p>No tenés próximos turnos reservados.</p>`;
             return;
         }
 
         const turno = proximos[0];
-
         const fecha = new Date(turno.fecha + "T00:00:00");
-
         const dia = fecha.getDate();
 
         const mes = fecha.toLocaleDateString("es-AR", {
             month: "short"
         }).replace(".", "").toUpperCase();
+
+        const ubicacion = turno.comentario
+            ? `${turno.sede} · ${turno.comentario}`
+            : turno.sede;
 
         contenedor.innerHTML = `
             <article class="consulta-perfil">
@@ -332,19 +278,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div class="datos-consulta">
 
-                    <h4>${turno.especialidad || "Consulta médica"}</h4>
+                    <h4>${escapar(turno.especialidad)}</h4>
 
-                    <p>
-                        ${turno.medico || turno.profesional || "Profesional médico"}
-                    </p>
+                    <p>${escapar(turno.profesional)}</p>
 
-                    <span>${turno.hora || ""}</span>
+                    <span>${escapar(turno.hora)} hs · ${escapar(ubicacion)}</span>
 
                 </div>
 
-                <span class="estado-consulta">
-                    ${turno.estado || "Reservado"}
-                </span>
+                <span class="estado-consulta">Reservado</span>
 
             </article>
         `;
@@ -363,15 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // CONTADOR DE FAVORITOS
 
-        let favoritos = [];
-
-        try {
-            favoritos = JSON.parse(
-                localStorage.getItem("profesionalesFavoritos")
-            ) || [];
-        } catch (error) {
-            console.error(error);
-        }
+        const favoritos = leerLista(CLAVE_FAVORITOS);
 
         if (contadorFavoritos) {
             contadorFavoritos.textContent = favoritos.length;
