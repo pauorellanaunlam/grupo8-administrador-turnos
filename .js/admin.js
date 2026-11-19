@@ -258,6 +258,14 @@
       : mensajeVacio("No hay turnos cancelados.");
   }
 
-  inputFecha.min = hoyISO(); 
+  // Si un paciente reserva desde usuario.html (otra pestaña), se actualiza solo
+  window.addEventListener("storage", () => {
+    publicados = cargarLista(CLAVE_PUBLICADOS, PUBLICADOS_INICIALES);
+    reservados = cargarLista(CLAVE_RESERVADOS, RESERVADOS_INICIALES);
+    cancelados = cargarLista(CLAVE_CANCELADOS, []);
+    renderizarTodo();
+  });
+
+  inputFecha.min = hoyISO();
   renderizarTodo();
 })();
