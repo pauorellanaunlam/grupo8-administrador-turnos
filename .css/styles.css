@@ -166,6 +166,9 @@ body.modo-oscuro .header-inicio {
     color: #777;
 }
 
+[hidden] {
+    display: none !important;
+}
 
 
 /*-- MI PERFIL --*/
@@ -956,12 +959,6 @@ body.modo-oscuro .header-inicio {
 /* ---- PÁGINA SOLICITAR TURNOS ---- */
 
 
-/* =========================================
-   TURNOS SALUD - SOLICITAR TURNO
-========================================= */
-
-/* RESET */
-
 * {
     margin: 0;
     padding: 0;
@@ -974,9 +971,7 @@ body {
     color: #29445b;
 }
 
-/* =========================================
-   HEADER PRINCIPAL
-========================================= */
+
 
 .header-principal {
     width: 100%;
@@ -1018,9 +1013,6 @@ body {
     color: #5795a0;
 }
 
-/* =========================================
-   CONTENEDOR PRINCIPAL
-========================================= */
 
 .pagina-solicitar {
     width: 92%;
@@ -2899,6 +2891,10 @@ body.modo-oscuro #form-crear-turno button:hover {
     .historial-turnos {
         padding: 18px;
     }
+}
+
+[hidden] {
+    display: none !important;
 }
 
 /* RESPONSIVE mis turnos */

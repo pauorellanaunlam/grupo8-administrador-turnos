@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,22 +38,44 @@
             </div>
 
             <div class="form-container">
-                <form class="formulario-inicio"
-                      action=".html/usuario.html">
+
+                <!-- Formulario para crear el primer administrador (se muestra solo si no hay ninguno) -->
+                <form class="formulario-inicio" id="form-admin-inicial" hidden>
+                    <h2>Creá el primer Administrador</h2>
+                    <p>Todavía no hay administradores registrados.</p>
+
+                    <div class="formulario-items">
+                        <label for="admin-nombre">Nombre completo</label>
+                        <input class="input-form" type="text" id="admin-nombre" required>
+                    </div>
+                    <div class="formulario-items">
+                        <label for="admin-email">Correo electrónico</label>
+                        <input class="input-form" type="email" id="admin-email" required>
+                    </div>
+                    <div class="formulario-items">
+                        <label for="admin-password">Contraseña</label>
+                        <input class="input-form" type="password" id="admin-password" minlength="6" required>
+                    </div>
+                    <div class="formulario-items">
+                        <label for="admin-password2">Repetir contraseña</label>
+                        <input class="input-form" type="password" id="admin-password2" minlength="6" required>
+                    </div>
+
+                    <button type="submit" class="button-iniciar">Crear administrador</button>
+                </form>
+
+                <p id="mensaje" role="alert"></p>
+
+                <!-- Formulario de login -->
+                <form class="formulario-inicio" id="form-login">
 
                     <div class="formulario-items">
                         <label for="email">
                             Correo electrónico
                         </label>
 
-                        <input
-                            class="input-form"
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="ejemplo@correo.com"
-                            required
-                        >
+                        <input class="input-form" type="email" id="email" name="email" placeholder="ejemplo@correo.com"
+                            required>
                     </div>
 
                     <div class="formulario-items">
@@ -61,14 +83,8 @@
                             Contraseña
                         </label>
 
-                        <input
-                            class="input-form"
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="Ingresá tu contraseña"
-                            required
-                        >
+                        <input class="input-form" type="password" id="password" name="password"
+                            placeholder="Ingresá tu contraseña" required>
                     </div>
 
                     <div>
@@ -76,12 +92,38 @@
                         <label for="remember-me">Recordar usuario</label>
                     </div>
 
-
                     <button type="submit" class="button-iniciar">
                         Ingresar
                     </button>
 
                 </form>
+
+                <!-- Formulario de registro para usuarios (perfil Usuario) -->
+                <form class="formulario-inicio" id="form-registro" hidden>
+                    <h2>Registrate</h2>
+
+                    <div class="formulario-items">
+                        <label for="reg-nombre">Nombre completo</label>
+                        <input class="input-form" type="text" id="reg-nombre" required>
+                    </div>
+                    <div class="formulario-items">
+                        <label for="reg-email">Correo electrónico</label>
+                        <input class="input-form" type="email" id="reg-email" required>
+                    </div>
+                    <div class="formulario-items">
+                        <label for="reg-password">Contraseña</label>
+                        <input class="input-form" type="password" id="reg-password" minlength="6" required>
+                    </div>
+                    <div class="formulario-items">
+                        <label for="reg-password2">Repetir contraseña</label>
+                        <input class="input-form" type="password" id="reg-password2" minlength="6" required>
+                    </div>
+
+                    <button type="submit" class="button-iniciar">Crear cuenta</button>
+                </form>
+
+                <p id="link-ir-registro">¿No tenés cuenta? <a href="#" id="btn-ir-registro">Registrate</a></p>
+                <p id="link-ir-login" hidden>¿Ya tenés cuenta? <a href="#" id="btn-ir-login">Ingresá</a></p>
 
                 <p><a href="">¿Olvidaste tu contraseña?</a></p>
 
@@ -95,6 +137,7 @@
 
     </main>
     <script src=".js/script.js" defer></script>
-
+    <script src=".js/index.js" defer></script>
 </body>
+
 </html>
